@@ -189,7 +189,7 @@ Simple centered layout:
 **Placeholder text (for reference):**
 
 - Name: "Петро Тимошенко"
-- Email: "petro@tymoshenko.ua"
+- Email: `petro@tymoshenko.ua`
 - Message: "Слухаємо уважно..."
 
 ---

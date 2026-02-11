@@ -94,7 +94,7 @@ generation.
 
 - **Explain before building.** Claude Code should explain Hugo concepts, Go
   template syntax, and architectural rationale before generating code. The
-  developer should understand _why_ something is built a certain way.
+  developer should understand *why* something is built a certain way.
 - **Incremental progress.** Build one feature or template at a time. Verify
   understanding before moving to the next step.
 - **No black boxes.** Every file in the project should be understood by the
