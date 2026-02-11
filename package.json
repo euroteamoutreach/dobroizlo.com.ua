@@ -8,6 +8,8 @@
     "lint": "npm run lint:md"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.20.0"
+    "@tailwindcss/cli": "^4.1.18",
+    "markdownlint-cli2": "^0.20.0",
+    "tailwindcss": "^4.1.18"
   }
 }
