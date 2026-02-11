@@ -136,6 +136,7 @@ their template:
 ### CSS Pipeline
 
 Tailwind CSS v4 is processed via Hugo's built-in `css.TailwindCSS` function:
+
 - Entry point: `assets/css/main.css`
 - Processing partial: `layouts/partials/css.html`
 - JIT scanning via `hugo_stats.json` (auto-generated, gitignored)
@@ -144,6 +145,7 @@ Tailwind CSS v4 is processed via Hugo's built-in `css.TailwindCSS` function:
 ### JavaScript
 
 Alpine.js v3 loaded from jsDelivr CDN — no build step. Used for:
+
 - Mobile hamburger menu toggle
 - Form client-side validation (replacing Vuelidate from the Nuxt site)
 - Scroll-aware header behavior (homepage)
@@ -151,6 +153,7 @@ Alpine.js v3 loaded from jsDelivr CDN — no build step. Used for:
 ### Forms
 
 Netlify Forms with `data-netlify="true"` and honeypot spam prevention. Two forms:
+
 - Contact form (3 fields) → success page at `/kontakty/diakuiemo/`
 - Book request form (12+ fields) → success page at `/zamovyty-knyzhku/diakuiemo/`
 
@@ -180,6 +183,7 @@ No external image hosting — all images are local to the project.
 ## URL Preservation
 
 All URLs must match the existing Nuxt site for SEO continuity:
+
 - `/pro-nas/`
 - `/kontakty/` and `/kontakty/diakuiemo/`
 - `/zamovyty-knyzhku/` and `/zamovyty-knyzhku/diakuiemo/`
@@ -197,6 +201,7 @@ Thank-you pages must have `robots: "noindex,nofollow"` and `sitemap.disable: tru
 ## PRD Documentation
 
 Detailed specs live in `docs/prd/`:
+
 - `00-overview.md` — goals, non-goals, development philosophy
 - `01-architecture.md` — technology decisions and rationale
 - `02-design.md` — color palette, fonts, section layout patterns
