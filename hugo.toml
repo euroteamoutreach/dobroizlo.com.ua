@@ -1,3 +1,58 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://dobroizlo.com.ua/"
+languageCode = "uk"
+title = "Добро і зло — Біблія-комікс"
+
+# No taxonomies needed for this site
+[taxonomies]
+
+# No pagination needed
+[pagination]
+  pagerSize = 100
+
+# Site parameters
+[params]
+  description = "Жертва. Війна. Спокуса. Зрада. Надія. Спасіння. Перемога. Відкрийте для себе біблійну історію по-новому з цим чудовим, повноколірним виданням графічного роману Майкла Перла Добро і зло."
+  titleBase = "Добро і зло — Біблія-комікс — Захопливий гостросюжетний роман"
+  author = "Euro Team Outreach, Inc."
+  twitterSite = "@eto_ukraine"
+  ogImage = "/img/dobro-i-zlo-fb-og-1200w.jpg"
+  pdfBase = "https://d2ppgd6w5akw3v.cloudfront.net/pdf/"
+  googleSiteVerification = "y1SQFy6s4FDs3ojWSkiJ1dAum7pBC0kIQpbFsWaWwH8"
+
+  # Book request form toggle
+  bookFormEnabled = true # Set to false when out of stock
+
+# Navigation menus
+[menus]
+  [[menus.main]]
+    name = "Про нас"
+    url = "/pro-nas/"
+    weight = 10
+  [[menus.main]]
+    name = "Контакти"
+    url = "/kontakty/"
+    weight = 20
+
+# Build stats for Tailwind CSS
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'
+
+# Markup configuration
+[markup.goldmark.renderer]
+  unsafe = true # Allow raw HTML in markdown if needed
