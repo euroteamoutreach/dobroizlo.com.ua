@@ -1,0 +1,13 @@
+{
+  "name": "dobroizlo.com.ua-hugo",
+  "private": true,
+  "scripts": {
+    "dev": "hugo server -D",
+    "build": "hugo --gc --minify",
+    "lint:md": "markdownlint-cli2",
+    "lint": "npm run lint:md"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.20.0"
+  }
+}
