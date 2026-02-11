@@ -1,0 +1,209 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+This is the Hugo rebuild of [dobroizlo.com.ua](https://dobroizlo.com.ua), a
+Ukrainian-language marketing site for the *Good and Evil* (Добро і зло) Bible
+comic book. It's a compact 5-page site (plus 2 thank-you pages and a 404) with
+no blog, no CMS, and no multilingual support.
+
+**Tech stack:** Hugo + Tailwind CSS v4 + Alpine.js + Netlify Forms + Netlify hosting
+
+**Sister project:** [OFReport.com](https://ofreport.com) uses the identical
+stack and conventions. Patterns established there inform this project.
+
+**Reference source:** The original Nuxt 2 site is available at
+`../dobroizlo.com.ua-nuxt/` for content and design reference. Use it to verify
+text, image usage, and layout behavior — but build in whatever way is natural
+for Hugo, not as a mechanical port of the Nuxt architecture.
+
+## Development Approach
+
+This project follows **developer-directed, AI-assisted** development. The
+developer (Joshua) directs all decisions and seeks to understand each step.
+
+- **Explain before building** — explain Hugo concepts and rationale before
+  generating code
+- **Incremental progress** — one feature or template at a time; verify
+  understanding before moving on
+- **No black boxes** — every file in the project should be understood by
+  the developer
+- **Present options** — when multiple valid approaches exist, present
+  trade-offs and let the developer choose
+- **Leverage existing knowledge** — the developer has already built
+  foundational Hugo skills through the OFReport.com project; this project
+  can move faster where concepts are already understood
+
+See `docs/prd/00-overview.md` for the full development philosophy.
+
+### Tailwind Plus Workflow
+
+The developer has a Tailwind Plus subscription. Licensed snippets go in
+`docs/tailwind_plus/` (gitignored) as design references. Read snippets for
+design patterns and Tailwind class usage, then build Hugo templates using
+those patterns — never copy verbatim.
+
+## Development Workflow
+
+All work flows through GitHub Issues. The full pipeline is:
+
+1. **Plan**: When discussing new features or multi-step work, the output of
+   planning should be one or more GitHub issues. Each issue needs a clear
+   title, description, and acceptance criteria. Create the issues before
+   starting implementation.
+2. **Implement**: Use `/resolve-issue <number>` to implement each issue on
+   a feature branch with a structured workflow.
+3. **Pull Request**: Use `/create-pr --issue <number>` to open a PR linking
+   to the resolved issue.
+4. **Merge**: PRs should pass build verification (`hugo --gc --minify`)
+   before merging.
+
+Additional conventions:
+
+- Commit messages use Conventional Commits format but do NOT reference issue
+  numbers. Issue linking happens in the PR description via "Closes #N".
+- Small, unrelated housekeeping changes (typos, README updates) can be
+  committed directly to main without an issue or PR.
+
+## Label Taxonomy
+
+This project uses a unified labeling system across commits, branches, and
+GitHub issues. The same five **work type** terms are used everywhere.
+
+### Work Types
+
+| Type   | Meaning                                    | Branch Prefix |
+|--------|--------------------------------------------|---------------|
+| `feat` | New user-facing functionality              | `feat/`       |
+| `fix`  | Bug or regression                          | `fix/`        |
+| `chore`| Maintenance, cleanup, internal improvement | `chore/`      |
+| `docs` | Documentation changes                      | `docs/`       |
+| `test` | Test additions or updates                  | `test/`       |
+
+### Conventional Commits
+
+Commit messages use the full Conventional Commits spec. Granular types roll
+up into the five work types above:
+
+- `feat`, `fix`, `docs`, `test` → map directly
+- `chore`, `refactor`, `style`, `perf`, `ci`, `build` → all roll up to `chore`
+
+### Branch Naming
+
+Format: `<type>/gh-<issue#>-<short-description>`
+
+Examples: `feat/gh-12-homepage-template`, `fix/gh-25-form-validation`,
+`chore/gh-8-tailwind-config`
+
+## Build Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Development server (live reload, includes drafts)
+hugo server -D
+
+# Production build
+hugo --gc --minify
+
+# Full Netlify build (as run in CI)
+npm install && hugo --gc --minify
+```
+
+Hugo version is pinned in `netlify.toml`. Node 22 is the target runtime.
+
+## Architecture
+
+### Layout-Driven Design
+
+Every page has a dedicated template — there is no shared `single.html` doing
+double duty. Content files use `layout: "page/<name>"` in frontmatter to select
+their template:
+
+| Page | Content File | Layout |
+|------|-------------|--------|
+| Homepage | `content/_index.md` | `page/home.html` |
+| About | `content/pro-nas.md` | `page/about.html` |
+| Contact | `content/kontakty/_index.md` | `page/contact.html` |
+| Contact Thanks | `content/kontakty/diakuiemo.md` | `page/contact-thanks.html` |
+| Book Request | `content/zamovyty-knyzhku/_index.md` | `page/book-request.html` |
+| Book Request Thanks | `content/zamovyty-knyzhku/diakuiemo.md` | `page/book-request-thanks.html` |
+| 404 | N/A | `404.html` |
+
+### CSS Pipeline
+
+Tailwind CSS v4 is processed via Hugo's built-in `css.TailwindCSS` function:
+- Entry point: `assets/css/main.css`
+- Processing partial: `layouts/partials/css.html`
+- JIT scanning via `hugo_stats.json` (auto-generated, gitignored)
+- Deferred rendering in `<head>` using `templates.Defer`
+
+### JavaScript
+
+Alpine.js v3 loaded from jsDelivr CDN — no build step. Used for:
+- Mobile hamburger menu toggle
+- Form client-side validation (replacing Vuelidate from the Nuxt site)
+- Scroll-aware header behavior (homepage)
+
+### Forms
+
+Netlify Forms with `data-netlify="true"` and honeypot spam prevention. Two forms:
+- Contact form (3 fields) → success page at `/kontakty/diakuiemo/`
+- Book request form (12+ fields) → success page at `/zamovyty-knyzhku/diakuiemo/`
+
+Client-side validation uses Alpine.js paired with HTML5 `required` attributes
+as a baseline.
+
+### Out-of-Stock Toggle
+
+The book request form has an enabled/disabled state controlled by a Hugo param:
+
+```toml
+[params]
+  bookFormEnabled = true  # Set to false when out of stock
+```
+
+When `false`, the template renders an out-of-stock notice instead of the form.
+The form itself is not rendered at all (not just visually hidden or disabled).
+
+### Images
+
+- `static/img/` — photos, PNGs, backgrounds (direct URL references)
+- `assets/img/` — SVGs that need inlining via Hugo pipes
+- Icons: Heroicons as inline SVGs (replacing Font Awesome Pro)
+
+No external image hosting — all images are local to the project.
+
+## URL Preservation
+
+All URLs must match the existing Nuxt site for SEO continuity:
+- `/pro-nas/`
+- `/kontakty/` and `/kontakty/diakuiemo/`
+- `/zamovyty-knyzhku/` and `/zamovyty-knyzhku/diakuiemo/`
+
+Thank-you pages must have `robots: "noindex,nofollow"` and `sitemap.disable: true`.
+
+## Key Configuration
+
+- Language: Ukrainian (`languageCode = "uk"`) — all UI text is in Ukrainian
+- No taxonomies, no pagination, no RSS
+- Fonts: Google Fonts (Roboto Condensed + Source Sans Pro, `cyrillic-ext`)
+- External PDF stays on CloudFront: `d2ppgd6w5akw3v.cloudfront.net/pdf/`
+- Analytics: deferred (placeholder partial at `layouts/partials/analytics.html`)
+
+## PRD Documentation
+
+Detailed specs live in `docs/prd/`:
+- `00-overview.md` — goals, non-goals, development philosophy
+- `01-architecture.md` — technology decisions and rationale
+- `02-design.md` — color palette, fonts, section layout patterns
+- `03-site-structure.md` — content organization, URLs, Hugo config spec
+- `04-templates.md` — template specifications for all layouts
+- `05-deployment.md` — Netlify config, DNS, CI/CD
+- `06-risks-and-future.md` — risks and out-of-scope items
+- `ROADMAP.md` — 9-phase build plan with checklists
+
+**Always consult the relevant PRD file before implementing a feature.**

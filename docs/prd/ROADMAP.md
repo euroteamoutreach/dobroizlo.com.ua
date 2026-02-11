@@ -1,0 +1,174 @@
+# Roadmap
+
+Build phases for the dobroizlo.com.ua Hugo rebuild. Each phase corresponds
+to a group of GitHub Issues.
+
+---
+
+## Phase 1: Project Scaffolding
+
+Set up the Hugo project structure, configuration, and build pipeline.
+
+- [ ] Initialize Hugo project (`hugo new site`)
+- [ ] Configure `hugo.toml` (language, params, menus, build stats)
+- [ ] Set up `package.json` with Tailwind CSS v4 and @tailwindcss/cli
+- [ ] Create `assets/css/main.css` with Tailwind import
+- [ ] Create `layouts/partials/css.html` (Tailwind processing partial)
+- [ ] Create base layout (`baseof.html`) with head, body structure
+- [ ] Create `layouts/partials/head.html` (meta, fonts, favicon)
+- [ ] Create `layouts/partials/analytics.html` (empty placeholder)
+- [ ] Add Alpine.js CDN script to base layout
+- [ ] Create `netlify.toml`
+- [ ] Create `.gitignore`
+- [ ] Create `CLAUDE.md` guidance file
+- [ ] Verify `hugo server` runs with a minimal page
+- [ ] Deploy to Netlify (preview URL) and verify build succeeds
+
+**Milestone:** Empty site builds and deploys to Netlify.
+
+---
+
+## Phase 2: Image Migration & Static Assets
+
+Transfer all images and static assets from the Nuxt project.
+
+- [ ] Copy all images to `static/img/`
+- [ ] Move OG image from CloudFront URL to `static/img/`
+- [ ] Copy SVG assets to `assets/img/` (for inlining)
+- [ ] Add favicon files to `static/`
+- [ ] Verify all images are accessible at expected URLs
+
+**Milestone:** All static assets are in place and accessible.
+
+---
+
+## Phase 3: Navigation & Footer
+
+Build the shared layout components that appear on every page.
+
+- [ ] Build `header.html` partial (logo, nav links, mobile menu)
+- [ ] Implement mobile hamburger menu with Alpine.js
+- [ ] Implement transparent-to-opaque scroll behavior (homepage only)
+- [ ] Build `footer.html` partial (logo, legal text, copyright)
+- [ ] Create `seo.html` partial (OG tags, Twitter card, robots)
+- [ ] Style header and footer with Tailwind (use Tailwind Plus references)
+
+**Milestone:** Every page has consistent header, footer, and SEO meta tags.
+
+---
+
+## Phase 4: Homepage
+
+Build the homepage with all five content sections.
+
+- [ ] Create `content/_index.md` with frontmatter
+- [ ] Create `layouts/page/home.html` template
+- [ ] Build Hero section (background image, book cover, title SVG, CTA)
+- [ ] Build Big Picture section (text + image, responsive layout)
+- [ ] Build Heroes section (background image, text + image, responsive)
+- [ ] Build Battle section (dark background, centered text)
+- [ ] Build How to Get section (book cover, steps, CTA, disclaimer)
+- [ ] Implement smooth scroll for hero CTA → `#getYourCopy` anchor
+- [ ] Test responsive behavior at all breakpoints
+
+**Milestone:** Homepage matches the current site's content and layout.
+
+---
+
+## Phase 5: About Page
+
+- [ ] Create `content/pro-nas.md` with frontmatter
+- [ ] Create `layouts/page/about.html` template
+- [ ] Add ETO description text and linked image
+- [ ] Add "What we believe" PDF download button (Heroicons download icon)
+- [ ] Style with Tailwind
+
+**Milestone:** About page complete and matching current content.
+
+---
+
+## Phase 6: Contact Form
+
+- [ ] Create `content/kontakty/_index.md` with frontmatter
+- [ ] Create `layouts/page/contact.html` template
+- [ ] Build Netlify form (name, email, message fields)
+- [ ] Add honeypot spam prevention
+- [ ] Implement Alpine.js client-side validation
+- [ ] Create `content/kontakty/diakuiemo.md` (thank-you page)
+- [ ] Create `layouts/page/contact-thanks.html` template
+- [ ] Set `noindex` and sitemap exclusion on thank-you page
+- [ ] Test form submission on Netlify preview deploy
+- [ ] Configure email notifications in Netlify dashboard
+
+**Milestone:** Contact form submits successfully, thank-you page displays,
+email notifications work.
+
+---
+
+## Phase 7: Book Request Form
+
+The most complex phase — the multi-field form with out-of-stock toggle.
+
+- [ ] Create `content/zamovyty-knyzhku/_index.md` with frontmatter
+- [ ] Create `layouts/page/book-request.html` template
+- [ ] Build the flow diagram (Fill Form → Lesson 1 → Get Book)
+- [ ] Build the full Netlify form with all fields
+- [ ] Implement oblast dropdown with all 24 oblasts
+- [ ] Implement study format radio buttons (online/paper)
+- [ ] Implement terms checkbox with consent text
+- [ ] Implement Alpine.js validation for all required fields
+- [ ] Implement out-of-stock toggle (`bookFormEnabled` parameter)
+- [ ] Build the out-of-stock notice (disabled state)
+- [ ] Create `content/zamovyty-knyzhku/diakuiemo.md` (thank-you page)
+- [ ] Create `layouts/page/book-request-thanks.html` template
+- [ ] Set `noindex` and sitemap exclusion on thank-you page
+- [ ] Test both form states (enabled and disabled)
+- [ ] Test form submission on Netlify preview deploy
+- [ ] Configure email notifications in Netlify dashboard
+
+**Milestone:** Book request form works in both states, submissions
+received, thank-you page displays correctly.
+
+---
+
+## Phase 8: 404 Page & Final Polish
+
+- [ ] Create `layouts/404.html` with SVG graphic and home link
+- [ ] Review all pages at all breakpoints (mobile, tablet, desktop)
+- [ ] Verify all internal links work
+- [ ] Verify all external links work (euroteamoutreach.org, CloudFront PDF)
+- [ ] Verify sitemap.xml is correct (excludes thank-you pages)
+- [ ] Verify robots.txt is correct
+- [ ] Test OG images (use Facebook Sharing Debugger or similar)
+- [ ] Lighthouse audit (performance, accessibility, SEO, best practices)
+- [ ] Cross-browser check (Chrome, Firefox, Safari)
+
+**Milestone:** Site is complete and ready for launch review.
+
+---
+
+## Phase 9: Launch
+
+- [ ] Final review with developer (Joshua)
+- [ ] Lower DNS TTL on dobroizlo.com.ua (if possible, 24-48 hours before)
+- [ ] Update DNS to point to Netlify
+- [ ] Verify SSL certificate provisioning on Netlify
+- [ ] Verify site is live at dobroizlo.com.ua
+- [ ] Test all forms on production domain
+- [ ] Verify email notifications on production
+- [ ] Test OG image sharing on Telegram, Facebook, Viber
+- [ ] Enable analytics (when tool is selected)
+- [ ] Archive old Nuxt repository
+- [ ] Rename Hugo repository to `dobroizlo.com.ua`
+
+**Milestone:** Site is live. 🎉
+
+---
+
+## Post-Launch
+
+- [ ] Monitor Netlify Forms submission counts (100/month free tier)
+- [ ] Toggle `bookFormEnabled` as needed when stock changes
+- [ ] Select and implement analytics solution (coordinate with OFReport.com)
+- [ ] Consider font refresh if desired
+- [ ] Add ComixDistro distributor portal link when app is ready
