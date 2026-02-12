@@ -120,8 +120,9 @@ Hugo version is pinned in `netlify.toml`. Node 22 is the target runtime.
 ### Layout-Driven Design
 
 Every page has a dedicated template — there is no shared `single.html` doing
-double duty. Content files use `layout: "page/<name>"` in frontmatter to select
-their template:
+double duty. Content files use `type: "page"` + `layout: "<name>"` in
+frontmatter to select their template (Hugo's `layout` field is a template
+*name*, not a path):
 
 | Page | Content File | Layout |
 |------|-------------|--------|

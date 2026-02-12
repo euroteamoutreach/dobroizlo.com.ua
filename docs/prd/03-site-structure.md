@@ -70,10 +70,15 @@ dobroizlo.com.ua/
 ### Notes on Directory Structure
 
 **Why `page/` layout directory?** Since this site has no blog or content
-sections, every page is unique. Using `layout: "page/home"` (etc.) in
-frontmatter allows each page to have its own dedicated template while keeping
-the layouts directory clean. This avoids the single-template-fits-all problem
-of `_default/single.html`.
+sections, every page is unique. Using `type: "page"` + `layout: "home"` (etc.)
+in frontmatter allows each page to have its own dedicated template while
+keeping the layouts directory clean. This avoids the single-template-fits-all
+problem of `_default/single.html`.
+
+> **Hugo note:** The `layout` frontmatter field is a template *name*, not a
+> path. To resolve a template at `layouts/page/home.html`, use `type: "page"`
+> (selects the directory) and `layout: "home"` (selects the template) as
+> separate fields. `layout: "page/home"` does **not** work.
 
 **Why `static/img/` for most images?** These are fixed assets referenced
 directly in templates and CSS. They don't need Hugo's asset pipeline (no
@@ -134,7 +139,8 @@ description: >-
   Жертва. Війна. Спокуса. Зрада. Надія. Спасіння. Перемога. Відкрийте для
   себе біблійну історію по-новому з цим чудовим, повноколірним виданням
   графічного роману Майкла Перла Добро і зло.
-layout: "page/home"
+type: "page"
+layout: "home"
 ---
 ```
 
@@ -146,7 +152,8 @@ title: "Про нас"
 description: >-
   Euro Team Outreach — це благодійна неприбуткова організація, діяльність
   якої пов'язана з поширенням Євангелії Ісуса Христа.
-layout: "page/about"
+type: "page"
+layout: "about"
 ---
 ```
 
@@ -155,7 +162,8 @@ layout: "page/about"
 ```yaml
 ---
 title: "Дякуємо!"
-layout: "page/contact-thanks"
+type: "page"
+layout: "contact-thanks"
 robots: "noindex,nofollow"
 sitemap:
   disable: true
