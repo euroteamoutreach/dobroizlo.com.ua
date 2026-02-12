@@ -9,19 +9,19 @@ to a group of GitHub Issues.
 
 Set up the Hugo project structure, configuration, and build pipeline.
 
-- [ ] Initialize Hugo project (`hugo new site`)
-- [ ] Configure `hugo.toml` (language, params, menus, build stats)
-- [ ] Set up `package.json` with Tailwind CSS v4 and @tailwindcss/cli
-- [ ] Create `assets/css/main.css` with Tailwind import
-- [ ] Create `layouts/partials/css.html` (Tailwind processing partial)
-- [ ] Create base layout (`baseof.html`) with head, body structure
-- [ ] Create `layouts/partials/head.html` (meta, fonts, favicon)
-- [ ] Create `layouts/partials/analytics.html` (empty placeholder)
-- [ ] Add Alpine.js CDN script to base layout
-- [ ] Create `netlify.toml`
-- [ ] Create `.gitignore`
-- [ ] Create `CLAUDE.md` guidance file
-- [ ] Verify `hugo server` runs with a minimal page
+- [x] Initialize Hugo project (`hugo new site`)
+- [x] Configure `hugo.toml` (language, params, menus, build stats)
+- [x] Set up `package.json` with Tailwind CSS v4 and @tailwindcss/cli
+- [x] Create `assets/css/main.css` with Tailwind import
+- [x] Create `layouts/partials/css.html` (Tailwind processing partial)
+- [x] Create base layout (`baseof.html`) with head, body structure
+- [x] Create `layouts/partials/head.html` (meta, fonts, favicon)
+- [x] Create `layouts/partials/analytics.html` (empty placeholder)
+- [x] Add Alpine.js CDN script to base layout
+- [x] Create `netlify.toml`
+- [x] Create `.gitignore`
+- [x] Create `CLAUDE.md` guidance file
+- [x] Verify `hugo server` runs with a minimal page
 - [ ] Deploy to Netlify (preview URL) and verify build succeeds
 
 **Milestone:** Empty site builds and deploys to Netlify.
