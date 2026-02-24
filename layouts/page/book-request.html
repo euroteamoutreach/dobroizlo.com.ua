@@ -1,0 +1,402 @@
+{{ define "main" }}
+  <div class="bg-gray-50">
+  <div class="mx-auto max-w-2xl px-6 py-12 md:py-16 lg:px-8">
+
+    {{/* Out-of-stock notice */}}
+    {{ if not .Site.Params.bookFormEnabled }}
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <h3 class="font-display text-2xl font-bold text-red-700">УВАГА!</h3>
+        <p class="mt-4 font-body text-xl text-gray-700">
+          Наявний запас книг вичерпано, тому ми зараз не приймаємо нових замовлень. Ми сподіваємось надрукувати більше книг у майбутньому та продовжити нашу програму. Дякуємо за розуміння.
+        </p>
+        <p class="mt-4 font-body text-xl text-gray-700">
+          Якщо у вас виникли запитання, <a href="/kontakty/" class="text-sky-600 underline hover:text-sky-800">зв'яжіться з нами.</a>
+        </p>
+        <hr class="mt-10 border-gray-200">
+      </div>
+    {{ end }}
+
+    {{/* Heading */}}
+    <div class="mb-10 text-center md:mb-16">
+      <h1 class="font-display text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Заявка на отримання<br><em>Добра і зла</em></h1>
+      <p class="mx-auto mt-4 max-w-lg font-body text-lg text-gray-600">Щоб отримати безплатний примірник <em>Добра і зла</em>, будь ласка, заповніть форму, подану нижче. Обмеження — одна книжка на родину.</p>
+    </div>
+
+    {{/* Flow diagram */}}
+    <div class="mb-10 flex flex-col items-center text-center text-gray-800 md:mb-16 md:flex-row md:justify-between">
+      {{/* Step 1: Fill in form */}}
+      <div class="flex flex-col items-center">
+        <div class="flex h-24 items-center justify-center md:h-28">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-16 text-gray-600 md:size-20">
+            <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+            <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+          </svg>
+        </div>
+        <span class="mt-4 font-semibold">1. Заповніть цю форму;</span>
+      </div>
+
+      {{/* Arrow 1 */}}
+      <div class="my-4 md:my-0 md:px-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 text-gray-400 md:hidden">
+          <path fill-rule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v16.19l6.22-6.22a.75.75 0 1 1 1.06 1.06l-7.5 7.5a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 1 1 1.06-1.06l6.22 6.22V3a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="hidden size-8 text-gray-400 md:block">
+          <path fill-rule="evenodd" d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+        </svg>
+      </div>
+
+      {{/* Step 2: Complete Lesson 1 */}}
+      <div class="flex flex-col items-center">
+        <div class="flex h-24 items-center justify-center md:h-28">
+          <img src="/img/bf-cover-uk-150h.png" alt="Біблія понад усе" class="h-24 w-auto md:h-28">
+        </div>
+        <span class="mt-4 font-semibold">2. Виконайте завдання Уроку 1;</span>
+      </div>
+
+      {{/* Arrow 2 */}}
+      <div class="my-4 md:my-0 md:px-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 text-gray-400 md:hidden">
+          <path fill-rule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v16.19l6.22-6.22a.75.75 0 1 1 1.06 1.06l-7.5 7.5a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 1 1 1.06-1.06l6.22 6.22V3a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="hidden size-8 text-gray-400 md:block">
+          <path fill-rule="evenodd" d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+        </svg>
+      </div>
+
+      {{/* Step 3: Get book */}}
+      <div class="flex flex-col items-center">
+        <div class="flex h-24 items-center justify-center md:h-28">
+          <img src="/img/ge-cover-2-150h.png" alt="Добро і зло" class="h-24 w-auto md:h-28">
+        </div>
+        <span class="mt-4 font-semibold">3. Отримайте <em>Добро і зло!</em></span>
+      </div>
+    </div>
+
+    {{/* Explanatory text */}}
+    <div class="mb-10 text-left font-body text-gray-700 md:mb-16">
+      <h3 class="font-display text-xl font-bold text-gray-900">Про реєстрацію в курсі <em>Біблія понад усе</em></h3>
+      <p class="mt-4">
+        Відправивши цю форму, ви отримаєте запрошення електронною поштою створити онлайн-акаунт. Це дозволить вам прочитати свої уроки та скласти тести в електронному вигляді. Або, як альтернатива, ви можете отримувати паперові уроки звичайною поштою.
+      </p>
+      <p class="mt-4">
+        Ви зможете скасувати реєстрацію в будь-яку мить, надіславши <a href="/kontakty/" class="text-sky-600 underline hover:text-sky-800">письмовий запит.</a>
+      </p>
+    </div>
+
+    {{/* Form */}}
+    {{ if .Site.Params.bookFormEnabled }}
+    <div class="mx-auto w-full max-w-2xl">
+      <form
+        name="book-request"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/zamovyty-knyzhku/dyakuyemo/"
+        x-data="{
+          lastName: '',
+          firstName: '',
+          email: '',
+          address: '',
+          city: '',
+          oblast: '',
+          postalCode: '',
+          terms: false,
+          submitted: false,
+          get lastNameError() { return this.submitted && this.lastName.trim() === '' },
+          get firstNameError() { return this.submitted && this.firstName.trim() === '' },
+          get emailError() { return this.submitted && !this.emailValid },
+          get emailValid() {
+            if (this.email.trim() === '') return false;
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email.trim());
+          },
+          get emailEmpty() { return this.submitted && this.email.trim() === '' },
+          get emailFormatError() { return this.submitted && this.email.trim() !== '' && !this.emailValid },
+          get addressError() { return this.submitted && this.address.trim() === '' },
+          get cityError() { return this.submitted && this.city.trim() === '' },
+          get oblastError() { return this.submitted && this.oblast === '' },
+          get postalCodeError() { return this.submitted && this.postalCode.trim() === '' },
+          get termsError() { return this.submitted && !this.terms },
+          get hasErrors() { return this.lastNameError || this.firstNameError || this.emailError || this.addressError || this.cityError || this.oblastError || this.postalCodeError || this.termsError },
+          validate(e) {
+            this.submitted = true;
+            if (this.hasErrors) { e.preventDefault(); }
+          }
+        }"
+        @submit="validate($event)"
+        class="rounded-lg bg-white p-6 shadow-md"
+      >
+        {{/* Honeypot */}}
+        <p class="hidden">
+          <label>Don't fill this out: <input name="bot-field"></label>
+        </p>
+        <input type="hidden" name="form-name" value="book-request">
+
+        {{/* Last name / First name (2-col) */}}
+        <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div>
+            <label for="lastName" class="block text-sm/6 font-semibold text-gray-900">Прізвище</label>
+            <div class="mt-2.5">
+              <input
+                id="lastName"
+                type="text"
+                name="lastName"
+                maxlength="100"
+                placeholder="Тимошенко"
+                x-model="lastName"
+                :class="lastNameError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
+              >
+            </div>
+            <p x-show="lastNameError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть прізвище.</p>
+          </div>
+          <div>
+            <label for="firstName" class="block text-sm/6 font-semibold text-gray-900">Ім'я</label>
+            <div class="mt-2.5">
+              <input
+                id="firstName"
+                type="text"
+                name="firstName"
+                maxlength="100"
+                placeholder="Петро"
+                x-model="firstName"
+                :class="firstNameError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
+              >
+            </div>
+            <p x-show="firstNameError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть ім'я.</p>
+          </div>
+        </div>
+
+        {{/* Email */}}
+        <div class="mb-6">
+          <label for="email" class="block text-sm/6 font-semibold text-gray-900">Електронна скринька</label>
+          <div class="mt-2.5">
+            <input
+              id="email"
+              type="email"
+              name="email"
+              maxlength="100"
+              placeholder="petro@tymoshenko.ua"
+              x-model="email"
+              :class="emailError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
+            >
+          </div>
+          <p x-show="emailEmpty" x-cloak class="mt-1 text-sm text-red-600">Вкажіть електронну скриньку.</p>
+          <p x-show="emailFormatError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть дійсну електронну скриньку.</p>
+        </div>
+
+        {{/* Address */}}
+        <div class="mb-6">
+          <label for="address" class="block text-sm/6 font-semibold text-gray-900">Адреса</label>
+          <div class="mt-2.5">
+            <input
+              id="address"
+              type="text"
+              name="address"
+              maxlength="200"
+              placeholder="вул. Івана Франка 123, кв. 456"
+              x-model="address"
+              :class="addressError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
+            >
+          </div>
+          <p x-show="addressError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть адресу.</p>
+        </div>
+
+        {{/* Region (optional) */}}
+        <div class="mb-6">
+          <label for="region" class="block text-sm/6 font-semibold text-gray-900">Район</label>
+          <div class="mt-2.5">
+            <input
+              id="region"
+              type="text"
+              name="region"
+              maxlength="100"
+              placeholder="Район"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600"
+            >
+          </div>
+        </div>
+
+        {{/* City / Oblast (2-col) */}}
+        <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div>
+            <label for="city" class="block text-sm/6 font-semibold text-gray-900">Місто</label>
+            <div class="mt-2.5">
+              <input
+                id="city"
+                type="text"
+                name="city"
+                maxlength="100"
+                placeholder="м. Львів"
+                x-model="city"
+                :class="cityError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
+              >
+            </div>
+            <p x-show="cityError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть місто.</p>
+          </div>
+          <div>
+            <label for="oblast" class="block text-sm/6 font-semibold text-gray-900">Область</label>
+            <div class="mt-2.5 relative">
+              <select
+                id="oblast"
+                name="oblast"
+                x-model="oblast"
+                :class="oblastError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+                class="block w-full appearance-none rounded-md bg-white px-3.5 py-2 pr-8 text-base text-gray-900 outline-1 -outline-offset-1 focus:outline-2 focus:-outline-offset-2"
+              >
+                <option value="">Виберіть...</option>
+                <option value="Вінницька">Вінницька</option>
+                <option value="Волинська">Волинська</option>
+                <option value="Дніпропетровська">Дніпропетровська</option>
+                <option value="Донецька">Донецька</option>
+                <option value="Житомирська">Житомирська</option>
+                <option value="Закарпатська">Закарпатська</option>
+                <option value="Запорізька">Запорізька</option>
+                <option value="Івано-Франківська">Івано-Франківська</option>
+                <option value="Київська">Київська</option>
+                <option value="Кіровоградська">Кіровоградська</option>
+                <option value="Луганська">Луганська</option>
+                <option value="Львівська">Львівська</option>
+                <option value="Миколаївська">Миколаївська</option>
+                <option value="Одеська">Одеська</option>
+                <option value="Полтавська">Полтавська</option>
+                <option value="Рівненська">Рівненська</option>
+                <option value="Сумська">Сумська</option>
+                <option value="Тернопільська">Тернопільська</option>
+                <option value="Харківська">Харківська</option>
+                <option value="Херсонська">Херсонська</option>
+                <option value="Хмельницька">Хмельницька</option>
+                <option value="Черкаська">Черкаська</option>
+                <option value="Чернівецька">Чернівецька</option>
+                <option value="Чернігівська">Чернігівська</option>
+              </select>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="pointer-events-none absolute right-2.5 top-1/2 size-4 -translate-y-1/2 text-gray-500">
+                <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <p x-show="oblastError" x-cloak class="mt-1 text-sm text-red-600">Виберіть область.</p>
+          </div>
+        </div>
+
+        {{/* Postal code / Phone (2-col) */}}
+        <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div>
+            <label for="postalCode" class="block text-sm/6 font-semibold text-gray-900">Індекс</label>
+            <div class="mt-2.5">
+              <input
+                id="postalCode"
+                type="text"
+                name="postalCode"
+                maxlength="5"
+                placeholder="79000"
+                x-model="postalCode"
+                :class="postalCodeError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
+              >
+            </div>
+            <p x-show="postalCodeError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть індекс.</p>
+          </div>
+          <div>
+            <label for="phone" class="block text-sm/6 font-semibold text-gray-900">Телефон</label>
+            <div class="mt-2.5">
+              <input
+                id="phone"
+                type="text"
+                name="phone"
+                maxlength="20"
+                placeholder="+38-099-123-45-67"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600"
+              >
+            </div>
+          </div>
+        </div>
+
+        {{/* Study format radio buttons */}}
+        <div class="mb-8">
+          <p class="mb-3 text-sm/6 font-semibold text-gray-900">
+            Ми пропонуємо один з двох форматів: або онлайн навчання через комп'ютер/смартфон, або отримувати фізичні паперові уроки звичайною поштою.
+          </p>
+          <div class="space-y-2">
+            <div class="flex items-start">
+              <input id="lessonPrefsOnline" type="radio" name="preferredStudyFormat" value="Online" checked class="mt-1 mr-2 size-4 text-orange-600 focus:ring-orange-600">
+              <label for="lessonPrefsOnline" class="text-sm text-gray-700 leading-tight">Я хочу проходити навчання онлайн.</label>
+            </div>
+            <div class="flex items-start">
+              <input id="lessonPrefsPaper" type="radio" name="preferredStudyFormat" value="PaperLessons" class="mt-1 mr-2 size-4 text-orange-600 focus:ring-orange-600">
+              <label for="lessonPrefsPaper" class="text-sm text-gray-700 leading-tight">Я хочу отримувати фізичні паперові уроки на звичайну пошту.</label>
+            </div>
+          </div>
+        </div>
+
+        {{/* Shipping disclaimer */}}
+        <div class="mb-6 border-t border-b border-gray-200 py-4 text-center">
+          <p class="font-semibold leading-none text-gray-800">Надсилаємо фізичні матеріали тільки на адреси в межах України.</p>
+        </div>
+
+        {{/* Referral (optional) */}}
+        <div class="mb-6">
+          <label for="referral" class="block text-sm/6 font-semibold text-gray-900">Звідки Ви дізналися про <em>Добро і зло?</em></label>
+          <div class="mt-2.5">
+            <textarea
+              id="referral"
+              name="referral"
+              rows="5"
+              maxlength="3000"
+              placeholder="Розкажіть, будь ласка..."
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600"
+            ></textarea>
+          </div>
+        </div>
+
+        {{/* Comments (optional) */}}
+        <div class="mb-6">
+          <label for="comments" class="block text-sm/6 font-semibold text-gray-900">Коментарі</label>
+          <div class="mt-2.5">
+            <textarea
+              id="comments"
+              name="comments"
+              rows="5"
+              maxlength="3000"
+              placeholder="Може, Ви б хотіли щось додати?"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600"
+            ></textarea>
+          </div>
+        </div>
+
+        {{/* Terms checkbox */}}
+        <div class="mb-6 flex gap-3">
+          <div class="pt-1">
+            <input
+              id="terms"
+              type="checkbox"
+              name="terms"
+              x-model="terms"
+              :class="termsError ? 'outline-red-500' : ''"
+              class="size-4 rounded text-orange-600 focus:ring-orange-600"
+            >
+          </div>
+          <div class="flex-1">
+            <label for="terms" class="text-sm leading-tight text-gray-600">
+              Я розумію, що, подавши цю форму, я прошу записати мене на безплатний дистанційний навчальний курс <em>Біблія понад усе</em>. Я також розумію, що не отримаю свій безплатний примірник <em>Добра і зла</em>, поки не вишлю заповнену форму з відповідями на запитання до першого уроку курсу <em>Біблія понад усе</em>.
+            </label>
+            <p x-show="termsError" x-cloak class="mt-1 text-sm text-red-600">Будь ласка, поставте галочку у квадратику, щоб зазначити, що Ви згодні з умовами.</p>
+          </div>
+        </div>
+
+        {{/* Submit */}}
+        <div class="flex items-center gap-4">
+          <button type="submit" class="rounded-full bg-orange-600 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
+            Надіслати
+          </button>
+          <p x-show="submitted && hasErrors" x-cloak class="text-sm text-red-600">Будь ласка, виправте виділені поля.</p>
+        </div>
+      </form>
+    </div>
+    {{ end }}
+
+  </div>
+  </div>
+{{ end }}
