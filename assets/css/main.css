@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @source "hugo_stats.json";
+
+[x-cloak] {
+  display: none !important;
+}

@@ -61,12 +61,12 @@ Transfer all images and static assets from the Nuxt project.
 
 Build the shared layout components that appear on every page.
 
-- [ ] Build `header.html` partial (logo, nav links, mobile menu)
-- [ ] Implement mobile hamburger menu with Alpine.js
-- [ ] Implement transparent-to-opaque scroll behavior (homepage only)
+- [x] Build `header.html` partial (logo, nav links, mobile menu)
+- [x] Implement mobile hamburger menu with Alpine.js
+- [x] Implement transparent-to-opaque scroll behavior (homepage only)
 - [ ] Build `footer.html` partial (logo, legal text, copyright)
 - [x] Create `seo.html` partial (OG tags, Twitter card, robots)
-- [ ] Style header and footer with Tailwind (use Tailwind Plus references)
+- [~] Style header and footer with Tailwind (use Tailwind Plus references)
 
 **Milestone:** Every page has consistent header, footer, and SEO meta tags.
 
