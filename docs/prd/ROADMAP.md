@@ -150,8 +150,8 @@ received, thank-you page displays correctly.
 
 - [x] Create `layouts/404.html` with SVG graphic and home link
 - [ ] Review all pages at all breakpoints (mobile, tablet, desktop)
-- [ ] Verify all internal links work
-- [ ] Verify all external links work (euroteamoutreach.org, CloudFront PDF)
+- [x] Verify all internal links work
+- [x] Verify all external links work (euroteamoutreach.org, CloudFront PDF)
 - [x] Verify sitemap.xml is correct (excludes thank-you pages)
 - [x] Verify robots.txt is correct
 - [x] Test OG images (use Facebook Sharing Debugger or similar)
