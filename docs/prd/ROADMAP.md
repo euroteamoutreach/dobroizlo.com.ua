@@ -10,7 +10,7 @@ This document tracks implementation progress through phased delivery. Phases are
 | --- | --- | --- | --- |
 | 1 | Project Scaffolding | — | Complete |
 | 2 | Image Migration & Static Assets | Phase 1 | Complete |
-| 3 | Navigation & Footer | Phase 2 | Not started |
+| 3 | Navigation & Footer | Phase 2 | Complete |
 | 4 | Homepage | Phase 3 | Not started |
 | 5 | About Page | Phase 3 | Not started |
 | 6 | Contact Form | Phase 3 | Not started |
@@ -64,9 +64,9 @@ Build the shared layout components that appear on every page.
 - [x] Build `header.html` partial (logo, nav links, mobile menu)
 - [x] Implement mobile hamburger menu with Alpine.js
 - [x] Implement transparent-to-opaque scroll behavior (homepage only)
-- [ ] Build `footer.html` partial (logo, legal text, copyright)
+- [x] Build `footer.html` partial (logo, legal text, copyright)
 - [x] Create `seo.html` partial (OG tags, Twitter card, robots)
-- [~] Style header and footer with Tailwind (use Tailwind Plus references)
+- [x] Style header and footer with Tailwind (use Tailwind Plus references)
 
 **Milestone:** Every page has consistent header, footer, and SEO meta tags.
 
