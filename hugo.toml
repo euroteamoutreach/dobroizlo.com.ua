@@ -1,6 +1,7 @@
 baseURL = "https://dobroizlo.com.ua/"
 languageCode = "uk"
 title = "Добро і зло — Біблія-комікс"
+enableRobotsTXT = true
 
 # No taxonomies needed for this site
 [taxonomies]
