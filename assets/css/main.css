@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @source "hugo_stats.json";
 
+@theme {
+  --font-display: "Roboto Condensed", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-body: "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
 [x-cloak] {
   display: none !important;
 }
