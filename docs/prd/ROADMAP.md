@@ -79,8 +79,8 @@ Build the homepage with all five content sections.
 - [x] Create `content/_index.md` with frontmatter
 - [x] Create `layouts/page/home.html` template
 - [x] Build Hero section (background image, book cover, title SVG, CTA)
-- [ ] Build Big Picture section (text + image, responsive layout)
-- [ ] Build Heroes section (background image, text + image, responsive)
+- [x] Build Big Picture section (text + image, responsive layout)
+- [x] Build Heroes section (background image, text + image, responsive)
 - [ ] Build Battle section (dark background, centered text)
 - [ ] Build How to Get section (book cover, steps, CTA, disclaimer)
 - [ ] Implement smooth scroll for hero CTA → `#getYourCopy` anchor
