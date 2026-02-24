@@ -40,10 +40,11 @@ See `docs/prd/00-overview.md` for the full development philosophy.
 
 ### Tailwind Plus Workflow
 
-The developer has a Tailwind Plus subscription. Licensed snippets go in
-`docs/tailwind_plus/` (gitignored) as design references. Read snippets for
-design patterns and Tailwind class usage, then build Hugo templates using
-those patterns — never copy verbatim.
+The developer has a Tailwind Plus subscription. Licensed snippets are committed
+to `docs/tailwind_plus/` as design references. A root `NOTICE` file documents
+the license restriction — the repo must not be made public without purging these
+files from Git history. Read snippets for design patterns and Tailwind class
+usage, then build Hugo templates using those patterns — never copy verbatim.
 
 ## Development Workflow
 

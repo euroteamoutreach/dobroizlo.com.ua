@@ -1,0 +1,12 @@
+NOTICE — Tailwind Plus Licensed Assets
+
+This repository contains licensed Tailwind Plus component snippets in the
+docs/tailwind_plus/ directory. These assets are used under the Tailwind Plus
+license (https://tailwindcss.com/plus/license) for private development purposes.
+
+IMPORTANT: This repository MUST NOT be made public without first removing all
+Tailwind Plus assets from the entire Git history (not just the working tree).
+Simply deleting the files is insufficient — they must be purged from all commits
+using a tool like git-filter-repo or BFG Repo-Cleaner.
+
+For license details, see: https://tailwindcss.com/plus/license

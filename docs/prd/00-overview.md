@@ -113,7 +113,7 @@ the codebase.
 
 **Workflow:**
 
-1. A `docs/tailwind_plus/` directory exists in the project root (gitignored)
+1. A `docs/tailwind_plus/` directory exists in the project root (committed)
 2. When building a UI element, Claude Code may request a reference snippet
    from Tailwind Plus
 3. The developer pastes the relevant example into `docs/tailwind_plus/`
@@ -122,9 +122,10 @@ the codebase.
 5. Claude Code builds the actual Hugo template using those patterns as a
    reference — not a direct copy
 
-**Important:** The `docs/tailwind_plus/` directory must be listed in
-`.gitignore` since Tailwind Plus components are licensed and must not be
-committed to the repository.
+**Important:** Tailwind Plus snippets are committed to the repository for
+development convenience, but the repo must not be made public without first
+purging these files from the entire Git history. See the root `NOTICE` file
+for details.
 
 ---
 

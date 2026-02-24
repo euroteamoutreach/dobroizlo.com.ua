@@ -22,7 +22,7 @@ dobroizlo.com.ua/
 │       └── diakuiemo.md         # Book request thank-you page
 ├── docs/
 │   ├── prd/                     # PRD documents (this directory)
-│   └── tailwind_plus/           # Tailwind Plus reference snippets (gitignored)
+│   └── tailwind_plus/           # Tailwind Plus reference snippets (see NOTICE)
 ├── layouts/
 │   ├── _default/
 │   │   ├── baseof.html          # Base template

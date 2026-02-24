@@ -40,9 +40,6 @@ node_modules/
 # Hugo stats (regenerated on build)
 hugo_stats.json
 
-# Tailwind Plus licensed snippets (must not be committed)
-docs/tailwind_plus/
-
 # OS files
 .DS_Store
 Thumbs.db
