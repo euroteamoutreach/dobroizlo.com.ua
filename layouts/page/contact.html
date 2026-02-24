@@ -1,0 +1,111 @@
+{{ define "main" }}
+  <div class="bg-gray-50">
+  <div class="mx-auto max-w-2xl px-6 py-12 md:py-16 lg:px-8">
+    <div class="mb-10 text-center md:mb-16">
+      <h1 class="font-display text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Зв'яжіться з нами</h1>
+      <p class="mx-auto mt-4 max-w-lg font-body text-lg text-gray-600">Маєте запитання? Напишіть нам повідомлення! Ми постараємось відповісти якнайшвидше.</p>
+    </div>
+
+    <div class="mx-auto w-full max-w-lg">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/kontakty/diakuiemo/"
+        x-data="{
+          fullName: '',
+          email: '',
+          message: '',
+          submitted: false,
+          get fullNameError() { return this.submitted && this.fullName.trim() === '' },
+          get emailError() { return this.submitted && !this.emailValid },
+          get emailValid() {
+            if (this.email.trim() === '') return false;
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email.trim());
+          },
+          get emailEmpty() { return this.submitted && this.email.trim() === '' },
+          get emailFormatError() { return this.submitted && this.email.trim() !== '' && !this.emailValid },
+          get messageError() { return this.submitted && this.message.trim() === '' },
+          get hasErrors() { return this.fullNameError || this.emailError || this.messageError },
+          validate(e) {
+            this.submitted = true;
+            if (this.hasErrors) { e.preventDefault(); }
+          }
+        }"
+        @submit="validate($event)"
+        class="rounded-lg bg-white p-6 shadow-md"
+      >
+        {{/* Honeypot field — hidden from real users */}}
+        <p class="hidden">
+          <label>Don't fill this out: <input name="bot-field"></label>
+        </p>
+        <input type="hidden" name="form-name" value="contact">
+
+        {{/* Full Name */}}
+        <div class="mb-6">
+          <label for="fullName" class="block text-sm/6 font-semibold text-gray-900">Ім'я та прізвище</label>
+          <div class="mt-2.5">
+            <input
+              id="fullName"
+              type="text"
+              name="fullName"
+              maxlength="100"
+              placeholder="Петро Тимошенко"
+              x-model="fullName"
+              :class="fullNameError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
+            >
+          </div>
+          <p x-show="fullNameError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть ім'я та прізвище.</p>
+        </div>
+
+        {{/* Email */}}
+        <div class="mb-6">
+          <label for="email" class="block text-sm/6 font-semibold text-gray-900">Електронна скринька</label>
+          <div class="mt-2.5">
+            <input
+              id="email"
+              type="email"
+              name="email"
+              maxlength="100"
+              placeholder="petro@tymoshenko.ua"
+              x-model="email"
+              :class="emailError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
+            >
+          </div>
+          <p x-show="emailEmpty" x-cloak class="mt-1 text-sm text-red-600">Вкажіть електронну скриньку.</p>
+          <p x-show="emailFormatError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть дійсну електронну скриньку.</p>
+        </div>
+
+        {{/* Message */}}
+        <div class="mb-6">
+          <label for="message" class="block text-sm/6 font-semibold text-gray-900">Ваше повідомлення</label>
+          <div class="mt-2.5">
+            <textarea
+              id="message"
+              name="message"
+              rows="10"
+              maxlength="3000"
+              placeholder="Слухаємо уважно..."
+              x-model="message"
+              :class="messageError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
+            ></textarea>
+          </div>
+          <p x-show="messageError" x-cloak class="mt-1 text-sm text-red-600">Будь ласка, введіть повідомлення.</p>
+        </div>
+
+        {{/* Submit */}}
+        <div class="flex items-center gap-4">
+          <button type="submit" class="rounded-full bg-orange-600 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
+            Надіслати
+          </button>
+          <p x-show="submitted && hasErrors" x-cloak class="text-sm text-red-600">Будь ласка, виправте виділені поля.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+{{ end }}
