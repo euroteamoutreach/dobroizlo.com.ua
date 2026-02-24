@@ -152,9 +152,9 @@ received, thank-you page displays correctly.
 - [ ] Review all pages at all breakpoints (mobile, tablet, desktop)
 - [ ] Verify all internal links work
 - [ ] Verify all external links work (euroteamoutreach.org, CloudFront PDF)
-- [ ] Verify sitemap.xml is correct (excludes thank-you pages)
-- [ ] Verify robots.txt is correct
-- [ ] Test OG images (use Facebook Sharing Debugger or similar)
+- [x] Verify sitemap.xml is correct (excludes thank-you pages)
+- [x] Verify robots.txt is correct
+- [x] Test OG images (use Facebook Sharing Debugger or similar)
 - [ ] Lighthouse audit (performance, accessibility, SEO, best practices)
 - [ ] Cross-browser check (Chrome, Firefox, Safari)
 
