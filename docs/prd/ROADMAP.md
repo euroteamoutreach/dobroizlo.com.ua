@@ -65,7 +65,7 @@ Build the shared layout components that appear on every page.
 - [ ] Implement mobile hamburger menu with Alpine.js
 - [ ] Implement transparent-to-opaque scroll behavior (homepage only)
 - [ ] Build `footer.html` partial (logo, legal text, copyright)
-- [ ] Create `seo.html` partial (OG tags, Twitter card, robots)
+- [x] Create `seo.html` partial (OG tags, Twitter card, robots)
 - [ ] Style header and footer with Tailwind (use Tailwind Plus references)
 
 **Milestone:** Every page has consistent header, footer, and SEO meta tags.
