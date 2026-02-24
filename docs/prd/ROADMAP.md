@@ -8,7 +8,7 @@ This document tracks implementation progress through phased delivery. Phases are
 
 | Phase | Name | Dependencies | Status |
 | --- | --- | --- | --- |
-| 1 | Project Scaffolding | — | In progress |
+| 1 | Project Scaffolding | — | Complete |
 | 2 | Image Migration & Static Assets | Phase 1 | Not started |
 | 3 | Navigation & Footer | Phase 2 | Not started |
 | 4 | Homepage | Phase 3 | Not started |
@@ -37,7 +37,7 @@ Set up the Hugo project structure, configuration, and build pipeline.
 - [x] Create `.gitignore`
 - [x] Create `CLAUDE.md` guidance file
 - [x] Verify `hugo server` runs with a minimal page
-- [ ] Deploy to Netlify (preview URL) and verify build succeeds
+- [x] Deploy to Netlify (preview URL) and verify build succeeds
 
 **Milestone:** Empty site builds and deploys to Netlify.
 
