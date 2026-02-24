@@ -148,7 +148,7 @@ received, thank-you page displays correctly.
 
 ## Phase 8: 404 Page & Final Polish
 
-- [ ] Create `layouts/404.html` with SVG graphic and home link
+- [x] Create `layouts/404.html` with SVG graphic and home link
 - [ ] Review all pages at all breakpoints (mobile, tablet, desktop)
 - [ ] Verify all internal links work
 - [ ] Verify all external links work (euroteamoutreach.org, CloudFront PDF)
