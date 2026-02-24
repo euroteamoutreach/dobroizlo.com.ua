@@ -3,7 +3,7 @@
   command = "npm install && hugo --gc --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.155.3"
+  HUGO_VERSION = "0.156.0"
   HUGO_ENV = "production"
   NODE_VERSION = "22"
 
@@ -11,13 +11,13 @@
   command = "npm install && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
-  HUGO_VERSION = "0.155.3"
+  HUGO_VERSION = "0.156.0"
 
 [context.branch-deploy]
   command = "npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy.environment]
-  HUGO_VERSION = "0.155.3"
+  HUGO_VERSION = "0.156.0"
 
 # Security headers
 [[headers]]
