@@ -11,7 +11,7 @@ This document tracks implementation progress through phased delivery. Phases are
 | 1 | Project Scaffolding | — | Complete |
 | 2 | Image Migration & Static Assets | Phase 1 | Complete |
 | 3 | Navigation & Footer | Phase 2 | Complete |
-| 4 | Homepage | Phase 3 | Not started |
+| 4 | Homepage | Phase 3 | Complete |
 | 5 | About Page | Phase 3 | Not started |
 | 6 | Contact Form | Phase 3 | Not started |
 | 7 | Book Request Form | Phase 3 | Not started |
@@ -83,8 +83,8 @@ Build the homepage with all five content sections.
 - [x] Build Heroes section (background image, text + image, responsive)
 - [x] Build Battle section (dark background, centered text)
 - [x] Build How to Get section (book cover, steps, CTA, disclaimer)
-- [ ] Implement smooth scroll for hero CTA → `#getYourCopy` anchor
-- [ ] Test responsive behavior at all breakpoints
+- [x] Implement smooth scroll for hero CTA → `#getYourCopy` anchor
+- [x] Test responsive behavior at all breakpoints
 
 **Milestone:** Homepage matches the current site's content and layout.
 
