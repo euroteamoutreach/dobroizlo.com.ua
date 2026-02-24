@@ -199,17 +199,13 @@ Thank-you pages must have `robots: "noindex,nofollow"` and `sitemap.disable: tru
 - External PDF stays on CloudFront: `d2ppgd6w5akw3v.cloudfront.net/pdf/`
 - Analytics: deferred (placeholder partial at `layouts/partials/analytics.html`)
 
-## PRD Documentation
+## Key Files
 
-Detailed specs live in `docs/prd/`:
-
-- `00-overview.md` — goals, non-goals, development philosophy
-- `01-architecture.md` — technology decisions and rationale
-- `02-design.md` — color palette, fonts, section layout patterns
-- `03-site-structure.md` — content organization, URLs, Hugo config spec
-- `04-templates.md` — template specifications for all layouts
-- `05-deployment.md` — Netlify config, DNS, CI/CD
-- `06-risks-and-future.md` — risks and out-of-scope items
-- `ROADMAP.md` — 9-phase build plan with checklists
+| File | Purpose |
+| --- | --- |
+| `docs/prd/README.md` | PRD index — start here for any feature question |
+| `docs/prd/ROADMAP.md` | Task list with checkboxes, one PR per item |
+| `docs/prd/CHANGELOG.md` | PRD deviation log — update before merging any deviation |
+| `~/.claude/docs/label-taxonomy.md` | Work type labels, branch naming, board configuration |
 
 **Always consult the relevant PRD file before implementing a feature.**

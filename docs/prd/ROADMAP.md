@@ -1,7 +1,22 @@
-# Roadmap
+# dobroizlo.com.ua — Implementation Roadmap
 
-Build phases for the dobroizlo.com.ua Hugo rebuild. Each phase corresponds
-to a group of GitHub Issues.
+This document tracks implementation progress through phased delivery. Phases are ordered by dependency: each phase builds on the infrastructure established by previous phases.
+
+**Progress key:** `[ ]` Not started · `[~]` In progress · `[x]` Complete · `[—]` Deferred / descoped
+
+## Phase Overview
+
+| Phase | Name | Dependencies | Status |
+| --- | --- | --- | --- |
+| 1 | Project Scaffolding | — | In progress |
+| 2 | Image Migration & Static Assets | Phase 1 | Not started |
+| 3 | Navigation & Footer | Phase 2 | Not started |
+| 4 | Homepage | Phase 3 | Not started |
+| 5 | About Page | Phase 3 | Not started |
+| 6 | Contact Form | Phase 3 | Not started |
+| 7 | Book Request Form | Phase 3 | Not started |
+| 8 | 404 Page & Final Polish | Phases 4–7 | Not started |
+| 9 | Launch | Phase 8 | Not started |
 
 ---
 

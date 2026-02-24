@@ -130,15 +130,4 @@ committed to the repository.
 
 ## PRD Structure
 
-This PRD is split across multiple files for easier navigation:
-
-| File | Focus |
-|------|-------|
-| `00-overview.md` | Project goals, development approach (this file) |
-| [`01-architecture.md`](./01-architecture.md) | Architectural decisions |
-| [`02-design.md`](./02-design.md) | Design philosophy and visual identity |
-| [`03-site-structure.md`](./03-site-structure.md) | Content organization, URLs, Hugo configuration |
-| [`04-templates.md`](./04-templates.md) | Layout and template specifications |
-| [`05-deployment.md`](./05-deployment.md) | Source control, Netlify config, deployment |
-| [`06-risks-and-future.md`](./06-risks-and-future.md) | Future features, risks, out-of-scope items |
-| [`ROADMAP.md`](./ROADMAP.md) | Build phases and progress tracking |
+This PRD is split across multiple files for easier navigation. See [`README.md`](./README.md) for the full file index, conventions, and usage guide.

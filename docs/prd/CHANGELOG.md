@@ -1,21 +1,43 @@
 # PRD Changelog
 
-Log of material changes to the PRD after initial approval.
+This file tracks material deviations from the PRD discovered during implementation. It is the record of the "never silently deviate" rule.
+
+## Format
+
+Each entry records one deviation or decision:
+
+```text
+### YYYY-MM-DD — [file changed]
+
+**What changed:** One-sentence description of the change.
+
+**Why:** The rationale — what was wrong, what was discovered, or what prompted the pivot.
+
+**Category:** Correction | Discovery | Pivot
+```
+
+**Categories:**
+
+- **Correction** — The PRD was wrong or inconsistent.
+- **Discovery** — Implementation revealed something the PRD didn't anticipate.
+- **Pivot** — A deliberate decision to change direction.
+
+## Guidelines
+
+- **Newest entries first** — add new entries at the top of the Entries section.
+- Log when the PR is created, not after it's merged.
+- The "why" is required — a change without rationale is not useful.
+- Skip typo fixes and formatting corrections.
+- At natural breakpoints (end of a phase, or 10+ accumulated entries), fold changes back into the PRD files themselves during a sync session.
 
 ---
 
-## 2026-02-24: ComixDistro cross-project alignment
+## Entries
 
-**Files changed:** `06-risks-and-future.md`, `ROADMAP.md`
+### 2026-02-24 — `06-risks-and-future.md`, `ROADMAP.md`
 
-**What changed:**
+**What changed:** Expanded ComixDistro Integration section to document the planned book request form API integration (ComixDistro Phase 12), updated ComixDistro status to "deployed", added distributor portal link URL and API switchover to post-launch roadmap, cross-referenced Netlify Forms volume risk with the long-term API migration.
 
-- Expanded the ComixDistro Integration section in `06-risks-and-future.md` to document the planned book request form API integration (ComixDistro Phase 12). Added API endpoint, CORS constraints, payload format, honeypot requirement, and success message change.
-- Updated the ComixDistro status from "future" to "deployed" — the app is live at `app.dobroizlo.com.ua`.
-- Added distributor portal link detail to `ROADMAP.md` post-launch (target URL, note that it can be done in Phase 8).
-- Added post-launch item for the Netlify Forms → ComixDistro API switchover.
-- Cross-referenced the Netlify Forms volume risk with the long-term API migration path.
+**Why:** ComixDistro has progressed through deployment and into operational polish. Its PRD now specifies a public JSON API for individual book requests that will replace the Hugo site's Netlify Form. Documenting this integration now ensures the Phase 7 form design anticipates the future switchover.
 
-**Why:** ComixDistro has progressed through deployment and into operational polish (Phase 7). Its PRD now specifies a public API for individual book requests that will replace the Hugo site's Netlify Form. Documenting this planned integration now ensures the Phase 7 book request form design anticipates the future switchover.
-
-**Impact on current work:** None. All current phases (1-7) proceed as originally spec'd. The API integration is a post-launch task blocked on ComixDistro Phase 12.
+**Category:** Discovery
