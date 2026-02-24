@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <div class="mx-auto max-w-2xl px-6 py-12 text-center md:py-16 lg:px-8">
+    <h1 class="font-display text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ .Title }}</h1>
+
+    <p class="mt-6 font-body text-lg text-gray-700">
+      Euro Team Outreach — це благодійна неприбуткова організація, діяльність якої пов'язана з поширенням Євангелії Ісуса Христа. Ми не належимо до жодної церкви чи конфесії, а зосереджені на тому, щоб заохотити людей з різних країн і культур читати Біблію. Ми віримо, що Біблія — це святе Слово Боже і найвищий авторитет для нашого життя.
+    </p>
+
+    <div class="py-6 md:py-12">
+      <a href="https://euroteamoutreach.org/" target="_blank" rel="noopener noreferrer">
+        <img class="rounded shadow-md" src="/img/eto-cover-700w.jpg" alt="Euro Team Outreach">
+      </a>
+    </div>
+
+    <p class="font-body text-lg text-gray-700">
+      Щоб дізнатися більше про нашу роботу, будь ласка, завітайте на наш основний сайт (англійською мовою):&nbsp;<a href="https://euroteamoutreach.org/" target="_blank" rel="noopener noreferrer" class="text-sky-600 underline hover:text-sky-800">euroteamoutreach.org</a>
+    </p>
+
+    <hr class="my-12 border-gray-200">
+
+    <a href="{{ .Site.Params.pdfBase }}symvol-viry.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full bg-orange-600 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
+      <span>У що ми віримо</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-2 size-5">
+        <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z" />
+        <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
+      </svg>
+    </a>
+  </div>
+{{ end }}
