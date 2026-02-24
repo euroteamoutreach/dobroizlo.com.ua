@@ -104,14 +104,14 @@ Build the homepage with all five content sections.
 
 ## Phase 6: Contact Form
 
-- [ ] Create `content/kontakty/_index.md` with frontmatter
-- [ ] Create `layouts/page/contact.html` template
-- [ ] Build Netlify form (name, email, message fields)
-- [ ] Add honeypot spam prevention
-- [ ] Implement Alpine.js client-side validation
-- [ ] Create `content/kontakty/diakuiemo.md` (thank-you page)
-- [ ] Create `layouts/page/contact-thanks.html` template
-- [ ] Set `noindex` and sitemap exclusion on thank-you page
+- [x] Create `content/kontakty/_index.md` with frontmatter
+- [x] Create `layouts/page/contact.html` template
+- [x] Build Netlify form (name, email, message fields)
+- [x] Add honeypot spam prevention
+- [x] Implement Alpine.js client-side validation
+- [x] Create `content/kontakty/diakuiemo.md` (thank-you page)
+- [x] Create `layouts/page/contact-thanks.html` template
+- [x] Set `noindex` and sitemap exclusion on thank-you page
 - [ ] Test form submission on Netlify preview deploy
 - [ ] Configure email notifications in Netlify dashboard
 
