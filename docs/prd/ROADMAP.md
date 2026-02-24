@@ -9,7 +9,7 @@ This document tracks implementation progress through phased delivery. Phases are
 | Phase | Name | Dependencies | Status |
 | --- | --- | --- | --- |
 | 1 | Project Scaffolding | — | Complete |
-| 2 | Image Migration & Static Assets | Phase 1 | Not started |
+| 2 | Image Migration & Static Assets | Phase 1 | Complete |
 | 3 | Navigation & Footer | Phase 2 | Not started |
 | 4 | Homepage | Phase 3 | Not started |
 | 5 | About Page | Phase 3 | Not started |
@@ -47,11 +47,11 @@ Set up the Hugo project structure, configuration, and build pipeline.
 
 Transfer all images and static assets from the Nuxt project.
 
-- [ ] Copy all images to `static/img/`
-- [ ] Move OG image from CloudFront URL to `static/img/`
-- [ ] Copy SVG assets to `assets/img/` (for inlining)
-- [ ] Add favicon files to `static/`
-- [ ] Verify all images are accessible at expected URLs
+- [x] Copy all images to `static/img/`
+- [x] Move OG image from CloudFront URL to `static/img/`
+- [x] Copy SVG assets to `assets/img/` (for inlining)
+- [x] Add favicon files to `static/`
+- [x] Verify all images are accessible at expected URLs
 
 **Milestone:** All static assets are in place and accessible.
 
