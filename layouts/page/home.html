@@ -28,7 +28,7 @@
 
           {{/* CTA button */}}
           <div class="py-8 text-center sm:py-5">
-            <a href="#getYourCopy" class="inline-block rounded-full bg-sky-500 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-sky-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 lg:px-10 lg:py-3.5 lg:text-lg">
+            <a href="#getYourCopy" class="inline-block rounded-full bg-sky-500 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 lg:px-10 lg:py-3.5 lg:text-lg">
               Отримати книжку
             </a>
           </div>
@@ -96,6 +96,70 @@
   </section>
 
   {{/* Section 4: Battle */}}
+  <section class="bg-top bg-cover py-20 md:py-28 lg:py-40" style="background-image: url('/img/battle-horizon-1500w.jpg');">
+    <div class="mx-auto max-w-7xl px-6 text-center text-white">
+      <div class="mx-auto max-w-2xl">
+        <h2 class="mb-6 font-display text-4xl font-bold lg:mb-8 lg:text-5xl">
+          Станьте учасником битви між добром і злом
+        </h2>
+        <p class="font-body sm:text-xl">
+          Назва цієї книжки говорить сама за себе. Історія — це напружена боротьба між двома царствами: добрим і злим. Після невдалого повстання сатана та його демони ведуть безперервну війну проти Бога і всіх, хто Його любить. Дізнайтеся, як один Чоловік подолав темряву і назавжди запечатав долю тих, хто стоїть на боці добра.
+        </p>
+      </div>
+    </div>
+  </section>
 
   {{/* Section 5: How to Get */}}
+  <section class="relative pt-12 pb-16 md:pt-20 md:pb-20">
+    {{/* Scroll anchor offset for fixed header */}}
+    <div id="getYourCopy" class="absolute top-0 -mt-16"></div>
+
+    <div class="mx-auto max-w-4xl px-6">
+      <div class="flex items-start">
+        {{/* Book cover — desktop only (left side) */}}
+        <div class="hidden shrink-0 w-1/4 mr-6 sm:block md:mr-10">
+          <img src="/img/ge-cover-600h.png" alt="Добро і зло — обкладинка книги">
+        </div>
+
+        <div class="flex-1">
+          <h2 class="mb-4 text-center font-display text-4xl font-bold sm:text-left lg:mb-6 lg:text-5xl">
+            Як отримати безплатний примірник <em>Добра і зла</em>
+          </h2>
+
+          {{/* Book cover — mobile only */}}
+          <div class="mx-auto my-6 w-2/5 sm:hidden">
+            <img src="/img/ge-cover-600h.png" alt="Добро і зло — обкладинка книги">
+          </div>
+
+          <div class="font-body sm:text-left lg:text-lg">
+            <p class="mb-4">
+              Ми б хотіли, щоб кожен мав примірник цієї чудової книжки, але наш запас книжок обмежений. Якщо Ви серйозно налаштовані отримати безплатний примірник <em>Добра і зла</em>, просимо Вас спершу виконати ці прості кроки:
+            </p>
+            <ol class="mb-5 ml-10 list-decimal text-left">
+              <li class="mb-2 pl-1">Зареєструйтесь на наш безплатний онлайн-курс <em>Біблія понад усе;</em></li>
+              <li class="mb-2 pl-1">Прочитайте перший урок;</li>
+              <li class="mb-2 pl-1">Заповніть онлайн-тест і надішліть нам свої відповіді.</li>
+            </ol>
+            <p>
+              От і все! Отримавши Ваші відповіді на запитання до Уроку 1 курсу <em>Біблія понад усе</em>, ми відправимо Вам поштою* безплатний примірник <em>Добра і зла</em>.
+            </p>
+          </div>
+
+          {{/* CTA button */}}
+          <div class="mt-8 text-center sm:text-left md:mt-10">
+            <a href="/zamovyty-knyzhku/" class="inline-block rounded-full bg-orange-600 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 lg:px-10 lg:py-3.5 lg:text-lg">
+              Замовити примірник
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{/* Disclaimer */}}
+    <div class="absolute inset-x-0 bottom-0 mb-2 px-6 text-center md:text-right">
+      <p class="text-sm text-gray-500">
+        * Надсилаємо книжки тільки на адреси в межах України.
+      </p>
+    </div>
+  </section>
 {{ end }}
