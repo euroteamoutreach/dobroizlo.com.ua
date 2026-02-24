@@ -13,8 +13,8 @@ This document tracks implementation progress through phased delivery. Phases are
 | 3 | Navigation & Footer | Phase 2 | Complete |
 | 4 | Homepage | Phase 3 | Complete |
 | 5 | About Page | Phase 3 | Complete |
-| 6 | Contact Form | Phase 3 | Not started |
-| 7 | Book Request Form | Phase 3 | Not started |
+| 6 | Contact Form | Phase 3 | Complete |
+| 7 | Book Request Form | Phase 3 | Complete |
 | 8 | 404 Page & Final Polish | Phases 4–7 | Not started |
 | 9 | Launch | Phase 8 | Not started |
 
@@ -112,8 +112,8 @@ Build the homepage with all five content sections.
 - [x] Create `content/kontakty/diakuiemo.md` (thank-you page)
 - [x] Create `layouts/page/contact-thanks.html` template
 - [x] Set `noindex` and sitemap exclusion on thank-you page
-- [ ] Test form submission on Netlify preview deploy
-- [ ] Configure email notifications in Netlify dashboard
+- [x] Test form submission on Netlify preview deploy
+- [x] Configure email notifications in Netlify dashboard
 
 **Milestone:** Contact form submits successfully, thank-you page displays,
 email notifications work.
@@ -124,22 +124,22 @@ email notifications work.
 
 The most complex phase — the multi-field form with out-of-stock toggle.
 
-- [ ] Create `content/zamovyty-knyzhku/_index.md` with frontmatter
-- [ ] Create `layouts/page/book-request.html` template
-- [ ] Build the flow diagram (Fill Form → Lesson 1 → Get Book)
-- [ ] Build the full Netlify form with all fields
-- [ ] Implement oblast dropdown with all 24 oblasts
-- [ ] Implement study format radio buttons (online/paper)
-- [ ] Implement terms checkbox with consent text
-- [ ] Implement Alpine.js validation for all required fields
-- [ ] Implement out-of-stock toggle (`bookFormEnabled` parameter)
-- [ ] Build the out-of-stock notice (disabled state)
-- [ ] Create `content/zamovyty-knyzhku/diakuiemo.md` (thank-you page)
-- [ ] Create `layouts/page/book-request-thanks.html` template
-- [ ] Set `noindex` and sitemap exclusion on thank-you page
-- [ ] Test both form states (enabled and disabled)
-- [ ] Test form submission on Netlify preview deploy
-- [ ] Configure email notifications in Netlify dashboard
+- [x] Create `content/zamovyty-knyzhku/_index.md` with frontmatter
+- [x] Create `layouts/page/book-request.html` template
+- [x] Build the flow diagram (Fill Form → Lesson 1 → Get Book)
+- [x] Build the full Netlify form with all fields
+- [x] Implement oblast dropdown with all 24 oblasts
+- [x] Implement study format radio buttons (online/paper)
+- [x] Implement terms checkbox with consent text
+- [x] Implement Alpine.js validation for all required fields
+- [x] Implement out-of-stock toggle (`bookFormEnabled` parameter)
+- [x] Build the out-of-stock notice (disabled state)
+- [x] Create `content/zamovyty-knyzhku/diakuiemo.md` (thank-you page)
+- [x] Create `layouts/page/book-request-thanks.html` template
+- [x] Set `noindex` and sitemap exclusion on thank-you page
+- [x] Test both form states (enabled and disabled)
+- [x] Test form submission on Netlify preview deploy
+- [x] Configure email notifications in Netlify dashboard
 
 **Milestone:** Book request form works in both states, submissions
 received, thank-you page displays correctly.
