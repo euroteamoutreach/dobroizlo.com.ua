@@ -76,8 +76,8 @@ Build the shared layout components that appear on every page.
 
 Build the homepage with all five content sections.
 
-- [ ] Create `content/_index.md` with frontmatter
-- [ ] Create `layouts/page/home.html` template
+- [x] Create `content/_index.md` with frontmatter
+- [x] Create `layouts/page/home.html` template
 - [ ] Build Hero section (background image, book cover, title SVG, CTA)
 - [ ] Build Big Picture section (text + image, responsive layout)
 - [ ] Build Heroes section (background image, text + image, responsive)
