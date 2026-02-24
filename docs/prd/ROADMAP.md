@@ -155,7 +155,7 @@ received, thank-you page displays correctly.
 - [x] Verify sitemap.xml is correct (excludes thank-you pages)
 - [x] Verify robots.txt is correct
 - [x] Test OG images (use Facebook Sharing Debugger or similar)
-- [ ] Lighthouse audit (performance, accessibility, SEO, best practices)
+- [x] Lighthouse audit (performance, accessibility, SEO, best practices)
 - [x] Cross-browser check (Chrome, Firefox, Safari)
 
 **Milestone:** Site is complete and ready for launch review.

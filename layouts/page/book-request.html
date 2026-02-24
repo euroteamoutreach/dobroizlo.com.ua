@@ -5,7 +5,7 @@
     {{/* Out-of-stock notice */}}
     {{ if not .Site.Params.bookFormEnabled }}
       <div class="mx-auto mb-10 max-w-2xl text-center">
-        <h3 class="font-display text-2xl font-normal text-red-700">УВАГА!</h3>
+        <h2 class="font-display text-2xl font-normal text-red-700">УВАГА!</h2>
         <p class="mt-4 font-body text-xl text-gray-700">
           Наявний запас книг вичерпано, тому ми зараз не приймаємо нових замовлень. Ми сподіваємось надрукувати більше книг у майбутньому та продовжити нашу програму. Дякуємо за розуміння.
         </p>
@@ -48,7 +48,7 @@
       {{/* Step 2: Complete Lesson 1 */}}
       <div class="flex flex-col items-center">
         <div class="flex h-24 items-center justify-center md:h-28">
-          <img src="/img/bf-cover-uk-150h.png" alt="Біблія понад усе" class="h-24 w-auto md:h-28">
+          <img src="/img/bf-cover-uk-150h.png" alt="Біблія понад усе" class="h-24 w-auto md:h-28" width="66" height="150" loading="lazy">
         </div>
         <span class="mt-4 font-semibold">2. Виконайте завдання Уроку 1;</span>
       </div>
@@ -66,7 +66,7 @@
       {{/* Step 3: Get book */}}
       <div class="flex flex-col items-center">
         <div class="flex h-24 items-center justify-center md:h-28">
-          <img src="/img/ge-cover-2-150h.png" alt="Добро і зло" class="h-24 w-auto md:h-28">
+          <img src="/img/ge-cover-2-150h.png" alt="Добро і зло" class="h-24 w-auto md:h-28" width="64" height="150" loading="lazy">
         </div>
         <span class="mt-4 font-semibold">3. Отримайте <em>Добро і зло!</em></span>
       </div>
@@ -74,7 +74,7 @@
 
     {{/* Explanatory text */}}
     <div class="mb-10 text-left font-body text-gray-700 md:mb-16">
-      <h3 class="font-display text-xl font-normal text-gray-900">Про реєстрацію в курсі <em>Біблія понад усе</em></h3>
+      <h2 class="font-display text-xl font-normal text-gray-900">Про реєстрацію в курсі <em>Біблія понад усе</em></h2>
       <p class="mt-4">
         Відправивши цю форму, ви отримаєте запрошення електронною поштою створити онлайн-акаунт. Це дозволить вам прочитати свої уроки та скласти тести в електронному вигляді. Або, як альтернатива, ви можете отримувати паперові уроки звичайною поштою.
       </p>
@@ -390,7 +390,7 @@
 
         {{/* Submit */}}
         <div class="flex items-center gap-4">
-          <button type="submit" class="rounded-full bg-orange-600 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
+          <button type="submit" class="rounded-full bg-orange-700 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">
             Надіслати
           </button>
           <p x-show="submitted && hasErrors" x-cloak class="text-sm text-red-600">Будь ласка, виправте виділені поля.</p>
