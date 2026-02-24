@@ -12,7 +12,7 @@
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        action="/kontakty/diakuiemo/"
+        action="/kontakty/dyakuyemo/"
         x-data="{
           fullName: '',
           email: '',
@@ -53,7 +53,7 @@
               maxlength="100"
               placeholder="Петро Тимошенко"
               x-model="fullName"
-              :class="fullNameError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+              :class="fullNameError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
             >
           </div>
@@ -71,7 +71,7 @@
               maxlength="100"
               placeholder="petro@tymoshenko.ua"
               x-model="email"
-              :class="emailError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+              :class="emailError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
             >
           </div>
@@ -90,7 +90,7 @@
               maxlength="3000"
               placeholder="Слухаємо уважно..."
               x-model="message"
-              :class="messageError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-orange-600'"
+              :class="messageError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
             ></textarea>
           </div>
