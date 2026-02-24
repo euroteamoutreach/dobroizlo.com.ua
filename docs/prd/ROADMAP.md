@@ -12,7 +12,7 @@ This document tracks implementation progress through phased delivery. Phases are
 | 2 | Image Migration & Static Assets | Phase 1 | Complete |
 | 3 | Navigation & Footer | Phase 2 | Complete |
 | 4 | Homepage | Phase 3 | Complete |
-| 5 | About Page | Phase 3 | Not started |
+| 5 | About Page | Phase 3 | Complete |
 | 6 | Contact Form | Phase 3 | Not started |
 | 7 | Book Request Form | Phase 3 | Not started |
 | 8 | 404 Page & Final Polish | Phases 4–7 | Not started |
@@ -92,11 +92,11 @@ Build the homepage with all five content sections.
 
 ## Phase 5: About Page
 
-- [ ] Create `content/pro-nas.md` with frontmatter
-- [ ] Create `layouts/page/about.html` template
-- [ ] Add ETO description text and linked image
-- [ ] Add "What we believe" PDF download button (Heroicons download icon)
-- [ ] Style with Tailwind
+- [x] Create `content/pro-nas.md` with frontmatter
+- [x] Create `layouts/page/about.html` template
+- [x] Add ETO description text and linked image
+- [x] Add "What we believe" PDF download button (Heroicons download icon)
+- [x] Style with Tailwind
 
 **Milestone:** About page complete and matching current content.
 
