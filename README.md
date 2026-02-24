@@ -5,6 +5,8 @@ comic book, rebuilt with Hugo.
 
 **Live site:** [dobroizlo.com.ua](https://dobroizlo.com.ua)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/619abfcf-f63a-47af-adb9-51e808f43337/deploy-status)](https://app.netlify.com/projects/dobro-i-zlo/deploys)
+
 ## Tech Stack
 
 - [Hugo](https://gohugo.io/) — static site generator
