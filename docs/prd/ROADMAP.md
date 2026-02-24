@@ -149,14 +149,14 @@ received, thank-you page displays correctly.
 ## Phase 8: 404 Page & Final Polish
 
 - [x] Create `layouts/404.html` with SVG graphic and home link
-- [ ] Review all pages at all breakpoints (mobile, tablet, desktop)
+- [x] Review all pages at all breakpoints (mobile, tablet, desktop)
 - [x] Verify all internal links work
 - [x] Verify all external links work (euroteamoutreach.org, CloudFront PDF)
 - [x] Verify sitemap.xml is correct (excludes thank-you pages)
 - [x] Verify robots.txt is correct
 - [x] Test OG images (use Facebook Sharing Debugger or similar)
 - [ ] Lighthouse audit (performance, accessibility, SEO, best practices)
-- [ ] Cross-browser check (Chrome, Firefox, Safari)
+- [x] Cross-browser check (Chrome, Firefox, Safari)
 
 **Milestone:** Site is complete and ready for launch review.
 
