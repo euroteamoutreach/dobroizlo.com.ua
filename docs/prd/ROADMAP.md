@@ -171,4 +171,5 @@ received, thank-you page displays correctly.
 - [ ] Toggle `bookFormEnabled` as needed when stock changes
 - [ ] Select and implement analytics solution (coordinate with OFReport.com)
 - [ ] Consider font refresh if desired
-- [ ] Add ComixDistro distributor portal link when app is ready
+- [ ] Add distributor portal link → `https://app.dobroizlo.com.ua` (ComixDistro is deployed; can also be done in Phase 8 polish)
+- [ ] Switch book request form from Netlify Forms to ComixDistro API (blocked on ComixDistro Phase 12 — → See `06-risks-and-future.md` §"Book Request Form → ComixDistro API")
