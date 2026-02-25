@@ -25,6 +25,7 @@ This debrief covers the entire content build of dobroizlo.com.ua — from an emp
 **Where we are now:** Phase 8 is complete. Every checkbox in the ROADMAP is checked through Phase 8. Only Phase 9 (Launch) and Post-Launch items remain. The site is functionally complete and ready for your final review before DNS cutover.
 
 **Scope decisions:**
+
 - All homepage text is hardcoded in templates (as recommended in `04-templates.md` §"Content Source") rather than pulled from frontmatter or data files. This is the right call for a single-language landing page where content rarely changes.
 - Analytics remains a placeholder partial — deferred to post-launch per the PRD.
 - The ComixDistro distributor portal link and API integration are documented as post-launch items per `06-risks-and-future.md`.
@@ -58,6 +59,7 @@ Both forms (`layouts/page/contact.html` and `layouts/page/book-request.html`) us
 3. **HTML5 baseline**: `type="email"` for email fields, `maxlength` on all inputs
 
 Why this approach over alternatives:
+
 - **Not using a validation library** (like Vee-Validate or Zod): Alpine.js inline validation is perfectly sufficient for 3–12 fields. Adding a library would mean a build step for JavaScript, which this project doesn't have and doesn't need.
 - **Not doing server-only validation**: Netlify Forms provides no custom server-side validation — it accepts whatever is submitted. Client-side validation is the only validation layer we control.
 - **Validation triggers on submit, not on blur**: The `submitted` flag pattern means fields don't show errors until the user attempts to submit. This is less aggressive than on-blur validation and matches the original Nuxt site's behavior (which used Vuelidate with a similar pattern).
@@ -81,6 +83,7 @@ This was a deliberate choice: toggling a Hugo param and redeploying is simpler a
 ### CSS Pipeline
 
 `layouts/partials/css.html` uses Hugo's built-in `css.TailwindCSS` pipe. The setup:
+
 - `assets/css/main.css` imports Tailwind v4 and declares `@source` from `hugo_stats.json`
 - Hugo auto-generates `hugo_stats.json` with all CSS classes found in templates (configured via `build.buildStats` in `hugo.toml`)
 - In production: minification + fingerprinting + SRI integrity hashes
@@ -91,12 +94,14 @@ This means zero JavaScript build tools for CSS. No PostCSS config, no Vite, no w
 ### Typography
 
 Two Google Fonts loaded via `<link>` in `head.html`:
+
 - **Roboto Condensed** (`--font-display` / `font-display`): Used for all headings. Originally rendered with `font-bold`, but during the responsive review (PR #45) we switched display headings to `font-normal` because Roboto Condensed's condensed letterforms already provide visual weight — bold made them look heavy and cramped.
 - **Source Sans Pro** (`--font-body` / `font-body`): Used for body text.
 
 ### Image Strategy
 
 All images live in the repo — no external hosting, no CDN (except the existing CloudFront PDF link which is preserved). Two directories:
+
 - `static/img/` for photos, PNGs, backgrounds (served at `/img/`)
 - `assets/img/` for SVGs that need Hugo pipe inlining (the footer logo)
 
@@ -105,6 +110,7 @@ During the Lighthouse audit (PR #46), we added explicit `width` and `height` att
 ### Color Contrast Iteration
 
 The Lighthouse audit surfaced WCAG AA contrast failures. This led to a focused iteration:
+
 1. Darkened hero CTA button from `bg-sky-500` to `bg-sky-700` for contrast
 2. Improved color contrast on all interactive elements
 3. Then reverted buttons and links back to `sky-600` after realizing `sky-700` looked too dark against the site's overall palette
