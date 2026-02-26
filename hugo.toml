@@ -33,6 +33,10 @@ enableRobotsTXT = true
     name = "Контакти"
     url = "/kontakty/"
     weight = 20
+  [[menus.main]]
+    name = "Дистриб'юторам"
+    url = "/dystrybutoram/"
+    weight = 30
 
 # Build stats for Tailwind CSS
 [build]
