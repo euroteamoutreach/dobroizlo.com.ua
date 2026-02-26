@@ -36,7 +36,7 @@ dobroizlo.com.ua/
 │   │   ├── contact-thanks.html  # Contact thank-you template
 │   │   ├── book-request.html    # Book request form template
 │   │   ├── book-request-thanks.html  # Book request thank-you template
-│   │   └── distributor.html    # Distributor Network overview template
+│   │   └── distributor.html     # Distributor Network overview template
 │   ├── partials/
 │   │   ├── head.html            # <head> contents (meta, fonts, favicons)
 │   │   ├── header.html          # Site header & navigation

@@ -189,5 +189,4 @@ received, thank-you page displays correctly.
 - [ ] Create "Become a Distributor" page (`content/dystrybutoram/_index.md`) with overview of the Distributor Network drawn from `docs/distributor-network-content.md` §A (condensed for marketing audience)
 - [ ] Create `layouts/page/distributor.html` template with CTA button linking to `https://app.dobroizlo.com.ua`
 - [ ] Add navigation link to the new page (secondary nav item, footer link, or both)
-- [ ] Update `docs/prd/03-site-structure.md` with the new page in the content tree
 - [ ] Switch book request form from Netlify Forms to ComixDistro API (blocked on ComixDistro Phase 12 — → See `06-risks-and-future.md` §"Book Request Form → ComixDistro API")
