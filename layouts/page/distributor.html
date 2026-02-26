@@ -1,0 +1,100 @@
+{{ define "main" }}
+  <div class="bg-gray-50">
+  <div class="mx-auto max-w-2xl px-6 py-12 md:py-16 lg:px-8">
+
+    {{/* Page heading */}}
+    <div class="mb-10 text-center md:mb-16">
+      <h1 class="font-display text-4xl font-normal tracking-tight text-gray-900 sm:text-5xl">Мережа дистриб'юторів</h1>
+      <p class="mx-auto mt-4 max-w-lg font-body text-lg text-gray-600">Приєднуйтесь до нашої мережі та розповсюджуйте книгу «Добро і зло» у вашій громаді</p>
+    </div>
+
+    {{/* What is this? */}}
+    <div class="mb-10">
+      <h2 class="font-display text-2xl font-normal tracking-tight text-gray-900">Що це таке?</h2>
+      <p class="mt-4 font-body text-base/7 text-gray-700">Християнська місія «Біблія понад усе» (Euro Team Outreach, Inc.) безкоштовно надає книгу «Добро і зло» приватним особам та організаціям в Україні з метою розповсюдження. До участі запрошуються церкви, місіонери, школи, громадські організації та окремі особи, які мають чіткий план розповсюдження.</p>
+    </div>
+
+    {{/* How it works */}}
+    <div class="mb-10">
+      <h2 class="font-display text-2xl font-normal tracking-tight text-gray-900">Як це працює</h2>
+      <ol class="mt-4 space-y-4 font-body text-base/7 text-gray-700">
+        <li class="flex gap-x-3">
+          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-sm font-semibold text-white">1</span>
+          <span><strong class="text-gray-900">Зареєструйтесь</strong> — Створіть обліковий запис на нашій платформі для дистриб'юторів. Реєстрація безкоштовна.</span>
+        </li>
+        <li class="flex gap-x-3">
+          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-sm font-semibold text-white">2</span>
+          <span><strong class="text-gray-900">Сплануйте подію</strong> — Повідомте нам, де і як ви плануєте розповсюджувати книги — чи то на церковному служінні, вуличній євангелізації, шкільному заході чи в іншому форматі.</span>
+        </li>
+        <li class="flex gap-x-3">
+          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-sm font-semibold text-white">3</span>
+          <span><strong class="text-gray-900">Замовте книги</strong> — Вкажіть, скільки книг вам потрібно для вашого заходу. Ми надішлемо їх через Нову Пошту або Укрпошту. Ви покриваєте лише витрати на доставку.</span>
+        </li>
+        <li class="flex gap-x-3">
+          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-sm font-semibold text-white">4</span>
+          <span><strong class="text-gray-900">Розповсюджуйте</strong> — Роздайте книги на вашому заході. Усі книги повинні розповсюджуватися абсолютно безкоштовно.</span>
+        </li>
+        <li class="flex gap-x-3">
+          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-sm font-semibold text-white">5</span>
+          <span><strong class="text-gray-900">Надішліть звіт</strong> — Після заходу надішліть короткий звіт із фотографіями. Щойно ваш звіт буде подано, ви зможете планувати наступну подію та замовити нові книги.</span>
+        </li>
+      </ol>
+    </div>
+
+    {{/* Who can participate */}}
+    <div class="mb-10">
+      <h2 class="font-display text-2xl font-normal tracking-tight text-gray-900">Хто може брати участь?</h2>
+      <ul class="mt-4 space-y-2 font-body text-base/7 text-gray-700">
+        <li class="flex gap-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mt-1 size-5 shrink-0 text-sky-600">
+            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+          </svg>
+          <span>Церкви та новостворені громади</span>
+        </li>
+        <li class="flex gap-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mt-1 size-5 shrink-0 text-sky-600">
+            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+          </svg>
+          <span>Місіонери та місійні організації</span>
+        </li>
+        <li class="flex gap-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mt-1 size-5 shrink-0 text-sky-600">
+            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+          </svg>
+          <span>Школи та навчальні заклади</span>
+        </li>
+        <li class="flex gap-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mt-1 size-5 shrink-0 text-sky-600">
+            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+          </svg>
+          <span>Громадські організації та НУО</span>
+        </li>
+        <li class="flex gap-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mt-1 size-5 shrink-0 text-sky-600">
+            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+          </svg>
+          <span>Окремі особи, які займаються особистим служінням</span>
+        </li>
+      </ul>
+    </div>
+
+    {{/* Cost */}}
+    <div class="mb-10">
+      <h2 class="font-display text-2xl font-normal tracking-tight text-gray-900">Скільки це коштує?</h2>
+      <p class="mt-4 font-body text-base/7 text-gray-700">Книги надаються безкоштовно. Дистриб'ютори сплачують лише вартість доставки свого замовлення.</p>
+    </div>
+
+    {{/* CTA */}}
+    <div class="text-center">
+      <a href="https://app.dobroizlo.com.ua" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full bg-orange-700 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">
+        <span>Зареєструватися</span>
+        {{/* Heroicons: arrow-top-right-on-square (solid, 20x20) */}}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-2 size-5">
+          <path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Zm7.25-.75a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0V6.31l-5.47 5.47a.75.75 0 1 1-1.06-1.06l5.47-5.47H12.25a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+  </div>
+{{ end }}
