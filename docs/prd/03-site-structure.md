@@ -17,9 +17,11 @@ dobroizlo.com.ua/
 │   ├── kontakty/
 │   │   ├── _index.md            # Contact form page
 │   │   └── diakuiemo.md         # Contact thank-you page
-│   └── zamovyty-knyzhku/
-│       ├── _index.md            # Book request form page
-│       └── diakuiemo.md         # Book request thank-you page
+│   ├── zamovyty-knyzhku/
+│   │   ├── _index.md            # Book request form page
+│   │   └── diakuiemo.md         # Book request thank-you page
+│   └── dystrybutoram/
+│       └── _index.md            # Distributor Network overview page
 ├── docs/
 │   ├── prd/                     # PRD documents (this directory)
 │   └── tailwind_plus/           # Tailwind Plus reference snippets (see NOTICE)
@@ -33,7 +35,8 @@ dobroizlo.com.ua/
 │   │   ├── contact.html         # Contact form template
 │   │   ├── contact-thanks.html  # Contact thank-you template
 │   │   ├── book-request.html    # Book request form template
-│   │   └── book-request-thanks.html  # Book request thank-you template
+│   │   ├── book-request-thanks.html  # Book request thank-you template
+│   │   └── distributor.html     # Distributor Network overview template
 │   ├── partials/
 │   │   ├── head.html            # <head> contents (meta, fonts, favicons)
 │   │   ├── header.html          # Site header & navigation
@@ -102,6 +105,7 @@ decision that can be revisited during implementation.
 | Contact Thanks | `/kontakty/diakuiemo/` | `content/kontakty/diakuiemo.md` | `page/contact-thanks.html` | noindex |
 | Book Request | `/zamovyty-knyzhku/` | `content/zamovyty-knyzhku/_index.md` | `page/book-request.html` | Netlify form, out-of-stock toggle |
 | Book Request Thanks | `/zamovyty-knyzhku/diakuiemo/` | `content/zamovyty-knyzhku/diakuiemo.md` | `page/book-request-thanks.html` | noindex |
+| Distributor Network | `/dystrybutoram/` | `content/dystrybutoram/_index.md` | `page/distributor.html` | CTA → app.dobroizlo.com.ua |
 | 404 | N/A | N/A | `404.html` | Custom error page |
 
 ---
@@ -118,6 +122,7 @@ All existing URLs must be preserved for SEO continuity:
 | `/kontakty/diakuiemo/` | `content/kontakty/diakuiemo.md` | Nested under section |
 | `/zamovyty-knyzhku/` | `content/zamovyty-knyzhku/_index.md` | Section index |
 | `/zamovyty-knyzhku/diakuiemo/` | `content/zamovyty-knyzhku/diakuiemo.md` | Nested under section |
+| `/dystrybutoram/` | `content/dystrybutoram/_index.md` | Section index (post-launch) |
 
 Hugo's default URL generation from content file paths produces the exact URLs
 needed — no custom permalink configuration required.
