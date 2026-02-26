@@ -8,6 +8,11 @@
       <p class="mx-auto mt-4 max-w-lg font-body text-lg text-gray-600">Приєднуйтесь до нашої мережі та розповсюджуйте книгу «Добро і зло» у вашій громаді</p>
     </div>
 
+    {{/* Book cover image */}}
+    <div class="mb-10 flex justify-center md:mb-16">
+      <img src="/img/ge-cover-glow-520h.png" alt="Добро і зло" class="h-auto w-48 sm:w-56" width="329" height="520" loading="lazy">
+    </div>
+
     {{/* What is this? */}}
     <div class="mb-10">
       <h2 class="font-display text-2xl font-normal tracking-tight text-gray-900">Що це таке?</h2>
@@ -19,23 +24,51 @@
       <h2 class="font-display text-2xl font-normal tracking-tight text-gray-900">Як це працює</h2>
       <ol class="mt-4 space-y-4 font-body text-base/7 text-gray-700">
         <li class="flex gap-x-3">
-          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-sm font-semibold text-white">1</span>
+          {{/* Heroicons: user-plus (solid, 20x20) */}}
+          <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
+              <path d="M10 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM1.615 16.428a1.224 1.224 0 0 1-.569-1.175 6.002 6.002 0 0 1 11.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 0 1 7 18a9.953 9.953 0 0 1-5.385-1.572ZM16.25 5.75a.75.75 0 0 0-1.5 0v2h-2a.75.75 0 0 0 0 1.5h2v2a.75.75 0 0 0 1.5 0v-2h2a.75.75 0 0 0 0-1.5h-2v-2Z" />
+            </svg>
+          </span>
           <span><strong class="text-gray-900">Зареєструйтесь</strong> — Створіть обліковий запис на нашій платформі для дистриб'юторів. Реєстрація безкоштовна.</span>
         </li>
         <li class="flex gap-x-3">
-          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-sm font-semibold text-white">2</span>
+          {{/* Heroicons: calendar-days (solid, 20x20) */}}
+          <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
+              <path d="M5.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H6a.75.75 0 0 1-.75-.75V12ZM6 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H6ZM7.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H8a.75.75 0 0 1-.75-.75V12ZM8 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H8ZM9.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V10ZM10 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H10ZM9.25 14a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V14ZM12 9.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V10a.75.75 0 0 0-.75-.75H12ZM11.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H12a.75.75 0 0 1-.75-.75V12ZM12 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H12ZM13.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H14a.75.75 0 0 1-.75-.75V10ZM14 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H14Z" />
+              <path fill-rule="evenodd" d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z" clip-rule="evenodd" />
+            </svg>
+          </span>
           <span><strong class="text-gray-900">Сплануйте подію</strong> — Повідомте нам, де і як ви плануєте розповсюджувати книги — чи то на церковному служінні, вуличній євангелізації, шкільному заході чи в іншому форматі.</span>
         </li>
         <li class="flex gap-x-3">
-          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-sm font-semibold text-white">3</span>
+          {{/* Heroicons: truck (solid, 20x20) */}}
+          <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
+              <path d="M6.5 3c-1.051 0-2.093.04-3.125.117A1.49 1.49 0 0 0 2 4.607V10.5h9V4.606c0-.771-.59-1.43-1.375-1.489A41.568 41.568 0 0 0 6.5 3ZM2 12v2.5A1.5 1.5 0 0 0 3.5 16h.041a3 3 0 0 1 5.918 0h.791a.75.75 0 0 0 .75-.75V12H2Z" />
+              <path d="M6.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM13.25 5a.75.75 0 0 0-.75.75v8.514a3.001 3.001 0 0 1 4.893 1.44c.37-.275.61-.719.595-1.227a24.905 24.905 0 0 0-1.784-8.549A1.486 1.486 0 0 0 14.823 5H13.25ZM14.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />
+            </svg>
+          </span>
           <span><strong class="text-gray-900">Замовте книги</strong> — Вкажіть, скільки книг вам потрібно для вашого заходу. Ми надішлемо їх через Нову Пошту або Укрпошту. Ви покриваєте лише витрати на доставку.</span>
         </li>
         <li class="flex gap-x-3">
-          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-sm font-semibold text-white">4</span>
+          {{/* Heroicons: gift (solid, 20x20) */}}
+          <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
+              <path fill-rule="evenodd" d="M14 6.005a2.5 2.5 0 0 0-4-3 2.5 2.5 0 0 0-4 3H3.25c-.69 0-1.25.56-1.25 1.25v.5c0 .69.56 1.25 1.25 1.25h6v-3h1.5v3h6c.69 0 1.25-.56 1.25-1.25v-.5c0-.69-.56-1.25-1.25-1.25H14Zm-1-1.5a1 1 0 0 1-1 1h-1v-1a1 1 0 1 1 2 0Zm-6 0a1 1 0 0 0 1 1h1v-1a1 1 0 1 0-2 0Z" clip-rule="evenodd" />
+              <path d="M9.25 10.505H3v4.75a2.75 2.75 0 0 0 2.75 2.75h3.5v-7.5ZM10.75 18.005v-7.5H17v4.75a2.75 2.75 0 0 1-2.75 2.75h-3.5Z" />
+            </svg>
+          </span>
           <span><strong class="text-gray-900">Розповсюджуйте</strong> — Роздайте книги на вашому заході. Усі книги повинні розповсюджуватися абсолютно безкоштовно.</span>
         </li>
         <li class="flex gap-x-3">
-          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-sky-600 text-sm font-semibold text-white">5</span>
+          {{/* Heroicons: camera (solid, 20x20) */}}
+          <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-sky-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
+              <path fill-rule="evenodd" d="M1 8a2 2 0 0 1 2-2h.93a2 2 0 0 0 1.664-.89l.812-1.22A2 2 0 0 1 8.07 3h3.86a2 2 0 0 1 1.664.89l.812 1.22A2 2 0 0 0 16.07 6H17a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8Zm13.5 3a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM10 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
+            </svg>
+          </span>
           <span><strong class="text-gray-900">Надішліть звіт</strong> — Після заходу надішліть короткий звіт із фотографіями. Щойно ваш звіт буде подано, ви зможете планувати наступну подію та замовити нові книги.</span>
         </li>
       </ol>
@@ -46,6 +79,7 @@
       <h2 class="font-display text-2xl font-normal tracking-tight text-gray-900">Хто може брати участь?</h2>
       <ul class="mt-4 space-y-2 font-body text-base/7 text-gray-700">
         <li class="flex gap-x-2">
+          {{/* Heroicons: check (solid, 20x20) */}}
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mt-1 size-5 shrink-0 text-sky-600">
             <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
           </svg>
