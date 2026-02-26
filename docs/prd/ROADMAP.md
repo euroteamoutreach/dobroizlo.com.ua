@@ -16,7 +16,7 @@ This document tracks implementation progress through phased delivery. Phases are
 | 6 | Contact Form | Phase 3 | Complete |
 | 7 | Book Request Form | Phase 3 | Complete |
 | 8 | 404 Page & Final Polish | Phases 4–7 | Complete |
-| 9 | Distributor Network Page | Phase 3 | Not started |
+| 9 | Distributor Network Page | Phase 3 | Complete |
 | 10 | Launch | Phases 8–9 | Not started |
 
 ---
@@ -167,9 +167,9 @@ received, thank-you page displays correctly.
 
 Build the "Become a Distributor" marketing page for the Distributor Network.
 
-- [ ] Create `content/dystrybutoram/_index.md` with overview of the Distributor Network drawn from `docs/distributor-network-content.md` §A (condensed for marketing audience)
-- [ ] Create `layouts/page/distributor.html` template with CTA button linking to `https://app.dobroizlo.com.ua`
-- [ ] Add navigation link to the new page (secondary nav item, footer link, or both)
+- [x] Create `content/dystrybutoram/_index.md` with overview of the Distributor Network drawn from `docs/distributor-network-content.md` §A (condensed for marketing audience)
+- [x] Create `layouts/page/distributor.html` template with CTA button linking to `https://app.dobroizlo.com.ua`
+- [x] Add navigation link to the new page (secondary nav item, footer link, or both)
 
 **Milestone:** Distributor Network page is live and linked from site navigation.
 
