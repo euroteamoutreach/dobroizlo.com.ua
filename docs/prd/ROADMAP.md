@@ -15,7 +15,7 @@ This document tracks implementation progress through phased delivery. Phases are
 | 5 | About Page | Phase 3 | Complete |
 | 6 | Contact Form | Phase 3 | Complete |
 | 7 | Book Request Form | Phase 3 | Complete |
-| 8 | 404 Page & Final Polish | Phases 4–7 | Not started |
+| 8 | 404 Page & Final Polish | Phases 4–7 | Complete |
 | 9 | Launch | Phase 8 | Not started |
 
 ---
