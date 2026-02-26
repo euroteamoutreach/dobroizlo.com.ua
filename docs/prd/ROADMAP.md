@@ -16,7 +16,8 @@ This document tracks implementation progress through phased delivery. Phases are
 | 6 | Contact Form | Phase 3 | Complete |
 | 7 | Book Request Form | Phase 3 | Complete |
 | 8 | 404 Page & Final Polish | Phases 4–7 | Complete |
-| 9 | Launch | Phase 8 | Not started |
+| 9 | Distributor Network Page | Phase 3 | Not started |
+| 10 | Launch | Phases 8–9 | Not started |
 
 ---
 
@@ -162,7 +163,19 @@ received, thank-you page displays correctly.
 
 ---
 
-## Phase 9: Launch
+## Phase 9: Distributor Network Page
+
+Build the "Become a Distributor" marketing page for the Distributor Network.
+
+- [ ] Create `content/dystrybutoram/_index.md` with overview of the Distributor Network drawn from `docs/distributor-network-content.md` §A (condensed for marketing audience)
+- [ ] Create `layouts/page/distributor.html` template with CTA button linking to `https://app.dobroizlo.com.ua`
+- [ ] Add navigation link to the new page (secondary nav item, footer link, or both)
+
+**Milestone:** Distributor Network page is live and linked from site navigation.
+
+---
+
+## Phase 10: Launch
 
 - [ ] Final review with developer (Joshua)
 - [ ] Lower DNS TTL on dobroizlo.com.ua (if possible, 24-48 hours before)
@@ -186,7 +199,4 @@ received, thank-you page displays correctly.
 - [ ] Toggle `bookFormEnabled` as needed when stock changes
 - [ ] Select and implement analytics solution (coordinate with OFReport.com)
 - [ ] Consider font refresh if desired
-- [ ] Create "Become a Distributor" page (`content/dystrybutoram/_index.md`) with overview of the Distributor Network drawn from `docs/distributor-network-content.md` §A (condensed for marketing audience)
-- [ ] Create `layouts/page/distributor.html` template with CTA button linking to `https://app.dobroizlo.com.ua`
-- [ ] Add navigation link to the new page (secondary nav item, footer link, or both)
 - [ ] Switch book request form from Netlify Forms to ComixDistro API (blocked on ComixDistro Phase 12 — → See `06-risks-and-future.md` §"Book Request Form → ComixDistro API")
