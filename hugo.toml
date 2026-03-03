@@ -23,6 +23,9 @@ enableRobotsTXT = true
   # Book request form toggle
   bookFormEnabled = true # Set to false when out of stock
 
+  # Cloudinary cloud name for image hosting
+  cloudinaryCloudName = "euro-team-outreach"
+
   # ComixDistro API endpoint for book request form submissions
   bookRequestApiUrl = "https://app.dobroizlo.com.ua/api/v1/book_requests"
 
