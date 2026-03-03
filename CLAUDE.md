@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the Hugo rebuild of [dobroizlo.com.ua](https://dobroizlo.com.ua), a
 Ukrainian-language marketing site for the *Good and Evil* (Добро і зло) Bible
-comic book. It's a compact 5-page site (plus 2 thank-you pages and a 404) with
+comic book. It's a compact 5-page site (plus a 404) with
 no blog, no CMS, and no multilingual support.
 
 **Tech stack:** Hugo + Tailwind CSS v4 + Alpine.js + Netlify Forms + Netlify hosting
@@ -130,9 +130,7 @@ frontmatter to select their template (Hugo's `layout` field is a template
 | Homepage | `content/_index.md` | `page/home.html` |
 | About | `content/pro-nas.md` | `page/about.html` |
 | Contact | `content/kontakty/_index.md` | `page/contact.html` |
-| Contact Thanks | `content/kontakty/diakuiemo.md` | `page/contact-thanks.html` |
 | Book Request | `content/zamovyty-knyzhku/_index.md` | `page/book-request.html` |
-| Book Request Thanks | `content/zamovyty-knyzhku/diakuiemo.md` | `page/book-request-thanks.html` |
 | 404 | N/A | `404.html` |
 
 ### CSS Pipeline
@@ -156,8 +154,8 @@ Alpine.js v3 loaded from jsDelivr CDN — no build step. Used for:
 
 Netlify Forms with `data-netlify="true"` and honeypot spam prevention. Two forms:
 
-- Contact form (3 fields) → success page at `/kontakty/diakuiemo/`
-- Book request form (12+ fields) → success page at `/zamovyty-knyzhku/diakuiemo/`
+- Contact form (3 fields) → inline success message via AJAX
+- Book request form (12+ fields) → inline success message via AJAX
 
 Client-side validation uses Alpine.js paired with HTML5 `required` attributes
 as a baseline.
@@ -187,10 +185,8 @@ No external image hosting — all images are local to the project.
 All URLs must match the existing Nuxt site for SEO continuity:
 
 - `/pro-nas/`
-- `/kontakty/` and `/kontakty/diakuiemo/`
-- `/zamovyty-knyzhku/` and `/zamovyty-knyzhku/diakuiemo/`
-
-Thank-you pages must have `robots: "noindex,nofollow"` and `sitemap.disable: true`.
+- `/kontakty/`
+- `/zamovyty-knyzhku/`
 
 ## Key Configuration
 

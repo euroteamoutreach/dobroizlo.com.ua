@@ -1,6 +1,20 @@
 {{ define "main" }}
   <div class="bg-gray-50">
-  <div class="mx-auto max-w-2xl px-6 py-12 md:py-16 lg:px-8">
+  <div class="mx-auto max-w-2xl px-6 py-12 md:py-16 lg:px-8" x-data="contactForm()">
+
+    {{/* Inline success message — replaces entire page content */}}
+    <template x-if="success">
+      <div class="flex flex-col items-center justify-center text-center sm:py-12 md:py-24">
+        <h2 class="font-display text-4xl font-normal tracking-tight text-gray-900 sm:text-5xl">Дякуємо!</h2>
+        <p class="mt-4 font-body text-lg text-gray-700">Ваше повідомлення надіслано. Ми відповімо незабаром!</p>
+        <a href="/" class="mt-10 inline-block rounded-full bg-sky-500 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
+          На головну
+        </a>
+      </div>
+    </template>
+
+    <div x-show="!success">
+
     <div class="mb-10 text-center md:mb-16">
       <h1 class="font-display text-4xl font-normal tracking-tight text-gray-900 sm:text-5xl">Зв'яжіться з нами</h1>
       <p class="mx-auto mt-4 max-w-lg font-body text-lg text-gray-600">Маєте запитання? Напишіть нам повідомлення! Ми постараємось відповісти якнайшвидше.</p>
@@ -12,28 +26,7 @@
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        action="/kontakty/dyakuyemo/"
-        x-data="{
-          fullName: '',
-          email: '',
-          message: '',
-          submitted: false,
-          get fullNameError() { return this.submitted && this.fullName.trim() === '' },
-          get emailError() { return this.submitted && !this.emailValid },
-          get emailValid() {
-            if (this.email.trim() === '') return false;
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email.trim());
-          },
-          get emailEmpty() { return this.submitted && this.email.trim() === '' },
-          get emailFormatError() { return this.submitted && this.email.trim() !== '' && !this.emailValid },
-          get messageError() { return this.submitted && this.message.trim() === '' },
-          get hasErrors() { return this.fullNameError || this.emailError || this.messageError },
-          validate(e) {
-            this.submitted = true;
-            if (this.hasErrors) { e.preventDefault(); }
-          }
-        }"
-        @submit="validate($event)"
+        @submit.prevent="submitForm()"
         class="rounded-lg bg-white p-6 shadow-md"
       >
         {{/* Honeypot field — hidden from real users */}}
@@ -100,13 +93,45 @@
 
         {{/* Submit */}}
         <div class="flex items-center gap-4">
-          <button type="submit" class="rounded-full bg-orange-700 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">
-            Надіслати
+          <button
+            type="submit"
+            :disabled="submitting"
+            :class="submitting ? 'bg-orange-400 cursor-not-allowed' : 'bg-orange-700 hover:bg-orange-800'"
+            class="inline-flex items-center gap-2 rounded-full px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700"
+          >
+            <svg x-show="submitting" x-cloak class="size-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span x-text="submitting ? 'Надсилання...' : 'Надіслати'"></span>
           </button>
           <p x-show="submitted && hasErrors" x-cloak class="text-sm text-red-600">Будь ласка, виправте виділені поля.</p>
         </div>
+
+        {{/* Network error */}}
+        <div x-show="networkError" x-cloak class="mt-4 rounded-md bg-red-50 p-4">
+          <p class="text-sm text-red-700" x-text="networkError"></p>
+        </div>
       </form>
     </div>
+
+    </div> {{/* close x-show="!success" wrapper */}}
+
   </div>
   </div>
+{{ end }}
+
+{{ define "page-js" }}
+  {{ with resources.Get "js/contact.js" }}
+    {{ $opts := dict "minify" (not hugo.IsDevelopment) "target" "es2020" }}
+    {{ with . | js.Build $opts }}
+      {{ if hugo.IsDevelopment }}
+        <script defer src="{{ .RelPermalink }}"></script>
+      {{ else }}
+        {{ with . | fingerprint }}
+          <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
 {{ end }}
