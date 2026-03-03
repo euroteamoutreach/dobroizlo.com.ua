@@ -1,6 +1,31 @@
 {{ define "main" }}
   <div class="bg-gray-50">
-  <div class="mx-auto max-w-2xl px-6 py-12 md:py-16 lg:px-8">
+  <div class="mx-auto max-w-2xl px-6 py-12 md:py-16 lg:px-8" {{ if .Site.Params.bookFormEnabled }}x-data="bookRequestForm({{ .Site.Params.bookRequestApiUrl | jsonify }})"{{ end }}>
+
+    {{/* Inline success message — replaces entire page content */}}
+    {{ if .Site.Params.bookFormEnabled }}
+    <template x-if="success">
+      <div class="flex flex-col items-center justify-center text-center sm:py-12">
+        <h2 class="font-display text-4xl font-normal tracking-tight text-gray-900 sm:text-5xl">Дякуємо!</h2>
+        <div class="mt-6 w-full text-left font-body text-gray-700">
+          <p>
+            Заявку подано. Якщо ви обрали онлайн-навчання, тоді незабаром ви отримаєте підтвердження електронною поштою, що містить посилання для активації онлайн-акаунта. Цей електронний лист надійде від <strong>noreply@biblefirstonline.com</strong>. Ми рекомендуємо додати цю адресу до свого списку контактів. Це допоможе запобігти його перенаправлення до вашої спам-папки. Будь ласка, зачекайте до 48 годин, щоб отримати підтвердження електронною поштою.
+          </p>
+          <p class="mt-4">
+            Якщо ви обрали паперові уроки, тоді перший урок скоро буде надіслано на вашу поштову адресу.
+          </p>
+          <p class="mt-4">
+            Якщо у вас є якісь питання або вам потрібна допомога, <a href="/kontakty/" class="text-sky-600 underline hover:text-sky-800">зв'яжіться з нами!</a>
+          </p>
+        </div>
+        <a href="/" class="mt-10 inline-block rounded-full bg-sky-500 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
+          На головну
+        </a>
+      </div>
+    </template>
+    {{ end }}
+
+    <div {{ if .Site.Params.bookFormEnabled }}x-show="!success"{{ end }}>
 
     {{/* Out-of-stock notice */}}
     {{ if not .Site.Params.bookFormEnabled }}
@@ -83,34 +108,8 @@
       </p>
     </div>
 
-    {{/* Form + Success wrapper — Alpine state lives here so both share it */}}
     {{ if .Site.Params.bookFormEnabled }}
-    <div class="mx-auto w-full max-w-2xl" x-data="bookRequestForm({{ .Site.Params.bookRequestApiUrl | jsonify }})">
-
-      {{/* Inline success message */}}
-      <template x-if="success">
-        <div class="flex flex-col items-center justify-center text-center sm:py-12">
-          <h2 class="font-display text-4xl font-normal tracking-tight text-gray-900 sm:text-5xl">Дякуємо!</h2>
-          <div class="mt-6 w-full text-left font-body text-gray-700">
-            <p>
-              Заявку подано. Якщо ви обрали онлайн-навчання, тоді незабаром ви отримаєте підтвердження електронною поштою, що містить посилання для активації онлайн-акаунта. Цей електронний лист надійде від <strong>noreply@biblefirstonline.com</strong>. Ми рекомендуємо додати цю адресу до свого списку контактів. Це допоможе запобігти його перенаправлення до вашої спам-папки. Будь ласка, зачекайте до 48 годин, щоб отримати підтвердження електронною поштою.
-            </p>
-            <p class="mt-4">
-              Якщо ви обрали паперові уроки, тоді перший урок скоро буде надіслано на вашу поштову адресу.
-            </p>
-            <p class="mt-4">
-              Якщо у вас є якісь питання або вам потрібна допомога, <a href="/kontakty/" class="text-sky-600 underline hover:text-sky-800">зв'яжіться з нами!</a>
-            </p>
-          </div>
-          <a href="/" class="mt-10 inline-block rounded-full bg-sky-500 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
-            На головну
-          </a>
-        </div>
-      </template>
-
-      {{/* Form — hidden when success */}}
       <form
-        x-show="!success"
         @submit.prevent="submitForm()"
         class="rounded-lg bg-white p-6 shadow-md"
       >
@@ -430,7 +429,6 @@
           <p class="text-sm text-red-700" x-text="networkError"></p>
         </div>
       </form>
-    </div>
 
     <script>
       function bookRequestForm(apiUrl) {
@@ -551,6 +549,8 @@
       }
     </script>
     {{ end }}
+
+    </div> {{/* close x-show="!success" wrapper */}}
 
   </div>
   </div>
