@@ -1,0 +1,15 @@
+{{- $cloud := site.Params.cloudinaryCloudName -}}
+{{- $publicId := .publicId -}}
+{{- $transforms := .transforms | default "f_auto,q_auto" -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $width := .width | default "" -}}
+{{- $height := .height | default "" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $url := printf "https://res.cloudinary.com/%s/image/upload/%s/%s" $cloud $transforms $publicId -}}
+<img src="{{ $url }}"
+  {{- with $alt }} alt="{{ . }}"{{ end -}}
+  {{- with $class }} class="{{ . }}"{{ end -}}
+  {{- with $width }} width="{{ . }}"{{ end -}}
+  {{- with $height }} height="{{ . }}"{{ end -}}
+  {{- " " -}}loading="{{ $loading }}">
