@@ -1,4 +1,4 @@
-function bookRequestForm() {
+window.bookRequestForm = function () {
   return {
     // Field models
     lastName: "",
@@ -153,4 +153,4 @@ function bookRequestForm() {
       }
     },
   };
-}
+};
