@@ -15,11 +15,9 @@ dobroizlo.com.ua/
 │   ├── _index.md                # Homepage
 │   ├── pro-nas.md               # About page
 │   ├── kontakty/
-│   │   ├── _index.md            # Contact form page
-│   │   └── diakuiemo.md         # Contact thank-you page
+│   │   └── _index.md            # Contact form page
 │   ├── zamovyty-knyzhku/
-│   │   ├── _index.md            # Book request form page
-│   │   └── diakuiemo.md         # Book request thank-you page
+│   │   └── _index.md            # Book request form page
 │   └── dystrybutoram/
 │       └── _index.md            # Distributor Network overview page
 ├── docs/
@@ -33,9 +31,7 @@ dobroizlo.com.ua/
 │   │   ├── home.html            # Homepage template
 │   │   ├── about.html           # About page template
 │   │   ├── contact.html         # Contact form template
-│   │   ├── contact-thanks.html  # Contact thank-you template
 │   │   ├── book-request.html    # Book request form template
-│   │   ├── book-request-thanks.html  # Book request thank-you template
 │   │   └── distributor.html     # Distributor Network overview template
 │   ├── partials/
 │   │   ├── head.html            # <head> contents (meta, fonts, favicons)
@@ -43,6 +39,7 @@ dobroizlo.com.ua/
 │   │   ├── footer.html          # Site footer
 │   │   ├── css.html             # Tailwind CSS processing
 │   │   ├── seo.html             # OG tags, Twitter cards, robots
+│   │   ├── cloudinary-img.html  # Cloudinary image helper
 │   │   └── analytics.html       # Analytics script (swappable)
 │   └── 404.html                 # Custom 404 page
 ├── static/
@@ -101,10 +98,8 @@ decision that can be revisited during implementation.
 |------|-----|-------------|--------|-------|
 | Homepage | `/` | `content/_index.md` | `page/home.html` | Hero, content sections, CTA |
 | About | `/pro-nas/` | `content/pro-nas.md` | `page/about.html` | ETO info, PDF link |
-| Contact | `/kontakty/` | `content/kontakty/_index.md` | `page/contact.html` | Netlify form |
-| Contact Thanks | `/kontakty/diakuiemo/` | `content/kontakty/diakuiemo.md` | `page/contact-thanks.html` | noindex |
-| Book Request | `/zamovyty-knyzhku/` | `content/zamovyty-knyzhku/_index.md` | `page/book-request.html` | Netlify form, out-of-stock toggle |
-| Book Request Thanks | `/zamovyty-knyzhku/diakuiemo/` | `content/zamovyty-knyzhku/diakuiemo.md` | `page/book-request-thanks.html` | noindex |
+| Contact | `/kontakty/` | `content/kontakty/_index.md` | `page/contact.html` | Netlify Forms (AJAX), inline success |
+| Book Request | `/zamovyty-knyzhku/` | `content/zamovyty-knyzhku/_index.md` | `page/book-request.html` | ComixDistro API, out-of-stock toggle, inline success |
 | Distributor Network | `/dystrybutoram/` | `content/dystrybutoram/_index.md` | `page/distributor.html` | CTA → app.dobroizlo.com.ua |
 | 404 | N/A | N/A | `404.html` | Custom error page |
 
@@ -119,10 +114,8 @@ All existing URLs must be preserved for SEO continuity:
 | `/` | `content/_index.md` | Homepage |
 | `/pro-nas/` | `content/pro-nas.md` | Hugo generates `/pro-nas/` from filename |
 | `/kontakty/` | `content/kontakty/_index.md` | Section index |
-| `/kontakty/diakuiemo/` | `content/kontakty/diakuiemo.md` | Nested under section |
 | `/zamovyty-knyzhku/` | `content/zamovyty-knyzhku/_index.md` | Section index |
-| `/zamovyty-knyzhku/diakuiemo/` | `content/zamovyty-knyzhku/diakuiemo.md` | Nested under section |
-| `/dystrybutoram/` | `content/dystrybutoram/_index.md` | Section index (post-launch) |
+| `/dystrybutoram/` | `content/dystrybutoram/_index.md` | Section index (new, not on Nuxt site) |
 
 Hugo's default URL generation from content file paths produces the exact URLs
 needed — no custom permalink configuration required.
@@ -162,18 +155,19 @@ layout: "about"
 ---
 ```
 
-**Thank-you pages:**
+**Distributor Network page (`content/dystrybutoram/_index.md`):**
 
 ```yaml
 ---
-title: "Дякуємо!"
+title: "Дистриб'юторам"
+description: >-
+  Станьте частиною мережі розповсюдження Біблії-коміксу Добро і зло.
 type: "page"
-layout: "contact-thanks"
-robots: "noindex,nofollow"
-sitemap:
-  disable: true
+layout: "distributor"
 ---
 ```
+
+**Note:** Thank-you pages previously existed at `/kontakty/diakuiemo/` and `/zamovyty-knyzhku/diakuiemo/` but have been replaced by inline success messages. No separate content files or templates exist for post-submission pages.
 
 ---
 
@@ -204,6 +198,12 @@ title = "Добро і зло — Біблія-комікс"
   # Book request form toggle
   bookFormEnabled = true  # Set to false when out of stock
 
+  # Cloudinary cloud name for image hosting
+  cloudinaryCloudName = "euro-team-outreach"
+
+  # ComixDistro API endpoint for book request form submissions
+  bookRequestApiUrl = "https://app.dobroizlo.com.ua/api/v1/book_requests"
+
 # Navigation menus
 [menus]
   [[menus.main]]
@@ -214,6 +214,10 @@ title = "Добро і зло — Біблія-комікс"
     name = "Контакти"
     url = "/kontakty/"
     weight = 20
+  [[menus.main]]
+    name = "Дистриб'юторам"
+    url = "/dystrybutoram/"
+    weight = 30
 
 # Build stats for Tailwind CSS
 [build]
@@ -247,6 +251,8 @@ title = "Добро і зло — Біблія-комікс"
   taxonomy generation (no tags, categories, etc.)
 - **`bookFormEnabled`** — the out-of-stock toggle, documented in
   [`01-architecture.md`](./01-architecture.md)
-- **Navigation** — only 2 menu items (Про нас, Контакти). The homepage
-  is reached via the logo/site name.
+- **`cloudinaryCloudName`** — Cloudinary cloud name for the image helper partial
+- **`bookRequestApiUrl`** — ComixDistro API endpoint for book request submissions
+- **Navigation** — 3 menu items (Про нас, Контакти, Дистриб'юторам). The
+  homepage is reached via the logo/site name.
 - **`titleBase`** — used in templates for the title tag suffix pattern

@@ -86,27 +86,29 @@ framework.
 
 ---
 
-## Image Strategy: Local Files
+## Image Strategy: Local Files + Cloudinary
 
-**Decision:** Store all images locally in the Hugo project. No Cloudinary
-or external image hosting.
+**Decision:** Structural assets (SVGs, backgrounds, OG image) are stored
+locally. Photographic images are served via Cloudinary CDN for automatic
+format negotiation and responsive sizing.
 
 **Rationale:**
 
 - The site has a small, fixed set of structural images (book covers,
-  illustrations, background images, logos)
-- No user-generated or dynamic image content
-- No need for on-the-fly transformations
-- Keeping everything in the repo simplifies deployment and eliminates
-  external dependencies
-- Total image payload is minimal for a site this size
+  illustrations, background images, logos) that work well as local files
+- Photographic images benefit from Cloudinary's automatic WebP/AVIF
+  conversion, responsive sizing, and CDN delivery
+- A Hugo partial (`layouts/partials/cloudinary-img.html`) abstracts
+  Cloudinary URL construction; the cloud name is configured via
+  `cloudinaryCloudName` in `hugo.toml`
 
 **Implementation:**
 
-- Images in `static/img/` for direct URL references (backgrounds, OG image)
-- SVG assets in `assets/img/` if they need to be inlined via Hugo pipes
-- CSS background images reference files in `static/img/`
-- The OG image (currently on CloudFront) will be moved into `static/img/`
+- `static/img/` — backgrounds, OG image, and assets referenced by direct URL
+- `assets/img/` — SVGs that need inlining via Hugo pipes
+- Cloudinary — photographic images via `cloudinary-img.html` partial
+  (accepts `publicId`, `transforms`, `alt`, `class`, `width`, `height`,
+  `loading` parameters)
 
 **Image inventory from current site:**
 
@@ -166,14 +168,15 @@ OFReport.com.
 - Honeypot field (`_gotcha`) for spam prevention
 - Client-side validation via Vuelidate
 
-**New implementation (Netlify Forms):**
+**New implementation (Netlify Forms + AJAX):**
 
-- Standard HTML `<form>` with `data-netlify="true"` attribute
+- HTML `<form>` with `data-netlify="true"` attribute
 - Netlify honeypot field: `netlify-honeypot="bot-field"`
-- Custom success page at `/kontakty/diakuiemo/`
+- AJAX submission via `fetch()` in `assets/js/contact.js`
+- On success: inline "Дякуємо!" message replaces the form (no redirect)
 - Fields: Full Name (required), Email (required), Message (required)
-- No JavaScript required for form submission
-- Netlify free tier: 100 submissions/month — more than sufficient
+- Netlify free tier: 100 submissions/month — more than sufficient (only
+  the contact form uses Netlify Forms now)
 
 **Email notifications:** Netlify Forms supports email notifications to
 multiple addresses, configured in the Netlify dashboard. This replaces the
@@ -181,18 +184,14 @@ Formspree CC field approach.
 
 ---
 
-## Book Request Form: Netlify Forms
+## Book Request Form: ComixDistro API
 
-**Decision:** Replace Formspree with Netlify Forms for the book request
-form as well.
+**Decision:** Submit book requests to the ComixDistro Rails API instead of
+Netlify Forms. This centralizes request data in the ComixDistro app where it
+can be managed alongside distributor workflows.
 
-**Current form (Formspree):**
-
-- Posts to `formspree.io/f/xpzkzzgp`
-- CC emails to nathan@ and tetiana@ (set via JS)
-- Extensive field set (see below)
-- Honeypot field + Vuelidate validation
-- `formDisabled` flag to show "out of stock" state
+**API endpoint:** `POST /api/v1/book_requests` on the ComixDistro app
+(configurable via `bookRequestApiUrl` in `hugo.toml`).
 
 **Form fields:**
 
@@ -200,24 +199,32 @@ form as well.
 |-------|------|----------|-------|
 | Last Name (Прізвище) | text | Yes | |
 | First Name (Ім'я) | text | Yes | |
-| Email (Електронна скринька) | email | Yes | |
+| Email (Електронна скринька) | email | At least one of email/phone | |
+| Phone (Телефон) | text | At least one of email/phone | |
 | Address (Адреса) | text | Yes | |
 | Region (Район) | text | No | |
 | City (Місто) | text | Yes | |
 | Oblast (Область) | select | Yes | 24 Ukrainian oblasts |
 | Postal Code (Індекс) | text | Yes | |
-| Phone (Телефон) | text | No | |
+| Nova Poshta Depot (Відділення Нової Пошти) | text | No | |
 | Study Format | radio | — | Online (default) or Paper |
 | Referral Source | textarea | No | |
 | Comments | textarea | No | |
 | Terms Checkbox | checkbox | Yes | Consent to Bible First enrollment |
 
-**New implementation:**
+**Implementation:**
 
-- Netlify Forms with `data-netlify="true"`
-- Custom success page at `/zamovyty-knyzhku/diakuiemo/`
-- Honeypot spam prevention
+- Alpine.js `fetch()` in `assets/js/book-request.js`
+- JSON payload with `book_request` wrapper object
+- Hidden `website_url` honeypot field (offscreen-positioned, silently
+  discarded server-side)
+- Server-side rate limiting at 5 requests/hour per IP (Rack::Attack)
+- `201 Created` → inline success message replaces the form
+- `422 Unprocessable Entity` → field-level validation errors displayed inline
 - Out of Stock toggle via Hugo site parameter (see below)
+
+→ See `06-risks-and-future.md` §"Book Request Form → ComixDistro API" for
+CORS, spam protection, and API details.
 
 ---
 
@@ -241,7 +248,7 @@ form as well.
 **Implementation pattern:**
 
 ```html
-<form x-data="contactForm()" @submit.prevent="submitForm" data-netlify="true">
+<form x-data="contactForm()" @submit.prevent="submitForm">
   <div :class="{ 'invalid': errors.fullName }">
     <label for="fullName">Ім'я та прізвище</label>
     <input name="fullName" x-model="fullName" required maxlength="100">
@@ -351,15 +358,8 @@ which is deprecated. This will not be carried over.
 **Implementation:**
 
 - Hugo auto-generates `sitemap.xml` with no custom template needed
-- Thank-you pages should be excluded from the sitemap via frontmatter:
-
-  ```yaml
-  sitemap:
-    disable: true
-  ```
-
-- The current site excludes `/kontakty/diakuiemo/` and
-  `/zamovyty-knyzhku/diakuiemo/` — same exclusions apply
+- All public pages are included; no exclusions are needed (the former
+  thank-you pages have been removed in favor of inline success messages)
 
 ---
 
@@ -370,10 +370,10 @@ which is deprecated. This will not be carried over.
 | Static site generator | Hugo |
 | CSS framework | Tailwind CSS v4 via `css.TailwindCSS` |
 | JavaScript | Alpine.js (CDN) |
-| Form handling | Netlify Forms |
+| Form handling | Contact: Netlify Forms (AJAX); Book request: ComixDistro API |
 | Form validation | Alpine.js + HTML5 attributes |
 | Icons | Heroicons (inline SVGs) |
-| Images | Local files in `static/img/` and `assets/img/` |
+| Images | Local files + Cloudinary CDN (photographic images) |
 | Fonts | Google Fonts: Roboto Condensed + Source Sans Pro |
 | Analytics | Deferred (privacy-friendly, free) |
 | Hosting | Netlify |

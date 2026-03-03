@@ -18,22 +18,19 @@ DNS is managed in AWS Route 53 (Namecheap is registrar only).
 `app.dobroizlo.com.ua`. The two properties are independent at the DNS level.
 The Hugo rebuild does not depend on ComixDistro for any current phase.
 
-### Distributor Portal Link
+### Distributor Portal Link (Complete)
 
-Now that ComixDistro is live, the Hugo site SHOULD include a "Для
-дистриб'юторів" link (footer or nav) pointing to
-`https://app.dobroizlo.com.ua`. This is a minor template change — see
-Post-Launch in `ROADMAP.md`. Can be added during Phase 8 polish or
-post-launch.
+The Hugo site includes a "Дистриб'юторам" page (`/dystrybutoram/`) with a
+CTA linking to `https://app.dobroizlo.com.ua`, plus a navigation menu item.
+Implemented in Phase 9.
 
 ### Book Request Form → ComixDistro API (Complete)
 
 The book request form now submits directly to the ComixDistro Rails API via
 an Alpine.js `fetch()` call, replacing the original Netlify Forms submission.
 
-**API endpoint:** `POST https://comix-distro.fly.dev/api/v1/book_requests`
-(configurable via `bookRequestApiUrl` in `hugo.toml`; will migrate to
-`https://app.dobroizlo.com.ua/api/v1/book_requests` when DNS is finalized).
+**API endpoint:** `POST https://app.dobroizlo.com.ua/api/v1/book_requests`
+(configurable via `bookRequestApiUrl` in `hugo.toml`).
 
 **Key details:**
 

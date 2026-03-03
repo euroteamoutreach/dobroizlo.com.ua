@@ -6,10 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the Hugo rebuild of [dobroizlo.com.ua](https://dobroizlo.com.ua), a
 Ukrainian-language marketing site for the *Good and Evil* (Добро і зло) Bible
-comic book. It's a compact 5-page site (plus a 404) with
+comic book. It's a compact 6-page site (plus a 404) with
 no blog, no CMS, and no multilingual support.
 
-**Tech stack:** Hugo + Tailwind CSS v4 + Alpine.js + Netlify Forms + Netlify hosting
+**Tech stack:** Hugo + Tailwind CSS v4 + Alpine.js + Netlify hosting + Cloudinary (images) + ComixDistro API (book requests)
 
 **Sister project:** [OFReport.com](https://ofreport.com) uses the identical
 stack and conventions. Patterns established there inform this project.
@@ -131,6 +131,7 @@ frontmatter to select their template (Hugo's `layout` field is a template
 | About | `content/pro-nas.md` | `page/about.html` |
 | Contact | `content/kontakty/_index.md` | `page/contact.html` |
 | Book Request | `content/zamovyty-knyzhku/_index.md` | `page/book-request.html` |
+| Distributor Network | `content/dystrybutoram/_index.md` | `page/distributor.html` |
 | 404 | N/A | `404.html` |
 
 ### CSS Pipeline
@@ -144,21 +145,22 @@ Tailwind CSS v4 is processed via Hugo's built-in `css.TailwindCSS` function:
 
 ### JavaScript
 
-Alpine.js v3 loaded from jsDelivr CDN — no build step. Used for:
+Alpine.js v3 loaded from jsDelivr CDN. Per-page scripts are bundled via Hugo's
+`js.Build` pipeline with fingerprinting and SRI. Used for:
 
 - Mobile hamburger menu toggle
-- Form client-side validation (replacing Vuelidate from the Nuxt site)
+- Form client-side validation and AJAX submission
 - Scroll-aware header behavior (homepage)
 
 ### Forms
 
-Netlify Forms with `data-netlify="true"` and honeypot spam prevention. Two forms:
+Two forms, each with Alpine.js client-side validation and inline success messages:
 
-- Contact form (3 fields) → inline success message via AJAX
-- Book request form (12+ fields) → inline success message via AJAX
+- **Contact form** (3 fields) → Netlify Forms via AJAX `fetch()` (`assets/js/contact.js`)
+- **Book request form** (13 fields) → ComixDistro API via `fetch()` (`assets/js/book-request.js`). API endpoint is configurable via `bookRequestApiUrl` in `hugo.toml`.
 
 Client-side validation uses Alpine.js paired with HTML5 `required` attributes
-as a baseline.
+as a baseline. The book request form requires at least one of email or phone.
 
 ### Out-of-Stock Toggle
 
@@ -174,11 +176,10 @@ The form itself is not rendered at all (not just visually hidden or disabled).
 
 ### Images
 
-- `static/img/` — photos, PNGs, backgrounds (direct URL references)
+- `static/img/` — structural images, backgrounds, OG image (direct URL references)
 - `assets/img/` — SVGs that need inlining via Hugo pipes
+- Cloudinary — photographic images served via CDN with automatic format/size optimization (`layouts/partials/cloudinary-img.html`, cloud name in `hugo.toml`)
 - Icons: Heroicons as inline SVGs (replacing Font Awesome Pro)
-
-No external image hosting — all images are local to the project.
 
 ## URL Preservation
 
@@ -187,6 +188,7 @@ All URLs must match the existing Nuxt site for SEO continuity:
 - `/pro-nas/`
 - `/kontakty/`
 - `/zamovyty-knyzhku/`
+- `/dystrybutoram/` (new page, not present on the Nuxt site)
 
 ## Key Configuration
 

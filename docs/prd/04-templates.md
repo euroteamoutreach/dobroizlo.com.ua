@@ -66,12 +66,12 @@ Includes:
 - On homepage: starts transparent, becomes opaque on scroll
 - On other pages: always opaque
 - Logo/site name links to homepage
-- Menu items: Про нас, Контакти
+- Menu items: Про нас, Контакти, Дистриб'юторам
 - Mobile: hamburger menu with Alpine.js toggle
 
 **Notes:**
 
-- The current site has only 2 nav links, making the header very simple
+- The site has 3 nav links, keeping the header simple
 - The transparent-to-opaque scroll behavior on the homepage is a nice touch
   that can be replicated with Alpine.js (`@scroll.window`)
 - The nav is much simpler than OFReport.com's 7-item menu
@@ -184,7 +184,8 @@ Simple centered layout:
 - Form wrapped in white card with shadow (matching current design)
 - Client-side validation via Alpine.js
 - Honeypot field for spam prevention
-- On success: redirect to `/kontakty/diakuiemo/`
+- AJAX submission via `fetch()` (`assets/js/contact.js`)
+- On success: inline "Дякуємо!" message replaces the form (no redirect)
 
 **Placeholder text (for reference):**
 
@@ -207,13 +208,15 @@ The most complex page on the site. Two states based on
   (with directional arrows, horizontal on desktop, vertical on mobile)
 - Explanatory text about Bible First course registration
 - Link to contact page for questions
-- Full form with Netlify Forms integration (see field list in
+- Full form submitting to ComixDistro API (see field list in
   [`01-architecture.md`](./01-architecture.md))
 - Terms checkbox with detailed consent text
 - Submit button: "Надіслати"
 - Shipping disclaimer: "Надсилаємо фізичні матеріали тільки на адреси
   в межах України."
-- On success: redirect to `/zamovyty-knyzhku/diakuiemo/`
+- AJAX submission via `fetch()` (`assets/js/book-request.js`)
+- On success: inline "Дякуємо!" message replaces the form (no redirect)
+- On server error (422): field-level validation errors displayed inline
 
 ### Disabled State (out of stock)
 
@@ -234,33 +237,23 @@ The oblast select field includes all 24 Ukrainian oblasts:
 
 ---
 
-## Thank-You Pages
+## Inline Success Messages
 
-Both thank-you pages share a similar pattern:
+Both forms display inline success messages after submission (no separate thank-you pages). The success message replaces the form content on the same page using Alpine.js conditional rendering.
 
-### Contact Thank-You (`page/contact-thanks.html`)
-
-- Heading: "Дякуємо!"
-- Message: "Ваше повідомлення надіслано. Ми відповімо незабаром!"
-- Button: "На головну" → links to `/`
-
-### Book Request Thank-You (`page/book-request-thanks.html`)
+### Contact Form Success
 
 - Heading: "Дякуємо!"
-- Detailed message explaining:
-  - If online study: email confirmation coming from
-    `noreply@biblefirstonline.com` (suggest adding to contacts, allow up
-    to 48 hours)
-  - If paper lessons: first lesson will be mailed
-  - Link to contact page for questions
+- Message: confirms the message was sent and a reply is coming
 - Button: "На головну" → links to `/`
 
-**Both pages:**
+### Book Request Form Success
 
-- `robots: noindex,nofollow` in frontmatter
-- Excluded from sitemap
-- No navigation to these pages from the main site (reached only after
-  form submission)
+- Heading: "Дякуємо!"
+- Message: confirms the request was received
+- Button: "На головну" → links to `/`
+
+**History:** The original PRD specified separate thank-you pages at `/kontakty/diakuiemo/` and `/zamovyty-knyzhku/diakuiemo/`. These were implemented, then replaced with inline success messages for a smoother UX. The content files and templates were deleted.
 
 ---
 
