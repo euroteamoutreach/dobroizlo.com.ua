@@ -7,9 +7,10 @@
 {{- $height := .height | default "" -}}
 {{- $loading := .loading | default "lazy" -}}
 {{- $url := printf "https://res.cloudinary.com/%s/image/upload/%s/%s" $cloud $transforms $publicId -}}
-<img src="{{ $url }}"
-  {{- with $alt }} alt="{{ . }}"{{ end -}}
-  {{- with $class }} class="{{ . }}"{{ end -}}
-  {{- with $width }} width="{{ . }}"{{ end -}}
-  {{- with $height }} height="{{ . }}"{{ end -}}
-  {{- " " -}}loading="{{ $loading }}">
+{{- $attrs := slice (printf `src="%s"` $url) -}}
+{{- with $alt }}{{ $attrs = $attrs | append (printf `alt="%s"` .) }}{{ end -}}
+{{- with $class }}{{ $attrs = $attrs | append (printf `class="%s"` .) }}{{ end -}}
+{{- with $width }}{{ $attrs = $attrs | append (printf `width="%s"` .) }}{{ end -}}
+{{- with $height }}{{ $attrs = $attrs | append (printf `height="%s"` .) }}{{ end -}}
+{{- $attrs = $attrs | append (printf `loading="%s"` $loading) -}}
+<img {{ delimit $attrs " " | safeHTMLAttr }}>
