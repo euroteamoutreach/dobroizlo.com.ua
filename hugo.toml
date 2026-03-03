@@ -24,8 +24,7 @@ enableRobotsTXT = true
   bookFormEnabled = true # Set to false when out of stock
 
   # ComixDistro API endpoint for book request form submissions
-  # TODO: Migrate to https://app.dobroizlo.com.ua/api/v1/book_requests when DNS is finalized
-  bookRequestApiUrl = "https://comix-distro.fly.dev/api/v1/book_requests"
+  bookRequestApiUrl = "https://app.dobroizlo.com.ua/api/v1/book_requests"
 
 # Navigation menus
 [menus]
