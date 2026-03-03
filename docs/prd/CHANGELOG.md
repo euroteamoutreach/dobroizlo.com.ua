@@ -34,6 +34,14 @@ Each entry records one deviation or decision:
 
 ## Entries
 
+### 2026-03-03 — `book-request.html`, `hugo.toml`, `ROADMAP.md`, `06-risks-and-future.md`
+
+**What changed:** Replaced Netlify Forms submission on the book request form with an Alpine.js `fetch()` call to the ComixDistro API (`POST /api/v1/book_requests`). Removed all Netlify Forms plumbing (hidden inputs, `data-netlify`, honeypot). Added inline success message (replacing redirect to thank-you page), server-side error display, network error handling, and a new `nova_poshta_depot` field. Validation updated so at least one of email or phone is required (previously email was independently required). API URL is configurable via `bookRequestApiUrl` in `hugo.toml`.
+
+**Why:** ComixDistro Phase 12 API is now live. This eliminates the Netlify Forms 100/month submission limit and centralizes book request data in the ComixDistro app where it can be managed alongside distributor workflows.
+
+**Category:** Pivot
+
 ### 2026-02-24 — `06-risks-and-future.md`, `ROADMAP.md`
 
 **What changed:** Expanded ComixDistro Integration section to document the planned book request form API integration (ComixDistro Phase 12), updated ComixDistro status to "deployed", added distributor portal link URL and API switchover to post-launch roadmap, cross-referenced Netlify Forms volume risk with the long-term API migration.

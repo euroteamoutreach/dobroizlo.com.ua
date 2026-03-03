@@ -83,54 +83,44 @@
       </p>
     </div>
 
-    {{/* Form */}}
+    {{/* Form + Success wrapper — Alpine state lives here so both share it */}}
     {{ if .Site.Params.bookFormEnabled }}
-    <div class="mx-auto w-full max-w-2xl">
+    <div class="mx-auto w-full max-w-2xl" x-data="bookRequestForm({{ .Site.Params.bookRequestApiUrl | jsonify }})">
+
+      {{/* Inline success message */}}
+      <template x-if="success">
+        <div class="flex flex-col items-center justify-center text-center sm:py-12">
+          <h2 class="font-display text-4xl font-normal tracking-tight text-gray-900 sm:text-5xl">Дякуємо!</h2>
+          <div class="mt-6 w-full text-left font-body text-gray-700">
+            <p>
+              Заявку подано. Якщо ви обрали онлайн-навчання, тоді незабаром ви отримаєте підтвердження електронною поштою, що містить посилання для активації онлайн-акаунта. Цей електронний лист надійде від <strong>noreply@biblefirstonline.com</strong>. Ми рекомендуємо додати цю адресу до свого списку контактів. Це допоможе запобігти його перенаправлення до вашої спам-папки. Будь ласка, зачекайте до 48 годин, щоб отримати підтвердження електронною поштою.
+            </p>
+            <p class="mt-4">
+              Якщо ви обрали паперові уроки, тоді перший урок скоро буде надіслано на вашу поштову адресу.
+            </p>
+            <p class="mt-4">
+              Якщо у вас є якісь питання або вам потрібна допомога, <a href="/kontakty/" class="text-sky-600 underline hover:text-sky-800">зв'яжіться з нами!</a>
+            </p>
+          </div>
+          <a href="/" class="mt-10 inline-block rounded-full bg-sky-500 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
+            На головну
+          </a>
+        </div>
+      </template>
+
+      {{/* Form — hidden when success */}}
       <form
-        name="book-request"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        action="/zamovyty-knyzhku/dyakuyemo/"
-        x-data="{
-          lastName: '',
-          firstName: '',
-          email: '',
-          address: '',
-          city: '',
-          oblast: '',
-          postalCode: '',
-          terms: false,
-          submitted: false,
-          get lastNameError() { return this.submitted && this.lastName.trim() === '' },
-          get firstNameError() { return this.submitted && this.firstName.trim() === '' },
-          get emailError() { return this.submitted && !this.emailValid },
-          get emailValid() {
-            if (this.email.trim() === '') return false;
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email.trim());
-          },
-          get emailEmpty() { return this.submitted && this.email.trim() === '' },
-          get emailFormatError() { return this.submitted && this.email.trim() !== '' && !this.emailValid },
-          get addressError() { return this.submitted && this.address.trim() === '' },
-          get cityError() { return this.submitted && this.city.trim() === '' },
-          get oblastError() { return this.submitted && this.oblast === '' },
-          get postalCodeError() { return this.submitted && this.postalCode.trim() === '' },
-          get termsError() { return this.submitted && !this.terms },
-          get hasErrors() { return this.lastNameError || this.firstNameError || this.emailError || this.addressError || this.cityError || this.oblastError || this.postalCodeError || this.termsError },
-          validate(e) {
-            this.submitted = true;
-            if (this.hasErrors) { e.preventDefault(); }
-          }
-        }"
-        @submit="validate($event)"
+        x-show="!success"
+        @submit.prevent="submitForm()"
         class="rounded-lg bg-white p-6 shadow-md"
       >
-        {{/* Honeypot */}}
-        <p class="hidden">
-          <label>Don't fill this out: <input name="bot-field"></label>
-        </p>
-        <input type="hidden" name="form-name" value="book-request">
-        <input type="hidden" name="subject" value="[dobroizlo.com.ua] New Book Request">
+        {{/* Honeypot — offscreen, not display:none */}}
+        <div class="absolute -left-[9999px]" aria-hidden="true">
+          <label>
+            Don't fill this out:
+            <input type="text" name="website_url" x-model="websiteUrl" tabindex="-1" autocomplete="off">
+          </label>
+        </div>
 
         {{/* Last name / First name (2-col) */}}
         <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -149,6 +139,7 @@
               >
             </div>
             <p x-show="lastNameError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть прізвище.</p>
+            <template x-if="fieldError('last_name')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('last_name')"></p></template>
           </div>
           <div>
             <label for="firstName" class="block text-sm/6 font-semibold text-gray-900">Ім'я</label>
@@ -165,6 +156,7 @@
               >
             </div>
             <p x-show="firstNameError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть ім'я.</p>
+            <template x-if="fieldError('first_name')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('first_name')"></p></template>
           </div>
         </div>
 
@@ -179,12 +171,13 @@
               maxlength="100"
               placeholder="petro@tymoshenko.ua"
               x-model="email"
-              :class="emailError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+              :class="emailError || contactError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
             >
           </div>
-          <p x-show="emailEmpty" x-cloak class="mt-1 text-sm text-red-600">Вкажіть електронну скриньку.</p>
           <p x-show="emailFormatError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть дійсну електронну скриньку.</p>
+          <p x-show="contactError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть електронну скриньку або телефон.</p>
+          <template x-if="fieldError('email')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('email')"></p></template>
         </div>
 
         {{/* Address */}}
@@ -203,6 +196,7 @@
             >
           </div>
           <p x-show="addressError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть адресу.</p>
+          <template x-if="fieldError('address')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('address')"></p></template>
         </div>
 
         {{/* Region (optional) */}}
@@ -215,6 +209,7 @@
               name="region"
               maxlength="100"
               placeholder="Район"
+              x-model="region"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500"
             >
           </div>
@@ -237,6 +232,7 @@
               >
             </div>
             <p x-show="cityError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть місто.</p>
+            <template x-if="fieldError('city')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('city')"></p></template>
           </div>
           <div>
             <label for="oblast" class="block text-sm/6 font-semibold text-gray-900">Область</label>
@@ -279,7 +275,25 @@
               </svg>
             </div>
             <p x-show="oblastError" x-cloak class="mt-1 text-sm text-red-600">Виберіть область.</p>
+            <template x-if="fieldError('oblast')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('oblast')"></p></template>
           </div>
+        </div>
+
+        {{/* Nova Poshta depot (optional) */}}
+        <div class="mb-6">
+          <label for="novaPoshtaDepot" class="block text-sm/6 font-semibold text-gray-900">Відділення Нової Пошти</label>
+          <div class="mt-2.5">
+            <input
+              id="novaPoshtaDepot"
+              type="text"
+              name="novaPoshtaDepot"
+              maxlength="200"
+              placeholder="Відділення №1: вул. Пирогівський шлях, 135"
+              x-model="novaPoshtaDepot"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500"
+            >
+          </div>
+          <template x-if="fieldError('nova_poshta_depot')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('nova_poshta_depot')"></p></template>
         </div>
 
         {{/* Postal code / Phone (2-col) */}}
@@ -299,6 +313,7 @@
               >
             </div>
             <p x-show="postalCodeError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть індекс.</p>
+            <template x-if="fieldError('postal_code')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('postal_code')"></p></template>
           </div>
           <div>
             <label for="phone" class="block text-sm/6 font-semibold text-gray-900">Телефон</label>
@@ -309,9 +324,12 @@
                 name="phone"
                 maxlength="20"
                 placeholder="+38-099-123-45-67"
-                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500"
+                x-model="phone"
+                :class="contactError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
               >
             </div>
+            <template x-if="fieldError('phone')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('phone')"></p></template>
           </div>
         </div>
 
@@ -322,11 +340,11 @@
           </p>
           <div class="space-y-2">
             <div class="flex items-start">
-              <input id="lessonPrefsOnline" type="radio" name="preferredStudyFormat" value="Online" checked class="mt-1 mr-2 size-4 text-orange-600 focus:ring-orange-600">
+              <input id="lessonPrefsOnline" type="radio" name="preferredStudyFormat" value="Online" x-model="preferredStudyFormat" class="mt-1 mr-2 size-4 text-orange-600 focus:ring-orange-600">
               <label for="lessonPrefsOnline" class="text-sm text-gray-700 leading-tight">Я хочу проходити навчання онлайн.</label>
             </div>
             <div class="flex items-start">
-              <input id="lessonPrefsPaper" type="radio" name="preferredStudyFormat" value="PaperLessons" class="mt-1 mr-2 size-4 text-orange-600 focus:ring-orange-600">
+              <input id="lessonPrefsPaper" type="radio" name="preferredStudyFormat" value="PaperLessons" x-model="preferredStudyFormat" class="mt-1 mr-2 size-4 text-orange-600 focus:ring-orange-600">
               <label for="lessonPrefsPaper" class="text-sm text-gray-700 leading-tight">Я хочу отримувати фізичні паперові уроки на звичайну пошту.</label>
             </div>
           </div>
@@ -347,6 +365,7 @@
               rows="5"
               maxlength="3000"
               placeholder="Розкажіть, будь ласка..."
+              x-model="referral"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500"
             ></textarea>
           </div>
@@ -362,6 +381,7 @@
               rows="5"
               maxlength="3000"
               placeholder="Може, Ви б хотіли щось додати?"
+              x-model="comments"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500"
             ></textarea>
           </div>
@@ -390,13 +410,146 @@
 
         {{/* Submit */}}
         <div class="flex items-center gap-4">
-          <button type="submit" class="rounded-full bg-orange-700 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">
-            Надіслати
+          <button
+            type="submit"
+            :disabled="submitting"
+            :class="submitting ? 'bg-orange-400 cursor-not-allowed' : 'bg-orange-700 hover:bg-orange-800'"
+            class="inline-flex items-center gap-2 rounded-full px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700"
+          >
+            <svg x-show="submitting" x-cloak class="size-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span x-text="submitting ? 'Надсилання...' : 'Надіслати'"></span>
           </button>
           <p x-show="submitted && hasErrors" x-cloak class="text-sm text-red-600">Будь ласка, виправте виділені поля.</p>
         </div>
+
+        {{/* Network / server error */}}
+        <div x-show="networkError" x-cloak class="mt-4 rounded-md bg-red-50 p-4">
+          <p class="text-sm text-red-700" x-text="networkError"></p>
+        </div>
       </form>
     </div>
+
+    <script>
+      function bookRequestForm(apiUrl) {
+        return {
+          // Field models
+          lastName: '',
+          firstName: '',
+          email: '',
+          phone: '',
+          address: '',
+          region: '',
+          city: '',
+          oblast: '',
+          novaPoshtaDepot: '',
+          postalCode: '',
+          preferredStudyFormat: 'Online',
+          referral: '',
+          comments: '',
+          terms: false,
+          websiteUrl: '',
+
+          // Submission state
+          submitted: false,
+          submitting: false,
+          success: false,
+          serverErrors: {},
+          networkError: '',
+
+          // Client-side validation
+          get lastNameError() { return this.submitted && this.lastName.trim() === '' },
+          get firstNameError() { return this.submitted && this.firstName.trim() === '' },
+          get emailValid() {
+            if (this.email.trim() === '') return true;
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email.trim());
+          },
+          get emailFormatError() { return this.submitted && this.email.trim() !== '' && !this.emailValid },
+          get emailError() { return this.emailFormatError },
+          get contactError() {
+            return this.submitted && this.email.trim() === '' && this.phone.trim() === '' && !this.emailFormatError;
+          },
+          get addressError() { return this.submitted && this.address.trim() === '' },
+          get cityError() { return this.submitted && this.city.trim() === '' },
+          get oblastError() { return this.submitted && this.oblast === '' },
+          get postalCodeError() { return this.submitted && this.postalCode.trim() === '' },
+          get termsError() { return this.submitted && !this.terms },
+          get hasErrors() {
+            return this.lastNameError || this.firstNameError || this.emailFormatError ||
+                   this.contactError || this.addressError || this.cityError ||
+                   this.oblastError || this.postalCodeError || this.termsError;
+          },
+
+          // Server error helper
+          fieldError(name) {
+            if (!this.serverErrors[name]) return null;
+            return this.serverErrors[name].join(', ');
+          },
+
+          // Submit handler
+          async submitForm() {
+            this.submitted = true;
+            this.serverErrors = {};
+            this.networkError = '';
+
+            if (this.hasErrors) return;
+
+            this.submitting = true;
+
+            const payload = {
+              book_request: {
+                last_name: this.lastName.trim(),
+                first_name: this.firstName.trim(),
+                email: this.email.trim(),
+                phone: this.phone.trim(),
+                address: this.address.trim(),
+                region: this.region.trim(),
+                city: this.city.trim(),
+                oblast: this.oblast,
+                nova_poshta_depot: this.novaPoshtaDepot.trim(),
+                postal_code: this.postalCode.trim(),
+                preferred_study_format: this.preferredStudyFormat,
+                referral: this.referral.trim(),
+                comments: this.comments.trim(),
+                website_url: this.websiteUrl,
+              }
+            };
+
+            try {
+              const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json',
+                },
+                body: JSON.stringify(payload),
+              });
+
+              if (response.status === 201) {
+                this.success = true;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+              }
+
+              if (response.status === 422) {
+                const data = await response.json();
+                this.serverErrors = data.errors || {};
+                this.networkError = '';
+                return;
+              }
+
+              this.networkError = 'Виникла помилка при відправці форми. Будь ласка, спробуйте ще раз.';
+            } catch (e) {
+              this.networkError = 'Не вдалося з\u2019єднатися з сервером. Перевірте інтернет-з\u2019єднання та спробуйте ще раз.';
+            } finally {
+              this.submitting = false;
+            }
+          }
+        };
+      }
+    </script>
     {{ end }}
 
   </div>

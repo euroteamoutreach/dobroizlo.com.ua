@@ -199,4 +199,4 @@ Build the "Become a Distributor" marketing page for the Distributor Network.
 - [ ] Toggle `bookFormEnabled` as needed when stock changes
 - [ ] Select and implement analytics solution (coordinate with OFReport.com)
 - [ ] Consider font refresh if desired
-- [ ] Switch book request form from Netlify Forms to ComixDistro API (blocked on ComixDistro Phase 12 — → See `06-risks-and-future.md` §"Book Request Form → ComixDistro API")
+- [x] Switch book request form from Netlify Forms to ComixDistro API (→ See `06-risks-and-future.md` §"Book Request Form → ComixDistro API")

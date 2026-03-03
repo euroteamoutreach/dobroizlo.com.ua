@@ -26,43 +26,32 @@ Now that ComixDistro is live, the Hugo site SHOULD include a "Для
 Post-Launch in `ROADMAP.md`. Can be added during Phase 8 polish or
 post-launch.
 
-### Book Request Form → ComixDistro API (Planned)
+### Book Request Form → ComixDistro API (Complete)
 
-ComixDistro Phase 12 (`11-individual-book-requests.md`) specifies a public
-JSON API that will replace the Hugo site's Netlify Form for book requests.
-This integration is **not yet built** on the ComixDistro side, but the Hugo
-form design should anticipate it.
+The book request form now submits directly to the ComixDistro Rails API via
+an Alpine.js `fetch()` call, replacing the original Netlify Forms submission.
 
-**API endpoint:** `POST https://app.dobroizlo.com.ua/api/v1/book_requests`
+**API endpoint:** `POST https://comix-distro.fly.dev/api/v1/book_requests`
+(configurable via `bookRequestApiUrl` in `hugo.toml`; will migrate to
+`https://app.dobroizlo.com.ua/api/v1/book_requests` when DNS is finalized).
 
-**Key constraints:**
+**Key details:**
 
-- **CORS:** The Rails API will allow requests only from `dobroizlo.com.ua`
-  and `www.dobroizlo.com.ua`. Netlify preview URLs will be rejected.
-- **Honeypot:** The Hugo form must include a hidden honeypot field matching
-  the API's expectation. Submissions with the honeypot populated are
-  silently discarded.
+- **CORS:** The Rails API allows requests from `dobroizlo.com.ua` and
+  `dobro-i-zlo.netlify.app`. Netlify deploy preview URLs are CORS-blocked.
+- **Honeypot:** Hidden `website_url` field (offscreen-positioned).
+  Submissions with the honeypot populated are silently discarded server-side.
 - **Spam protection:** Server-side rate limiting at 5 requests/hour per IP
   via Rack::Attack.
-- **Payload:** JSON with fields: `first_name`, `last_name`, `email`,
-  `phone`, `city`, `address`, `nova_poshta_depot`.
+- **Payload:** JSON `book_request` object with fields: `first_name`,
+  `last_name`, `email`, `phone`, `city`, `address`, `nova_poshta_depot`,
+  `region`, `oblast`, `postal_code`, `preferred_study_format`, `referral`,
+  `comments`, `website_url`.
 - **Responses:** `201 Created` (success) or `422 Unprocessable Entity`
-  (validation errors with detail).
-
-**Success message change:** The current thank-you page is a simple redirect.
-With the API integration, the confirmation must explain: "You will receive
-your book after registering for Bible First Online and completing Lesson 1."
-This is a product requirement from the ComixDistro PRD.
-
-**Implementation approach:** Replace the Netlify Form `action` with an
-Alpine.js `fetch()` call to the API endpoint. Alpine.js is already in the
-stack for client-side validation, so this is a natural extension. The
-Netlify Form can remain as a fallback during the transition or be removed
-entirely.
-
-**Timeline:** Blocked on ComixDistro Phase 12 (API not yet built). The Hugo
-site launches with Netlify Forms (Phase 7 as currently spec'd). The API
-switchover happens post-launch when ComixDistro Phase 12 ships.
+  (validation errors with field-level detail).
+- **Success UX:** Inline success message replaces the form (no redirect).
+- **Validation:** Client-side requires at least one of email or phone,
+  plus all address fields. Server-side errors are displayed per-field.
 
 → See ComixDistro PRD `11-individual-book-requests.md` for the full API
 spec and integration guide.
@@ -113,13 +102,10 @@ simplicity and functionality.
 ### Medium Risk
 
 - **Netlify Forms limits.** The free tier allows 100 form submissions per
-  month. This is likely sufficient for a Ukrainian-language niche site, but
-  if the book request form generates unexpected volume, the limit could be
-  reached. **Mitigation:** Monitor submission counts; upgrade to Netlify
-  Pro ($19/month for 1000 submissions) if needed. Long-term, the book
-  request form will migrate to the ComixDistro API (see §"Book Request
-  Form → ComixDistro API" above), which eliminates this limit for book
-  requests — only the contact form would remain on Netlify Forms.
+  month. Now that the book request form submits to the ComixDistro API
+  (see §"Book Request Form → ComixDistro API" above), only the contact
+  form uses Netlify Forms. The 100/month limit is unlikely to be reached
+  for contact-only submissions.
 - **Domain transfer logistics.** Switching DNS from AWS CloudFront to
   Netlify requires careful timing to minimize downtime. **Mitigation:**
   Lower DNS TTL in advance; test thoroughly on Netlify preview URL before
