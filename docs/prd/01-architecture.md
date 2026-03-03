@@ -125,6 +125,7 @@ format negotiation and responsive sizing.
 | `124-beige-fade-1500w.jpg` | "Heroes" section background | JPG |
 | `battle-horizon-1500w.jpg` | "Battle" section background | JPG |
 | `eto-cover-700w.jpg` | About page ETO image | JPG |
+| `DiZ-mini-white-logo.svg` | Header nav logo (inlined via `icons/logo.html`) | SVG |
 | `dobro-i-zlo-vertical-logo.svg` | Footer logo | SVG |
 | `404.svg` | 404 page graphic | SVG |
 | `dobro-i-zlo-fb-og-1200w.jpg` | Open Graph preview image | JPG |
