@@ -2,8 +2,9 @@
   <div class="bg-gray-50">
   <div class="mx-auto max-w-2xl px-6 py-12 md:py-16 lg:px-8" {{ if .Site.Params.bookFormEnabled }}data-api-url="{{ .Site.Params.bookRequestApiUrl }}" x-data="bookRequestForm()"{{ end }}>
 
-    {{/* Inline success message — replaces entire page content */}}
     {{ if .Site.Params.bookFormEnabled }}
+
+    {{/* Inline success message — replaces entire page content */}}
     <template x-if="success">
       <div class="flex flex-col items-center justify-center text-center sm:py-12">
         <h2 class="font-display text-4xl font-normal tracking-tight text-gray-900 sm:text-5xl">Дякуємо!</h2>
@@ -23,23 +24,8 @@
         </a>
       </div>
     </template>
-    {{ end }}
 
-    <div {{ if .Site.Params.bookFormEnabled }}x-show="!success"{{ end }}>
-
-    {{/* Out-of-stock notice */}}
-    {{ if not .Site.Params.bookFormEnabled }}
-      <div class="mx-auto mb-10 max-w-2xl text-center">
-        <h2 class="font-display text-2xl font-normal text-red-700">УВАГА!</h2>
-        <p class="mt-4 font-body text-xl text-gray-700">
-          Наявний запас книг вичерпано, тому ми зараз не приймаємо нових замовлень. Ми сподіваємось надрукувати більше книг у майбутньому та продовжити нашу програму. Дякуємо за розуміння.
-        </p>
-        <p class="mt-4 font-body text-xl text-gray-700">
-          Якщо у вас виникли запитання, <a href="/kontakty/" class="text-sky-600 underline hover:text-sky-800">зв'яжіться з нами.</a>
-        </p>
-        <hr class="mt-10 border-gray-200">
-      </div>
-    {{ end }}
+    <div x-show="!success">
 
     {{/* Heading */}}
     <div class="mb-10 text-center md:mb-16">
@@ -108,7 +94,6 @@
       </p>
     </div>
 
-    {{ if .Site.Params.bookFormEnabled }}
       <form
         @submit.prevent="submitForm()"
         class="rounded-lg bg-white p-6 shadow-md"
@@ -430,9 +415,25 @@
         </div>
       </form>
 
-    {{ end }}
-
     </div> {{/* close x-show="!success" wrapper */}}
+
+    {{ else }}
+
+    {{/* Out-of-stock notice — replaces entire page content */}}
+    <div class="flex flex-col items-center justify-center text-center sm:py-12">
+      <h2 class="font-display text-2xl font-normal text-red-700">УВАГА!</h2>
+      <p class="mt-4 font-body text-xl text-gray-700">
+        Наявний запас книг вичерпано, тому ми зараз не приймаємо нових замовлень. Ми сподіваємось надрукувати більше книг у майбутньому та продовжити нашу програму. Дякуємо за розуміння.
+      </p>
+      <p class="mt-4 font-body text-xl text-gray-700">
+        Якщо у вас виникли запитання, <a href="/kontakty/" class="text-sky-600 underline hover:text-sky-800">зв'яжіться з нами.</a>
+      </p>
+      <a href="/" class="mt-10 inline-block rounded-full bg-sky-500 px-8 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
+        На головну
+      </a>
+    </div>
+
+    {{ end }}
 
   </div>
   </div>
