@@ -61,7 +61,7 @@ The standard Ukrainian naming pattern is **Qualifier «Title»** — a generic n
 
 ## Vocabulary Standards
 
-- **Event:** Use **подія** consistently across the app and emails to refer to a distributor's distribution event. Do not mix with "захід" or other synonyms.
+- **Event (подія vs. захід):** Use **подія** for system-level and UI contexts — nav labels, dashboard headings, data fields, button text, transactional email subject lines, and anywhere the app refers to a distributor's event as a trackable unit of work (e.g., "ваша активна подія," "створити нову подію," "звіт про подію"). Use **захід** in descriptive, narrative, and marketing contexts where you're listing or describing real-world activities (e.g., "чи то на церковному служінні, вуличній євангелізації, шкільному заході чи в іншому форматі"). The distinction maps to intent: if you're naming a thing in the interface, use подія; if you're describing activities in the real world, захід is often more natural.
 - **Network vs. program:** Always use **Мережа** (network), never "програма" (program). "Мережа" implies ongoing collaboration rather than a one-time sign-up.
 - **Bare title in navigation:** Within the app and the marketing site, the navbar uses the bare title "Добро і зло" alongside the Діз logo mark. This is acceptable because the user is already in context. Qualified forms (with Біблія-комікс, Мережа, etc.) are reserved for first-contact surfaces where the user may not yet know what this is.
 - **книга vs. книжка:** Both are correct Ukrainian words for "book," but they differ in register. **Книга** is the standard, neutral term — use it in the distributor app, transactional emails, terms of service, and any formal or institutional context. **Книжка** is the colloquial, warmer form — use it on the marketing site and in informal communications where the tone is conversational. Do not mix registers within the same context.
@@ -77,3 +77,13 @@ The title «Добро і зло» must always appear in guillemets and always i
 - **Incorrect:** примірник Добра і зла (treats the title words as common nouns and declines them)
 
 This rule applies everywhere — page headings, email copy, UI text, marketing content. If a sentence would require "Добро і зло" to change form, restructure to use a classifier noun or rephrase the sentence. Never decline the words inside the guillemets.
+
+### Guillemets vs. Italics
+
+Guillemets («») are the canonical Ukrainian punctuation for marking proper titles and are the required title treatment in all structured, formal, and plain-text contexts — including headings, footers, email fields, the app UI, terms of service, and anywhere formatting like italics is not available. Guillemets also carry grammatical weight: they signal that the enclosed title is frozen in the nominative case (see Title Declension above). Italics do not perform this grammatical function.
+
+On the marketing site only, inline references to the title in body copy may use italics (*Добро і зло*) for visual design purposes when the surrounding prose already makes clear that a book is being discussed. This is a typographic enhancement, not a replacement for guillemets. Even on the marketing site, guillemets remain correct and preferred.
+
+- **Required (all contexts):** книжки «Добро і зло», примірник «Добро і зло», Мережа дистриб'юторів «Добро і зло»
+- **Acceptable (marketing site body copy only):** *Добро і зло* представляє основні події Біблії...
+- **Never acceptable:** Using italics as a substitute for guillemets in headings, footers, email fields, structured names, or any context where the title must be grammatically frozen in the nominative case.

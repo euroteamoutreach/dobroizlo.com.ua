@@ -85,7 +85,7 @@ Includes:
 - Vertical *Добро і зло* SVG logo
 - Legal text: "Написав *Добро і зло* Майкл Перл. Авторські права © 2008,
   2018 Майкл і Дебі Перл."
-- Distribution credit: "Друк і розповсюдження *Добра і зла* українською
+- Distribution credit: "Друк і розповсюдження книги «Добро і зло» українською
   мовою здійснює організація Euro Team Outreach, Inc."
 - Disclaimer: book quantity limitation and order conditions note
 - Copyright: `© {{ now.Year }} Euro Team Outreach, Inc.`
@@ -202,7 +202,7 @@ The most complex page on the site. Two states based on
 
 ### Enabled State (form active)
 
-- Heading: "Заявка на отримання *Добра і зла*"
+- Heading: "Заявка на отримання книжки «Добро і зло»"
 - Subheading explaining free book + one-per-family limit
 - Visual flow diagram: Fill Form → Complete Lesson 1 → Get Book
   (with directional arrows, horizontal on desktop, vertical on mobile)
