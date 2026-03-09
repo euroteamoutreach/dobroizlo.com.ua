@@ -1,6 +1,5 @@
 baseURL = "https://dobroizlo.com.ua/"
-languageCode = "uk"
-title = "Біблія-комікс «Добро і зло»"
+defaultContentLanguage = "uk"
 enableRobotsTXT = true
 
 # No taxonomies needed for this site
@@ -9,6 +8,30 @@ enableRobotsTXT = true
 # No pagination needed
 [pagination]
   pagerSize = 100
+
+# Languages
+[languages]
+  [languages.uk]
+    languageCode = "uk"
+    languageName = "Українська"
+    title = "Біблія-комікс «Добро і зло»"
+    weight = 1
+    [[languages.uk.menus.main]]
+      name = "Про нас"
+      url = "/pro-nas/"
+      weight = 10
+    [[languages.uk.menus.main]]
+      name = "Контакти"
+      url = "/kontakty/"
+      weight = 20
+    [[languages.uk.menus.main]]
+      name = "Дистриб'юторам"
+      url = "/dystrybutoram/"
+      weight = 30
+  [languages.en]
+    languageCode = "en"
+    languageName = "English"
+    weight = 2
 
 # Site parameters
 [params]
@@ -28,21 +51,6 @@ enableRobotsTXT = true
 
   # ComixDistro API endpoint for book request form submissions
   bookRequestApiUrl = "https://app.dobroizlo.com.ua/api/v1/book_requests"
-
-# Navigation menus
-[menus]
-  [[menus.main]]
-    name = "Про нас"
-    url = "/pro-nas/"
-    weight = 10
-  [[menus.main]]
-    name = "Контакти"
-    url = "/kontakty/"
-    weight = 20
-  [[menus.main]]
-    name = "Дистриб'юторам"
-    url = "/dystrybutoram/"
-    weight = 30
 
 # Build stats for Tailwind CSS
 [build]

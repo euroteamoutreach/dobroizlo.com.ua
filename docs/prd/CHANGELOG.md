@@ -34,6 +34,14 @@ Each entry records one deviation or decision:
 
 ## Entries
 
+### 2026-03-09 — `00-overview.md`, `03-site-structure.md`, `06-risks-and-future.md`
+
+**What changed:** Added English translation of the distributor page using Hugo's built-in multilingual framework. The PRD listed "Multilingual support" as a non-goal. The implementation adds `[languages]` config, filename-based translation (`_index.en.md`), and `i18n/` string files — scoped to the distributor page only. English URL: `/en/distributors/`.
+
+**Why:** The ComixDistro app (app.dobroizlo.com.ua) is fully internationalized in English and Ukrainian. Its sign-up/sign-in pages link back to the distributor info page on this static site. English-speaking donors and potential foreign distributors in Ukraine need to understand the distributor network, making a single-page English translation a practical requirement that the original PRD did not anticipate.
+
+**Category:** Pivot
+
 ### 2026-03-03 — PRD sync: multiple files
 
 **What changed:** Bulk PRD sync to reconcile accumulated documentation drift. Updated `01-architecture.md` (book request form → ComixDistro API, Cloudinary image hosting, contact form AJAX), `03-site-structure.md` (removed thank-you pages from tree/inventory, updated nav to 3 items, updated hugo.toml example), `04-templates.md` (replaced Thank-You Pages section with inline success messages, updated contact and book request form specs), `06-risks-and-future.md` (updated API URL, distributor link status), and `CLAUDE.md` (page count, tech stack, forms, URLs, layout table).

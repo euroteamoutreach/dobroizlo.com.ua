@@ -20,7 +20,8 @@
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="uk_UA">
+{{ $ogLocale := dict "uk" "uk_UA" "en" "en_US" }}
+<meta property="og:locale" content="{{ index $ogLocale site.Language.Lang | default "uk_UA" }}">
 <meta property="og:site_name" content="{{ .Site.Params.titleBase }}">
 <meta property="og:image" content="{{ .Site.Params.ogImage | absURL }}">
 <meta property="og:image:width" content="1200">

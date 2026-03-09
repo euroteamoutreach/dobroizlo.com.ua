@@ -1,0 +1,17 @@
+{{- if .IsTranslated -}}
+<div class="-mt-6 mb-6 flex justify-end md:-mt-8 md:mb-8">
+  <div class="inline-flex items-center gap-x-1 rounded-full bg-gray-200 px-1 py-1 text-sm font-semibold">
+    {{- $currentLang := .Language.Lang -}}
+    {{- $allPages := .AllTranslations -}}
+    {{- range $allPages -}}
+      {{- $isActive := eq .Language.Lang $currentLang -}}
+      {{- $label := upper .Language.Lang -}}
+      {{- if $isActive }}
+    <span class="rounded-full bg-sky-600 px-3 py-0.5 text-white">{{ $label }}</span>
+      {{- else }}
+    <a href="{{ .RelPermalink }}" class="rounded-full px-3 py-0.5 text-gray-600 transition-colors hover:text-gray-900">{{ $label }}</a>
+      {{- end -}}
+    {{- end }}
+  </div>
+</div>
+{{- end -}}

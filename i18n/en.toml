@@ -1,0 +1,84 @@
+# 404 page
+
+[404_heading]
+other = "Page not found."
+
+[404_home_link]
+other = "Go to homepage"
+
+# Distributor page
+
+[dist_logo_alt]
+other = "Good and Evil Distributor Network"
+
+[dist_logo_public_id]
+other = "dobro-i-zlo/dist-net-logo-en-1500w_exj2hb"
+
+[dist_subtitle]
+other = "Join our network and distribute the book Good and Evil in your community"
+
+[dist_what_heading]
+other = "What is this?"
+
+[dist_what_text]
+other = "Euro Team Outreach, Inc. (ETO) is a Christian mission organization that provides the book Good and Evil free of charge to individuals and organizations in Ukraine for distribution. In Ukraine, ETO operates under the name «Біблія понад усе» (Bible Above All). Churches, missionaries, schools, NGOs, and individuals with a clear distribution plan are invited to participate."
+
+[dist_how_heading]
+other = "How it works"
+
+[dist_step1_label]
+other = "Register"
+
+[dist_step1_desc]
+other = "Create an account on our distributor platform. Registration is free."
+
+[dist_step2_label]
+other = "Plan an event"
+
+[dist_step2_desc]
+other = "Tell us where and how you plan to distribute the books — whether at a church service, street evangelism, school event, or other format."
+
+[dist_step3_label]
+other = "Order books"
+
+[dist_step3_desc]
+other = "Specify how many books you need for your event. We will ship them via Nova Poshta or Ukrposhta. You only cover the shipping costs."
+
+[dist_step4_label]
+other = "Distribute"
+
+[dist_step4_desc]
+other = "Hand out the books at your event. All books must be distributed completely free of charge."
+
+[dist_step5_label]
+other = "Submit a report"
+
+[dist_step5_desc]
+other = "After the event, submit a short report with photos. Once your report is submitted, you can plan your next event and order more books."
+
+[dist_who_heading]
+other = "Who can participate?"
+
+[dist_who_churches]
+other = "Churches and newly established congregations"
+
+[dist_who_missionaries]
+other = "Missionaries and mission organizations"
+
+[dist_who_schools]
+other = "Schools and educational institutions"
+
+[dist_who_ngos]
+other = "NGOs and community organizations"
+
+[dist_who_individuals]
+other = "Individuals engaged in personal ministry"
+
+[dist_cost_heading]
+other = "How much does it cost?"
+
+[dist_cost_text]
+other = "Books are provided free of charge. Distributors only pay the shipping costs for their order."
+
+[dist_cta]
+other = "Sign up"
