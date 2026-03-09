@@ -6,8 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the Hugo rebuild of [dobroizlo.com.ua](https://dobroizlo.com.ua), a
 Ukrainian-language marketing site for the *Good and Evil* (Добро і зло) Bible
-comic book. It's a compact 6-page site (plus a 404) with
-no blog, no CMS, and no multilingual support.
+comic book. It's a compact site (plus a 404) with no blog and no CMS.
+The site supports Ukrainian (default) and English via Hugo's multilingual mode.
 
 **Tech stack:** Hugo + Tailwind CSS v4 + Alpine.js + Netlify hosting + Cloudinary (images) + ComixDistro API (book requests)
 
