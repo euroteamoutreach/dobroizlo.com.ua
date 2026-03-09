@@ -196,7 +196,7 @@ All URLs must match the existing Nuxt site for SEO continuity:
 - No taxonomies, no pagination, no RSS
 - Fonts: Google Fonts (Roboto Condensed + Source Sans Pro, `cyrillic-ext`)
 - External PDF stays on CloudFront: `d2ppgd6w5akw3v.cloudfront.net/pdf/`
-- Analytics: deferred (placeholder partial at `layouts/partials/analytics.html`)
+- Analytics: Umami (self-hosted at `lens.euroteamoutreach.org`, production only via `layouts/partials/analytics.html`)
 
 ## Key Files
 

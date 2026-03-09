@@ -185,7 +185,7 @@ Build the "Become a Distributor" marketing page for the Distributor Network.
 - [ ] Test all forms on production domain
 - [ ] Verify email notifications on production
 - [ ] Test OG image sharing on Telegram, Facebook, Viber
-- [ ] Enable analytics (when tool is selected)
+- [x] Enable analytics (when tool is selected)
 - [ ] Archive old Nuxt repository
 - [ ] Rename Hugo repository to `dobroizlo.com.ua`
 
@@ -197,6 +197,6 @@ Build the "Become a Distributor" marketing page for the Distributor Network.
 
 - [ ] Monitor Netlify Forms submission counts (100/month free tier)
 - [ ] Toggle `bookFormEnabled` as needed when stock changes
-- [ ] Select and implement analytics solution (coordinate with OFReport.com)
+- [x] Select and implement analytics solution (coordinate with OFReport.com)
 - [ ] Consider font refresh if desired
 - [x] Switch book request form from Netlify Forms to ComixDistro API (→ See `06-risks-and-future.md` §"Book Request Form → ComixDistro API")

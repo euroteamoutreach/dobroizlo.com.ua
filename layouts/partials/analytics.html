@@ -1,5 +1,3 @@
-{{/*
-  Analytics script placeholder.
-  A privacy-friendly analytics tool will be added here post-launch.
-  See docs/prd/01-architecture.md for candidates.
-*/}}
+{{- if hugo.IsProduction -}}
+<script defer src="https://lens.euroteamoutreach.org/script.js" data-website-id="cd99fbee-c6b3-45bd-a32c-bd1c19c2eafd"></script>
+{{- end -}}
