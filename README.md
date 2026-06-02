@@ -9,7 +9,7 @@ comic book, rebuilt with Hugo.
 
 ## Tech Stack
 
-- [Hugo](https://gohugo.io/) 0.156.0 — static site generator
+- [Hugo](https://gohugo.io/) 0.162.1 — static site generator
 - [Tailwind CSS v4](https://tailwindcss.com/) — utility-first CSS
 - [Alpine.js](https://alpinejs.dev/) — lightweight JS for interactivity
 - [Netlify](https://www.netlify.com/) — hosting and form handling
@@ -17,7 +17,7 @@ comic book, rebuilt with Hugo.
 
 ## Prerequisites
 
-- [Hugo](https://gohugo.io/) 0.156.0 (extended edition)
+- [Hugo](https://gohugo.io/) 0.162.1 (extended edition)
 - [Node.js](https://nodejs.org/) 22
 
 ## Build Commands

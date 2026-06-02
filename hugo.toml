@@ -12,8 +12,8 @@ enableRobotsTXT = true
 # Languages
 [languages]
   [languages.uk]
-    languageCode = "uk"
-    languageName = "Українська"
+    locale = "uk-UA"
+    label = "Українська"
     title = "Біблія-комікс «Добро і зло»"
     weight = 1
     [[languages.uk.menus.main]]
@@ -29,8 +29,8 @@ enableRobotsTXT = true
       url = "/dystrybutoram/"
       weight = 30
   [languages.en]
-    languageCode = "en"
-    languageName = "English"
+    locale = "en-US"
+    label = "English"
     weight = 2
 
 # Site parameters
