@@ -46,6 +46,22 @@ the license restriction — the repo must not be made public without purging the
 files from Git history. Read snippets for design patterns and Tailwind class
 usage, then build Hugo templates using those patterns — never copy verbatim.
 
+## Handling Ambiguity
+
+When the PRD or this guide leaves a choice open, use this split rather than
+stalling or guessing. State any assumption you make so the reasoning is visible.
+
+| Decide and move | Stop and ask Joshua |
+| --- | --- |
+| Reversible edits — copy, layout, styling tweaks | A new page or route, or any change to an existing URL |
+| Implementation details the PRD leaves unspecified | Anything that contradicts or amends the PRD spec |
+| Lint, formatting, and docs cleanup | Form behavior or the ComixDistro API contract |
+
+The test: if it is easily reversed, decide and move. If it changes a public URL,
+a form's behavior, or the PRD, ask first. URL continuity and the two forms are
+load-bearing for SEO and conversions — treat them as interfaces, not
+implementation details.
+
 ## Development Workflow
 
 All work flows through GitHub Issues. The full pipeline is:

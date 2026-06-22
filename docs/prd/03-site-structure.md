@@ -175,8 +175,8 @@ layout: "distributor"
 
 ```toml
 baseURL = "https://dobroizlo.com.ua/"
-languageCode = "uk"
-title = "Біблія-комікс «Добро і зло»"
+defaultContentLanguage = "uk"
+enableRobotsTXT = true
 
 # No taxonomies needed for this site
 [taxonomies]
@@ -184,6 +184,30 @@ title = "Біблія-комікс «Добро і зло»"
 # No pagination needed
 [pagination]
   pagerSize = 100
+
+# Languages (Ukrainian default; English scoped to the distributor page)
+[languages]
+  [languages.uk]
+    locale = "uk-UA"
+    label = "Українська"
+    title = "Біблія-комікс «Добро і зло»"
+    weight = 1
+    [[languages.uk.menus.main]]
+      name = "Про нас"
+      url = "/pro-nas/"
+      weight = 10
+    [[languages.uk.menus.main]]
+      name = "Контакти"
+      url = "/kontakty/"
+      weight = 20
+    [[languages.uk.menus.main]]
+      name = "Дистриб'юторам"
+      url = "/dystrybutoram/"
+      weight = 30
+  [languages.en]
+    locale = "en-US"
+    label = "English"
+    weight = 2
 
 # Site parameters
 [params]
@@ -203,21 +227,6 @@ title = "Біблія-комікс «Добро і зло»"
 
   # ComixDistro API endpoint for book request form submissions
   bookRequestApiUrl = "https://app.dobroizlo.com.ua/api/v1/book_requests"
-
-# Navigation menus
-[menus]
-  [[menus.main]]
-    name = "Про нас"
-    url = "/pro-nas/"
-    weight = 10
-  [[menus.main]]
-    name = "Контакти"
-    url = "/kontakty/"
-    weight = 20
-  [[menus.main]]
-    name = "Дистриб'юторам"
-    url = "/dystrybutoram/"
-    weight = 30
 
 # Build stats for Tailwind CSS
 [build]
@@ -246,13 +255,21 @@ title = "Біблія-комікс «Добро і зло»"
 
 ### Notes on Configuration
 
-- **`languageCode = "uk"`** — Ukrainian, matching the site's language
+- **`defaultContentLanguage = "uk"`** — Ukrainian is the default language; its
+  pages live at the site root (e.g. `/pro-nas/`)
+- **`[languages]`** — multilingual config. `uk` (default, weight 1) carries the
+  full site; `en` (weight 2) is scoped to the distributor page at
+  `/en/distributors/`. Each language sets `locale` and `label` (used by the
+  language switcher); `title` and the navigation menu are nested per-language
+  under `[languages.uk]`
+- **`enableRobotsTXT = true`** — Hugo generates `robots.txt`
 - **`[taxonomies]`** — empty block explicitly disables Hugo's default
   taxonomy generation (no tags, categories, etc.)
 - **`bookFormEnabled`** — the out-of-stock toggle, documented in
   [`01-architecture.md`](./01-architecture.md)
 - **`cloudinaryCloudName`** — Cloudinary cloud name for the image helper partial
 - **`bookRequestApiUrl`** — ComixDistro API endpoint for book request submissions
-- **Navigation** — 3 menu items (Про нас, Контакти, Дистриб'юторам). The
-  homepage is reached via the logo/site name.
+- **Navigation** — 3 menu items (Про нас, Контакти, Дистриб'юторам) nested
+  under `[languages.uk.menus.main]`. The homepage is reached via the logo/site
+  name.
 - **`titleBase`** — used in templates for the title tag suffix pattern

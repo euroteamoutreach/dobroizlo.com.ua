@@ -34,6 +34,14 @@ Each entry records one deviation or decision:
 
 ## Entries
 
+### 2026-06-22 — `03-site-structure.md`
+
+**What changed:** Rewrote the `hugo.toml` example in the "Hugo Configuration" section to reflect the shipped multilingual config — `defaultContentLanguage`/`enableRobotsTXT`, a `[languages]` block (uk default + en) with `locale`/`label` and per-language nested menus — replacing the stale pre-multilingual example (top-level `languageCode`/`title` and a top-level `[menus]` block).
+
+**Why:** The multilingual migration logged on 2026-03-09 updated the prose but left this config example pre-multilingual. Surfaced by PR #79 and tracked as the PRD-sync item in the dust-off chore (#78). Doc-sync only — no code changed.
+
+**Category:** Correction
+
 ### 2026-03-09 — `00-overview.md`, `03-site-structure.md`, `06-risks-and-future.md`
 
 **What changed:** Added English translation of the distributor page using Hugo's built-in multilingual framework. The PRD listed "Multilingual support" as a non-goal. The implementation adds `[languages]` config, filename-based translation (`_index.en.md`), and `i18n/` string files — scoped to the distributor page only. English URL: `/en/distributors/`.
