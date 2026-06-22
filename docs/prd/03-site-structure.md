@@ -22,7 +22,7 @@ dobroizlo.com.ua/
 │       └── _index.md            # Distributor Network overview page
 ├── docs/
 │   ├── prd/                     # PRD documents (this directory)
-│   └── tailwind_plus/           # Tailwind Plus reference snippets (see NOTICE)
+│   └── tailwind_plus/           # Tailwind Plus snippets (local-only, git-ignored; see NOTICE)
 ├── layouts/
 │   ├── _default/
 │   │   ├── baseof.html          # Base template

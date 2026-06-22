@@ -1,12 +1,13 @@
 NOTICE — Tailwind Plus Licensed Assets
 
-This repository contains licensed Tailwind Plus component snippets in the
-docs/tailwind_plus/ directory. These assets are used under the Tailwind Plus
-license (https://tailwindcss.com/plus/license) for private development purposes.
+This project uses licensed Tailwind Plus component snippets as local design
+references. They live in the docs/tailwind_plus/ directory, which is
+intentionally git-ignored and is NOT tracked in this repository.
 
-IMPORTANT: This repository MUST NOT be made public without first removing all
-Tailwind Plus assets from the entire Git history (not just the working tree).
-Simply deleting the files is insufficient — they must be purged from all commits
-using a tool like git-filter-repo or BFG Repo-Cleaner.
+IMPORTANT: This repository is public. Tailwind Plus snippets MUST NOT be
+committed. They are kept locally for development convenience only, under the
+Tailwind Plus license (https://tailwindcss.com/plus/license). Any previously
+committed snippets were purged from the entire Git history with git-filter-repo
+before the repository was made public.
 
 For license details, see: https://tailwindcss.com/plus/license

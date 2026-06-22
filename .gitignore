@@ -19,5 +19,9 @@ Thumbs.db
 # Environment files
 .env
 
+# Tailwind Plus licensed snippets — kept locally as design references only,
+# never committed (this repo is public). See the root NOTICE file.
+docs/tailwind_plus/
+
 # Claude Code local settings (personal overrides)
 .claude/settings.local.json
