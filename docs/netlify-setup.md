@@ -9,7 +9,7 @@ preview URL. This completes the final Phase 1 checklist item.
 
 - A Netlify account (free tier is sufficient)
 - The repo is pushed to GitHub at
-  `https://github.com/joshukraine/dobroizlo.com.ua-hugo`
+  `https://github.com/euroteamoutreach/dobroizlo.com.ua`
 
 ---
 
@@ -19,7 +19,7 @@ preview URL. This completes the final Phase 1 checklist item.
 2. Click **"Add new site"** > **"Import an existing project"**
 3. Choose **GitHub** as the Git provider
 4. Authorize Netlify to access your GitHub account (if not already authorized)
-5. Search for and select the **`dobroizlo.com.ua-hugo`** repository
+5. Search for and select the **`dobroizlo.com.ua`** repository
 
 ---
 

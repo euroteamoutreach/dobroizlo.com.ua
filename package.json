@@ -1,5 +1,5 @@
 {
-  "name": "dobroizlo.com.ua-hugo",
+  "name": "dobroizlo.com.ua",
   "private": true,
   "scripts": {
     "dev": "hugo server -D",
