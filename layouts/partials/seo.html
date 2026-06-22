@@ -6,6 +6,19 @@
 {{/* Canonical URL */}}
 <link rel="canonical" href="{{ .Permalink }}">
 
+{{/* hreflang alternates — emitted only on translated pages (currently the distributor page).
+     .AllTranslations includes the current page, so each variant gets a self-referential
+     hreflang plus its alternate, as Google recommends. */}}
+{{- if .IsTranslated }}
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+{{- end }}
+{{/* x-default → the defaultContentLanguage (uk) version; mirrors hugo.toml [languages] */}}
+{{- with index (where .AllTranslations "Language.Lang" "uk") 0 }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{- end }}
+{{- end }}
+
 {{/* Robots: frontmatter override > production check > dev default */}}
 {{- if .Params.robots }}
 <meta name="robots" content="{{ .Params.robots }}">
