@@ -182,9 +182,9 @@ Build the "Become a Distributor" marketing page for the Distributor Network.
 - [x] Update DNS to point to Netlify
 - [x] Verify SSL certificate provisioning on Netlify
 - [x] Verify site is live at dobroizlo.com.ua
-- [~] Test all forms on production domain
-- [ ] Verify email notifications on production
-- [ ] Test OG image sharing on Telegram, Facebook, Viber
+- [x] Test all forms on production domain
+- [x] Verify email notifications on production
+- [x] Test OG image sharing on Telegram, Facebook, Viber
 - [x] Enable analytics (when tool is selected)
 - [ ] Archive old Nuxt repository
 - [ ] Rename Hugo repository to `dobroizlo.com.ua`
