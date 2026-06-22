@@ -17,7 +17,7 @@ This document tracks implementation progress through phased delivery. Phases are
 | 7 | Book Request Form | Phase 3 | Complete |
 | 8 | 404 Page & Final Polish | Phases 4–7 | Complete |
 | 9 | Distributor Network Page | Phase 3 | Complete |
-| 10 | Launch | Phases 8–9 | Not started |
+| 10 | Launch | Phases 8–9 | In progress |
 
 ---
 
@@ -177,12 +177,12 @@ Build the "Become a Distributor" marketing page for the Distributor Network.
 
 ## Phase 10: Launch
 
-- [ ] Final review with developer (Joshua)
-- [ ] Lower DNS TTL on dobroizlo.com.ua (if possible, 24-48 hours before)
-- [ ] Update DNS to point to Netlify
-- [ ] Verify SSL certificate provisioning on Netlify
-- [ ] Verify site is live at dobroizlo.com.ua
-- [ ] Test all forms on production domain
+- [x] Final review with developer (Joshua)
+- [x] Lower DNS TTL on dobroizlo.com.ua (if possible, 24-48 hours before) — N/A: apex/www are CloudFront alias records (~60s effective TTL), so no pre-lowering or waiting period was needed
+- [x] Update DNS to point to Netlify
+- [x] Verify SSL certificate provisioning on Netlify
+- [x] Verify site is live at dobroizlo.com.ua
+- [~] Test all forms on production domain
 - [ ] Verify email notifications on production
 - [ ] Test OG image sharing on Telegram, Facebook, Viber
 - [x] Enable analytics (when tool is selected)
