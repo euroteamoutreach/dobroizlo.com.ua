@@ -20,13 +20,13 @@ The Christian mission "Bible First" (Euro Team Outreach, Inc.) provides free cop
 
 3. **Request books.** Specify how many books you need for your event. Books are shipped in boxes of 18.
 
-4. **Receive your shipment.** Once your event is approved, we'll ship the books to you via Nova Poshta or Ukrposhta. We can only ship to destinations within Ukraine — international shipping is not available. Please also be aware that due to the ongoing war, some locations within Ukraine may be difficult or impossible to reach safely. We will do our best to fulfill every order, but in some cases we may not be able to ship to your requested destination. You are responsible for covering the shipping costs.
+4. **Receive your shipment.** Once your event is approved, we'll ship the books to you via Nova Poshta or Ukrposhta. We can only ship to destinations within Ukraine — international shipping is not available. Please also be aware that due to the ongoing war, some locations within Ukraine may be difficult or impossible to reach safely. We will do our best to ship to every approved event, but in some cases we may not be able to reach your requested destination. You are responsible for covering the shipping costs.
 
 5. **Distribute the books.** Hand out the books at your event. All books must be given away completely free of charge — selling is not permitted.
 
 6. **Submit your report.** After your event, submit a brief report describing how it went, along with 5–10 quality photos. This helps us share the impact of the Distributor Network with our supporters and plan for future print runs.
 
-7. **Order again.** Once your report is submitted and your event is marked as complete, you're welcome to plan your next event and request more books.
+7. **Request again.** Once your report is submitted and your event is marked as complete, you're welcome to plan your next event and request more books.
 
 ### Who Can Participate?
 
@@ -40,7 +40,7 @@ The Distributor Network is open to anyone in Ukraine with a genuine plan to dist
 
 ### How Much Does It Cost?
 
-The books themselves are provided free of charge. Distributors are responsible only for covering the shipping costs associated with their order.
+The books themselves are provided free of charge. Distributors are responsible only for covering the shipping costs for the books they receive.
 
 ### Registration Is Required
 
@@ -58,7 +58,7 @@ All copies of *Good and Evil* that you receive must be distributed absolutely fr
 
 ### You Are Responsible for Shipping Costs
 
-While the books are free, you are responsible for paying the full cost of shipping your order to your location. Shipping is handled through Nova Poshta or Ukrposhta.
+While the books are free, you are responsible for paying the full cost of shipping your books to your location. Shipping is handled through Nova Poshta or Ukrposhta.
 
 ### Distribute Books Within 30 Days
 
