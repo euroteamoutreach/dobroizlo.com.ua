@@ -39,7 +39,7 @@ other = "Plan an event"
 other = "Tell us where and how you plan to distribute the books — whether at a church service, street evangelism, school event, or other format."
 
 [dist_step3_label]
-other = "Order books"
+other = "Request books"
 
 [dist_step3_desc]
 other = "Specify how many books you need for your event. We will ship them via Nova Poshta or Ukrposhta. You only cover the shipping costs."
@@ -54,7 +54,7 @@ other = "Hand out the books at your event. All books must be distributed complet
 other = "Submit a report"
 
 [dist_step5_desc]
-other = "After the event, submit a short report with photos. Once your report is submitted, you can plan your next event and order more books."
+other = "After the event, submit a short report with photos. Once your report is submitted, you can plan your next event and request more books."
 
 [dist_who_heading]
 other = "Who can participate?"
@@ -78,7 +78,7 @@ other = "Individuals engaged in personal ministry"
 other = "How much does it cost?"
 
 [dist_cost_text]
-other = "Books are provided free of charge. Distributors only pay the shipping costs for their order."
+other = "Books are provided free of charge. Distributors only pay the shipping costs for the books they receive."
 
 [dist_cta]
 other = "Sign up"
