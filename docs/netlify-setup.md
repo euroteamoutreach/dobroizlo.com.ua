@@ -3,6 +3,13 @@
 Step-by-step instructions for deploying the Hugo site to Netlify with a
 preview URL. This completes the final Phase 1 checklist item.
 
+> **Historical (Phase 1).** The site is now **live in production** at
+> [dobroizlo.com.ua](https://dobroizlo.com.ua), deploying from
+> `euroteamoutreach/dobroizlo.com.ua` on Netlify. This guide documents the
+> original first-time preview setup and is kept for reference — the
+> "What NOT to Do Yet" notes below (custom domain, forms, analytics) are all
+> long since done.
+
 ---
 
 ## Prerequisites

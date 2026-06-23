@@ -17,7 +17,7 @@ This document tracks implementation progress through phased delivery. Phases are
 | 7 | Book Request Form | Phase 3 | Complete |
 | 8 | 404 Page & Final Polish | Phases 4–7 | Complete |
 | 9 | Distributor Network Page | Phase 3 | Complete |
-| 10 | Launch | Phases 8–9 | In progress |
+| 10 | Launch | Phases 8–9 | Complete |
 
 ---
 
@@ -186,8 +186,8 @@ Build the "Become a Distributor" marketing page for the Distributor Network.
 - [x] Verify email notifications on production
 - [x] Test OG image sharing on Telegram, Facebook, Viber
 - [x] Enable analytics (when tool is selected)
-- [ ] Archive old Nuxt repository
-- [ ] Rename Hugo repository to `dobroizlo.com.ua`
+- [x] Archive old Nuxt repository
+- [x] Migrate Hugo repository to `euroteamoutreach/dobroizlo.com.ua` — done 2026-06-23 via a fresh-repo rebuild to the org (now public, free Netlify deploys), not a simple rename; see `euroteamoutreach/comix_distro#738`
 
 **Milestone:** Site is live. 🎉
 

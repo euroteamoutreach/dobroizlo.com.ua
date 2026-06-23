@@ -34,6 +34,14 @@ Each entry records one deviation or decision:
 
 ## Entries
 
+### 2026-06-23 — `ROADMAP.md` (Phase 10)
+
+**What changed:** The Phase 10 "rename Hugo repository to `dobroizlo.com.ua`" task was completed via a fresh-repo rebuild rather than a simple rename: the cleaned `main` was pushed to a brand-new `euroteamoutreach/dobroizlo.com.ua`, made public (secret scanning + push protection enabled), Netlify was relinked to it, and the old personal-account bridge repo was archived.
+
+**Why:** Going public was blocked by licensed Tailwind Plus snippets that survived an earlier history rewrite as dangling-but-still-fetchable commits. A fresh repo only ever receives objects reachable from the pushed branch, so it carries none of them — sidestepping the problem entirely (the GitHub-Support-GC route was unavailable, since the content isn't a rotatable credential). Org-owned + public also makes Netlify deploys free. Executed with zero downtime; full plan + verification in `euroteamoutreach/comix_distro#738`, which closed `joshukraine/dobroizlo.com.ua#50`.
+
+**Category:** Pivot
+
 ### 2026-06-22 — `03-site-structure.md`
 
 **What changed:** Rewrote the `hugo.toml` example in the "Hugo Configuration" section to reflect the shipped multilingual config — `defaultContentLanguage`/`enableRobotsTXT`, a `[languages]` block (uk default + en) with `locale`/`label` and per-language nested menus — replacing the stale pre-multilingual example (top-level `languageCode`/`title` and a top-level `[menus]` block).
