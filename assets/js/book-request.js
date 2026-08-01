@@ -11,7 +11,7 @@ window.bookRequestForm = function () {
     oblast: "",
     novaPoshtaDepot: "",
     postalCode: "",
-    preferredStudyFormat: "Online",
+    preferredStudyFormat: "online",
     referral: "",
     comments: "",
     terms: false,
