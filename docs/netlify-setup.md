@@ -36,7 +36,7 @@ Netlify should auto-detect settings from `netlify.toml`, but verify these
 values on the configuration screen:
 
 | Setting | Value |
-|---------|-------|
+| --------- | ------- |
 | Branch to deploy | `main` |
 | Build command | `npm install && hugo --gc --minify` |
 | Publish directory | `public` |

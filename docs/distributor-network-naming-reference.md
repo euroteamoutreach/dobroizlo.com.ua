@@ -1,14 +1,14 @@
 # Good and Evil — Naming & Branding Guide
 
-> This document is the authoritative naming and branding reference for all digital properties associated with the book «Добро і зло» (*Good and Evil*), operated by Euro Team Outreach, Inc. It governs terminology, naming conventions, and branding patterns across the marketing site (dobroizlo.com.ua), the distributor platform (app.dobroizlo.com.ua), transactional emails, and any future Good-and-Evil-related applications or services. All implementers — including developers, translators, and AI coding assistants — should treat this document as the standard and build against it.
+> This document is the authoritative naming and branding reference for all digital properties associated with the book «Добро і зло» (_Good and Evil_), operated by Euro Team Outreach, Inc. It governs terminology, naming conventions, and branding patterns across the marketing site (dobroizlo.com.ua), the distributor platform (app.dobroizlo.com.ua), transactional emails, and any future Good-and-Evil-related applications or services. All implementers — including developers, translators, and AI coding assistants — should treat this document as the standard and build against it.
 
 ## Core Naming Conventions
 
 ### The Book
 
 - **Full (Ukrainian):** Біблія-комікс «Добро і зло»
-- **Full (English):** the *Good and Evil* book
-- **Short form (when context is established):** «Добро і зло» / *Good and Evil*
+- **Full (English):** the _Good and Evil_ book
+- **Short form (when context is established):** «Добро і зло» / _Good and Evil_
 - **Guideline:** Always use at least one contextual word (книга, комікс, Біблія-комікс) alongside the title when addressing someone who might not know what it is. "Біблія-комікс" is the preferred qualifier because it conveys both content (Bible) and format (comic) in two words. When context is already established (e.g., within the app, mid-conversation with a distributor), the title alone is fine.
 
 ### The Network
@@ -82,8 +82,8 @@ This rule applies everywhere — page headings, email copy, UI text, marketing c
 
 Guillemets («») are the canonical Ukrainian punctuation for marking proper titles and are the required title treatment in all structured, formal, and plain-text contexts — including headings, footers, email fields, the app UI, terms of service, and anywhere formatting like italics is not available. Guillemets also carry grammatical weight: they signal that the enclosed title is frozen in the nominative case (see Title Declension above). Italics do not perform this grammatical function.
 
-On the marketing site only, inline references to the title in body copy may use italics (*Добро і зло*) for visual design purposes when the surrounding prose already makes clear that a book is being discussed. This is a typographic enhancement, not a replacement for guillemets. Even on the marketing site, guillemets remain correct and preferred.
+On the marketing site only, inline references to the title in body copy may use italics (_Добро і зло_) for visual design purposes when the surrounding prose already makes clear that a book is being discussed. This is a typographic enhancement, not a replacement for guillemets. Even on the marketing site, guillemets remain correct and preferred.
 
 - **Required (all contexts):** книжки «Добро і зло», примірник «Добро і зло», Мережа дистриб'юторів «Добро і зло»
-- **Acceptable (marketing site body copy only):** *Добро і зло* представляє основні події Біблії...
+- **Acceptable (marketing site body copy only):** _Добро і зло_ представляє основні події Біблії...
 - **Never acceptable:** Using italics as a substitute for guillemets in headings, footers, email fields, structured names, or any context where the title must be grammatically frozen in the nominative case.

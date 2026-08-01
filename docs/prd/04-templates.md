@@ -82,8 +82,8 @@ Includes:
 
 **Current footer contains:**
 
-- Vertical *Добро і зло* SVG logo
-- Legal text: "Написав *Добро і зло* Майкл Перл. Авторські права © 2008,
+- Vertical _Добро і зло_ SVG logo
+- Legal text: "Написав _Добро і зло_ Майкл Перл. Авторські права © 2008,
   2018 Майкл і Дебі Перл."
 - Distribution credit: "Друк і розповсюдження книги «Добро і зло» українською
   мовою здійснює організація Euro Team Outreach, Inc."

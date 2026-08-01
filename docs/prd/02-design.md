@@ -6,7 +6,7 @@
 
 The Hugo rebuild should **preserve the site's visual identity** while
 **refreshing subtle design details**. The color scheme is intentionally aligned
-with the physical *Good and Evil* book and must not change significantly.
+with the physical _Good and Evil_ book and must not change significantly.
 However, spacing, typography, alignment, whitespace, and component styling
 are all open for improvement.
 
@@ -41,7 +41,7 @@ The current site uses a dark, dramatic palette that evokes the book's cover
 art. Key colors identified from the CSS and design:
 
 | Usage | Description | Notes |
-|-------|-------------|-------|
+| ------- | ------------- | ------- |
 | Hero/battle backgrounds | Dark, dramatic imagery | CSS background images with overlays |
 | Primary accent | Orange-red | Used for CTAs ("Отримати книжку", "Надіслати") |
 | Secondary accent | Blue | Used for secondary buttons ("На головну") |
@@ -72,7 +72,7 @@ initial rebuild, they will be preserved to keep the scope focused.
 The current site uses Tailwind v1 breakpoints:
 
 | Name | Width |
-|------|-------|
+| ------ | ------- |
 | sm | 640px |
 | md | 768px |
 | lg | 1024px |

@@ -113,7 +113,7 @@ format negotiation and responsive sizing.
 **Image inventory from current site:**
 
 | Image | Usage | Format |
-|-------|-------|--------|
+| ------- | ------- | -------- |
 | `ge-cover-glow-520h.png` | Hero section book cover | PNG |
 | `hero-book.svg` | Hero section title graphic | SVG |
 | `ge-76-77-spread-500w.png` | "Big picture" section spread | PNG |
@@ -197,7 +197,7 @@ can be managed alongside distributor workflows.
 **Form fields:**
 
 | Field | Type | Required | Notes |
-|-------|------|----------|-------|
+| ------- | ------ | ---------- | ------- |
 | Last Name (Прізвище) | text | Yes | |
 | First Name (Ім'я) | text | Yes | |
 | Email (Електронна скринька) | email | At least one of email/phone | |
@@ -367,7 +367,7 @@ which is deprecated. This will not be carried over.
 ## Summary of Technology Decisions
 
 | Concern | Decision |
-|---------|----------|
+| --------- | ---------- |
 | Static site generator | Hugo |
 | CSS framework | Tailwind CSS v4 via `css.TailwindCSS` |
 | JavaScript | Alpine.js (CDN) |

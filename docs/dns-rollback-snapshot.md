@@ -24,7 +24,7 @@ ns-1451.awsdns-53.org
 ## Full record set (pre-cutover)
 
 | Record name | Type | Alias | Value / Route traffic to | TTL |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | `dobroizlo.com.ua` | A | Yes | `d3gx05y2tzbdxy.cloudfront.net.` (CloudFront, zone `Z2FDTNDATAQYW2`) | – (alias) |
 | `dobroizlo.com.ua` | NS | No | the four `awsdns` name servers above | 172800 |
 | `dobroizlo.com.ua` | SOA | No | `ns-415.awsdns-51.com. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400` | 900 |

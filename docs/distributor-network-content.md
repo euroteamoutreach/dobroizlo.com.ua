@@ -10,7 +10,7 @@
 
 ### What Is This?
 
-The Christian mission "Bible First" (Euro Team Outreach, Inc.) provides free copies of the book *Good and Evil* ("Добро і зло") to individuals and organizations in Ukraine for the purpose of distribution. Eligible participants include churches, missionaries, Christian missions, schools, and community organizations, as well as individuals with a clear plan for distribution.
+The Christian mission "Bible First" (Euro Team Outreach, Inc.) provides free copies of the book _Good and Evil_ ("Добро і зло") to individuals and organizations in Ukraine for the purpose of distribution. Eligible participants include churches, missionaries, Christian missions, schools, and community organizations, as well as individuals with a clear plan for distribution.
 
 ### How It Works
 
@@ -30,7 +30,7 @@ The Christian mission "Bible First" (Euro Team Outreach, Inc.) provides free cop
 
 ### Who Can Participate?
 
-The Distributor Network is open to anyone in Ukraine with a genuine plan to distribute *Good and Evil* in their community. This includes:
+The Distributor Network is open to anyone in Ukraine with a genuine plan to distribute _Good and Evil_ in their community. This includes:
 
 - Churches and church plants
 - Missionaries and mission organizations
@@ -54,7 +54,7 @@ By registering as a distributor and requesting books, you agree to the following
 
 ### Books Must Be Distributed Free of Charge
 
-All copies of *Good and Evil* that you receive must be distributed absolutely free. You may not sell, resell, or charge any fee for the books under any circumstances.
+All copies of _Good and Evil_ that you receive must be distributed absolutely free. You may not sell, resell, or charge any fee for the books under any circumstances.
 
 ### You Are Responsible for Shipping Costs
 
@@ -98,7 +98,7 @@ All information you provide — including your contact details, organization inf
 
 ### No Intermediaries or Redistribution
 
-Every distributor must register directly with us and request books specifically for their own event. You may not request books on behalf of another person or organization, and you may not pass books along to others for them to distribute separately. If someone you know wants to distribute *Good and Evil*, they are welcome to register as a distributor themselves — we'd love to have them! But each distributor must have their own account, their own event, and their own direct relationship with us. This helps us track where books go, ensure accountability, and serve every distributor well.
+Every distributor must register directly with us and request books specifically for their own event. You may not request books on behalf of another person or organization, and you may not pass books along to others for them to distribute separately. If someone you know wants to distribute _Good and Evil_, they are welcome to register as a distributor themselves — we'd love to have them! But each distributor must have their own account, their own event, and their own direct relationship with us. This helps us track where books go, ensure accountability, and serve every distributor well.
 
 Additionally, books are meant to be handed out directly to individual recipients — one or two copies at a time. You and your team should be the ones personally distributing the books at your event. Passing a large quantity of books to another group or organization for them to distribute on their own is not permitted, even if the intent is good. If you know of another group that could use the books for their own event, please encourage them to register as a distributor so we can work with them directly.
 
@@ -153,7 +153,7 @@ Rather than presenting the full terms of service as a single document with a gen
 The following statements represent the most critical expectations. Each one maps to a specific rule in Section B.
 
 **1. Free distribution only**
-"All copies of *Good and Evil* that you receive through the Distributor Network must be distributed completely free of charge. You may not sell or charge any fee for the books."
+"All copies of _Good and Evil_ that you receive through the Distributor Network must be distributed completely free of charge. You may not sell or charge any fee for the books."
 
 **2. Shipping costs**
 "The books are provided free, but you are responsible for paying the full cost of shipping to your location."
@@ -177,7 +177,7 @@ The following statements represent the most critical expectations. Each one maps
 
 After the individual statements, a final screen presents a summary and a link to the complete terms:
 
-"These are the key commitments of the *Good and Evil* Distributor Network. The complete terms of service, including our photo guidelines, enforcement policies, and other details, are available here: [link to full terms]. By continuing, you confirm that you have read and agree to be bound by these terms as a participant in the Distributor Network."
+"These are the key commitments of the _Good and Evil_ Distributor Network. The complete terms of service, including our photo guidelines, enforcement policies, and other details, are available here: [link to full terms]. By continuing, you confirm that you have read and agree to be bound by these terms as a participant in the Distributor Network."
 
 This final step uses a single checkbox or confirmation button to complete the onboarding agreement.
 
@@ -196,7 +196,7 @@ This final step uses a single checkbox or confirmation button to complete the on
 
 The content in this document is split across two sites that serve distinct but related functions:
 
-**dobroizlo.com.ua** (static marketing site) is the primary entry point for anyone discovering *Good and Evil*. Its main purpose is to offer individual Ukrainians a single personal copy of the book. However, it also serves as the gateway to the Distributor Network for visitors who want to get more involved. The static site should include a dedicated page — something like "Become a Distributor" or "Join the Distributor Network" — that provides a warm, inviting overview of the network: what it is, who it's for, and how it works at a high level. This page draws from Section A of this document but does not include the detailed terms or obligations. Its goal is to spark interest and direct people to the app with a clear call to action.
+**dobroizlo.com.ua** (static marketing site) is the primary entry point for anyone discovering _Good and Evil_. Its main purpose is to offer individual Ukrainians a single personal copy of the book. However, it also serves as the gateway to the Distributor Network for visitors who want to get more involved. The static site should include a dedicated page — something like "Become a Distributor" or "Join the Distributor Network" — that provides a warm, inviting overview of the network: what it is, who it's for, and how it works at a high level. This page draws from Section A of this document but does not include the detailed terms or obligations. Its goal is to spark interest and direct people to the app with a clear call to action.
 
 **app.dobroizlo.com.ua** (distributor platform) is where the Distributor Network lives. This is the authoritative home for the full terms and expectations outlined in Section B of this document. Distributors encounter these terms during onboarding — after creating their account but before they can submit their first event. The app is the only place where someone can register as a distributor, request books, track shipments, and submit reports.
 
@@ -212,7 +212,7 @@ The secondary path does not need to compete with the primary call to action. It 
 ### What Goes Where
 
 | Content | Static Site | App |
-|---------|------------|-----|
+| --------- | ------------ | ----- |
 | What is the Distributor Network? | High-level overview (Section A, condensed) | Full version during onboarding |
 | How does it work? | Step-by-step summary | Reflected in the app's actual workflow |
 | Who can participate? | Brief eligibility summary | Full details during onboarding |

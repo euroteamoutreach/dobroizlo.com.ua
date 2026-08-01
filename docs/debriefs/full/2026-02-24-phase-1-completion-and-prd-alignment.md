@@ -59,7 +59,7 @@ Additionally, we brought the PRD structure into alignment with the project templ
 
 ## 2. Architecture & Design Decisions
 
-This is a documentation-only session, so there are no code architecture decisions. The key *documentation* architecture decisions worth noting:
+This is a documentation-only session, so there are no code architecture decisions. The key _documentation_ architecture decisions worth noting:
 
 ### README.md as Navigation Hub
 
@@ -69,7 +69,7 @@ The "Consult When..." column is the most useful part. Instead of just listing fi
 
 ### CHANGELOG Entry Format
 
-The old format was narrative — a paragraph describing everything that changed. The template format is structured: one heading per entry with **What changed**, **Why**, and **Category**. The category taxonomy (Correction/Discovery/Pivot) is borrowed from the ComixDistro project where it's been working well. It lets you quickly scan entries and understand *why* the PRD drifted:
+The old format was narrative — a paragraph describing everything that changed. The template format is structured: one heading per entry with **What changed**, **Why**, and **Category**. The category taxonomy (Correction/Discovery/Pivot) is borrowed from the ComixDistro project where it's been working well. It lets you quickly scan entries and understand _why_ the PRD drifted:
 
 - **Correction** means the PRD was wrong — the spec needs to match reality.
 - **Discovery** means we learned something new — the spec needs to expand.

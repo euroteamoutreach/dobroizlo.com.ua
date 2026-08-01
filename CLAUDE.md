@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 This is the Hugo rebuild of [dobroizlo.com.ua](https://dobroizlo.com.ua), a
-Ukrainian-language marketing site for the *Good and Evil* (Добро і зло) Bible
+Ukrainian-language marketing site for the _Good and Evil_ (Добро і зло) Bible
 comic book. It's a compact site (plus a 404) with no blog and no CMS.
 The site supports Ukrainian (default) and English via Hugo's multilingual mode.
 
@@ -140,10 +140,10 @@ Hugo version is pinned in `netlify.toml`. Node 22 is the target runtime.
 Every page has a dedicated template — there is no shared `single.html` doing
 double duty. Content files use `type: "page"` + `layout: "<name>"` in
 frontmatter to select their template (Hugo's `layout` field is a template
-*name*, not a path):
+_name_, not a path):
 
 | Page | Content File | Layout |
-|------|-------------|--------|
+| ------ | ------------- | -------- |
 | Homepage | `content/_index.md` | `page/home.html` |
 | About | `content/pro-nas.md` | `page/about.html` |
 | Contact | `content/kontakty/_index.md` | `page/contact.html` |

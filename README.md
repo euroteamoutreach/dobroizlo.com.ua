@@ -1,6 +1,6 @@
 # dobroizlo.com.ua
 
-Ukrainian-language marketing site for the *Good and Evil* (Добро і зло) Bible
+Ukrainian-language marketing site for the _Good and Evil_ (Добро і зло) Bible
 comic book, rebuilt with Hugo.
 
 **Status:** Live in production at [dobroizlo.com.ua](https://dobroizlo.com.ua), hosted on Netlify.

@@ -9,7 +9,7 @@
 ## Purpose
 
 Rebuild [dobroizlo.com.ua](https://dobroizlo.com.ua), the Ukrainian-language
-landing page for the *Good and Evil* Bible comic book (*Добро і зло*), from
+landing page for the _Good and Evil_ Bible comic book (_Добро і зло_), from
 Nuxt.js 2 to Hugo. The site is a compact marketing site with 5 pages, a
 contact form, and a book request/enrollment form.
 
@@ -47,7 +47,7 @@ by Euro Team Outreach:
 
 ### ComixDistro (Rails App)
 
-ComixDistro is a Rails 8 application for managing the *Good and Evil*
+ComixDistro is a Rails 8 application for managing the _Good and Evil_
 distributor program in Ukraine. It enables independent distributors to request
 books, plan outreach events, and submit accountability reports. The static
 site (dobroizlo.com.ua) and the Rails app are intended to share a domain:
@@ -94,7 +94,7 @@ generation.
 
 - **Explain before building.** Claude Code should explain Hugo concepts, Go
   template syntax, and architectural rationale before generating code. The
-  developer should understand *why* something is built a certain way.
+  developer should understand _why_ something is built a certain way.
 - **Incremental progress.** Build one feature or template at a time. Verify
   understanding before moving to the next step.
 - **No black boxes.** Every file in the project should be understood by the

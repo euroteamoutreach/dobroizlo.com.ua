@@ -14,7 +14,7 @@ Resolved the last load-bearing piece of the launch: the live marketing-site repo
 
 - **Fresh-repo rebuild over scrubbing.** `git push` only sends reachable objects and a fresh clone never fetches dangling ones — sidesteps GitHub Support GC entirely. Rejected: GC ticket (policy would decline non-credential data), private-transfer + Netlify Pro (~$240/yr and carries the bad commits).
 - **Zero-downtime relink.** Same `dobro-i-zlo` Netlify site, swapped only the connected repo; last good build kept serving until the new one went green. No DNS changes.
-- **Branch protection requires `Hugo Build` + `Markdown Lint`** (GitHub Actions; run on push *and* PR), not the Netlify deploy-preview check (PR-only — requiring it would have frozen merges). `enforce_admins=false` so the owner can hotfix-push; force-push/deletion blocked.
+- **Branch protection requires `Hugo Build` + `Markdown Lint`** (GitHub Actions; run on push _and_ PR), not the Netlify deploy-preview check (PR-only — requiring it would have frozen merges). `enforce_admins=false` so the owner can hotfix-push; force-push/deletion blocked.
 - **Replace, don't deprecate** on labels — deleted GitHub defaults, installed `feat/fix/chore/docs/test` + triage taxonomy.
 - Squash-only merges + auto-delete-branch; metadata set (homepage, topics, wiki off, **Projects kept on** at Josh's request).
 - Historical debrief files left intact (older Hugo version numbers are accurate history).

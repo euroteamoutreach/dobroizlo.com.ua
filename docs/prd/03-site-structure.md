@@ -75,7 +75,7 @@ in frontmatter allows each page to have its own dedicated template while
 keeping the layouts directory clean. This avoids the single-template-fits-all
 problem of `_default/single.html`.
 
-> **Hugo note:** The `layout` frontmatter field is a template *name*, not a
+> **Hugo note:** The `layout` frontmatter field is a template _name_, not a
 > path. To resolve a template at `layouts/page/home.html`, use `type: "page"`
 > (selects the directory) and `layout: "home"` (selects the template) as
 > separate fields. `layout: "page/home"` does **not** work.
@@ -95,7 +95,7 @@ decision that can be revisited during implementation.
 ## Page Inventory
 
 | Page | URL | Content File | Layout | Notes |
-|------|-----|-------------|--------|-------|
+| ------ | ----- | ------------- | -------- | ------- |
 | Homepage | `/` | `content/_index.md` | `page/home.html` | Hero, content sections, CTA |
 | About | `/pro-nas/` | `content/pro-nas.md` | `page/about.html` | ETO info, PDF link |
 | Contact | `/kontakty/` | `content/kontakty/_index.md` | `page/contact.html` | Netlify Forms (AJAX), inline success |
@@ -110,7 +110,7 @@ decision that can be revisited during implementation.
 All existing URLs must be preserved for SEO continuity:
 
 | Current URL | Hugo Content Path | Notes |
-|-------------|-------------------|-------|
+| ------------- | ------------------- | ------- |
 | `/` | `content/_index.md` | Homepage |
 | `/pro-nas/` | `content/pro-nas.md` | Hugo generates `/pro-nas/` from filename |
 | `/kontakty/` | `content/kontakty/_index.md` | Section index |
