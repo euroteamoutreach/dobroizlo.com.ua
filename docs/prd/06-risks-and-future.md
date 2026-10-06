@@ -47,8 +47,8 @@ an Alpine.js `fetch()` call, replacing the original Netlify Forms submission.
 - **Responses:** `201 Created` (success) or `422 Unprocessable Entity`
   (validation errors with field-level detail).
 - **Success UX:** Inline success message replaces the form (no redirect).
-- **Validation:** Client-side requires at least one of email or phone,
-  plus all address fields. Server-side errors are displayed per-field.
+- **Validation:** Client-side requires email (phone is optional), plus all
+  address fields. Server-side errors are displayed per-field.
 
 → See ComixDistro PRD `11-individual-book-requests.md` for the full API
 spec and integration guide.

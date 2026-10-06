@@ -200,8 +200,8 @@ can be managed alongside distributor workflows.
 | ------- | ------ | ---------- | ------- |
 | Last Name (Прізвище) | text | Yes | |
 | First Name (Ім'я) | text | Yes | |
-| Email (Електронна скринька) | email | At least one of email/phone | |
-| Phone (Телефон) | text | At least one of email/phone | |
+| Email (Електронна скринька) | email | Yes | |
+| Phone (Телефон) | text | No | |
 | Address (Адреса) | text | Yes | |
 | Region (Район) | text | No | |
 | City (Місто) | text | Yes | |
