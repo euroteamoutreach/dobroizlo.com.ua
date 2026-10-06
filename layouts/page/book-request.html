@@ -106,13 +106,16 @@
           </label>
         </div>
 
+        <p class="mb-4 text-right text-xs text-gray-500">* — обов'язкові поля</p>
+
         {{/* Last name / First name (2-col) */}}
         <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <label for="lastName" class="block text-sm/6 font-semibold text-gray-900">Прізвище</label>
+            <label for="lastName" class="block text-sm/6 font-semibold text-gray-900">Прізвище <span aria-hidden="true">*</span></label>
             <div class="mt-2.5">
               <input
                 id="lastName"
+                aria-required="true"
                 type="text"
                 name="lastName"
                 maxlength="100"
@@ -126,10 +129,11 @@
             <template x-if="fieldError('last_name')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('last_name')"></p></template>
           </div>
           <div>
-            <label for="firstName" class="block text-sm/6 font-semibold text-gray-900">Ім'я</label>
+            <label for="firstName" class="block text-sm/6 font-semibold text-gray-900">Ім'я <span aria-hidden="true">*</span></label>
             <div class="mt-2.5">
               <input
                 id="firstName"
+                aria-required="true"
                 type="text"
                 name="firstName"
                 maxlength="100"
@@ -146,10 +150,11 @@
 
         {{/* Email */}}
         <div class="mb-6">
-          <label for="email" class="block text-sm/6 font-semibold text-gray-900">Електронна скринька</label>
+          <label for="email" class="block text-sm/6 font-semibold text-gray-900">Електронна скринька <span aria-hidden="true">*</span></label>
           <div class="mt-2.5">
             <input
               id="email"
+              aria-required="true"
               type="email"
               name="email"
               maxlength="100"
@@ -166,10 +171,11 @@
 
         {{/* Address */}}
         <div class="mb-6">
-          <label for="address" class="block text-sm/6 font-semibold text-gray-900">Адреса</label>
+          <label for="address" class="block text-sm/6 font-semibold text-gray-900">Адреса <span aria-hidden="true">*</span></label>
           <div class="mt-2.5">
             <input
               id="address"
+              aria-required="true"
               type="text"
               name="address"
               maxlength="200"
@@ -202,10 +208,11 @@
         {{/* City / Oblast (2-col) */}}
         <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <label for="city" class="block text-sm/6 font-semibold text-gray-900">Місто</label>
+            <label for="city" class="block text-sm/6 font-semibold text-gray-900">Місто <span aria-hidden="true">*</span></label>
             <div class="mt-2.5">
               <input
                 id="city"
+                aria-required="true"
                 type="text"
                 name="city"
                 maxlength="100"
@@ -219,10 +226,11 @@
             <template x-if="fieldError('city')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('city')"></p></template>
           </div>
           <div>
-            <label for="oblast" class="block text-sm/6 font-semibold text-gray-900">Область</label>
+            <label for="oblast" class="block text-sm/6 font-semibold text-gray-900">Область <span aria-hidden="true">*</span></label>
             <div class="mt-2.5 relative">
               <select
                 id="oblast"
+                aria-required="true"
                 name="oblast"
                 x-model="oblast"
                 :class="oblastError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
@@ -284,10 +292,11 @@
         {{/* Postal code / Phone (2-col) */}}
         <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <label for="postalCode" class="block text-sm/6 font-semibold text-gray-900">Індекс</label>
+            <label for="postalCode" class="block text-sm/6 font-semibold text-gray-900">Індекс <span aria-hidden="true">*</span></label>
             <div class="mt-2.5">
               <input
                 id="postalCode"
+                aria-required="true"
                 type="text"
                 name="postalCode"
                 maxlength="5"
