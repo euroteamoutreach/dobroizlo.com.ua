@@ -39,7 +39,6 @@ window.bookRequestForm = function () {
       return this.submitted && this.firstName.trim() === "";
     },
     get emailValid() {
-      if (this.email.trim() === "") return true;
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email.trim());
     },
     get emailFormatError() {
