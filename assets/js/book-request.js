@@ -100,6 +100,9 @@ window.bookRequestForm = function () {
     get emailError() {
       return this.emailRequiredError || this.emailFormatError;
     },
+    get phoneError() {
+      return this.submitted && this.phone.trim() === "";
+    },
     get addressError() {
       return this.submitted && this.address.trim() === "";
     },
@@ -108,6 +111,9 @@ window.bookRequestForm = function () {
     },
     get oblastError() {
       return this.submitted && this.oblast === "";
+    },
+    get novaPoshtaDepotError() {
+      return this.submitted && this.novaPoshtaDepot.trim() === "";
     },
     get postalCodeError() {
       return this.submitted && this.postalCode.trim() === "";
@@ -120,9 +126,11 @@ window.bookRequestForm = function () {
         this.lastNameError ||
         this.firstNameError ||
         this.emailError ||
+        this.phoneError ||
         this.addressError ||
         this.cityError ||
         this.oblastError ||
+        this.novaPoshtaDepotError ||
         this.postalCodeError ||
         this.termsError
       );
