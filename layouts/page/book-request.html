@@ -95,6 +95,7 @@
     </div>
 
       <form
+        novalidate
         @submit.prevent="submitForm()"
         class="rounded-lg bg-white p-6 shadow-md"
       >
@@ -115,7 +116,7 @@
             <div class="mt-2.5">
               <input
                 id="lastName"
-                aria-required="true"
+                required
                 type="text"
                 name="lastName"
                 maxlength="100"
@@ -133,7 +134,7 @@
             <div class="mt-2.5">
               <input
                 id="firstName"
-                aria-required="true"
+                required
                 type="text"
                 name="firstName"
                 maxlength="100"
@@ -154,7 +155,7 @@
           <div class="mt-2.5">
             <input
               id="email"
-              aria-required="true"
+              required
               type="email"
               name="email"
               maxlength="100"
@@ -175,7 +176,7 @@
           <div class="mt-2.5">
             <input
               id="address"
-              aria-required="true"
+              required
               type="text"
               name="address"
               maxlength="200"
@@ -212,7 +213,7 @@
             <div class="mt-2.5">
               <input
                 id="city"
-                aria-required="true"
+                required
                 type="text"
                 name="city"
                 maxlength="100"
@@ -230,7 +231,7 @@
             <div class="mt-2.5 relative">
               <select
                 id="oblast"
-                aria-required="true"
+                required
                 name="oblast"
                 x-model="oblast"
                 :class="oblastError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
@@ -296,7 +297,7 @@
             <div class="mt-2.5">
               <input
                 id="postalCode"
-                aria-required="true"
+                required
                 type="text"
                 name="postalCode"
                 maxlength="5"
@@ -385,7 +386,7 @@
           <div class="pt-1">
             <input
               id="terms"
-              aria-required="true"
+              required
               type="checkbox"
               name="terms"
               value="Погоджуюся"
