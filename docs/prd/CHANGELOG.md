@@ -34,9 +34,25 @@ Each entry records one deviation or decision:
 
 ## Entries
 
+### 2026-10-06 — `01-architecture.md` §"Form Validation: Alpine.js + HTML5" (book request form)
+
+**What changed:** The book request form sets `novalidate`, so the browser's native validation no longer runs as a first layer and Alpine.js owns all validation, with `required` kept on the inputs for assistive tech.
+
+**Why:** With email required, the browser's `type="email"` check blocked submit on a malformed address and showed its own bubble in the OS language, so the Ukrainian inline message and field highlighting never appeared. A native first layer and custom inline messages conflict; the inline messages are the UX the PRD actually asks for.
+
+**Category:** Discovery
+
+### 2026-10-06 — `04-templates.md` (book request form)
+
+**What changed:** Required fields on the book request form carry a visible asterisk, explained by a legend above the form.
+
+**Why:** Once email became required and phone optional, nothing on the form told a requester which fields they had to fill in until a submit failed.
+
+**Category:** Discovery
+
 ### 2026-10-06 — `01-architecture.md`, `06-risks-and-future.md` (book request form validation)
 
-**What changed:** Email is independently required on the book request form again, and phone is optional. This reverses the 2026-03-03 relaxation to "at least one of email or phone." Required fields now also carry a visible asterisk and a legend.
+**What changed:** Email is independently required on the book request form again and phone is optional, reversing the 2026-03-03 relaxation to "at least one of email or phone."
 
 **Why:** ComixDistro is adding an enrollment email to the individual book request lifecycle (`comix_distro#1082`) and will require email on the public request path (`comix_distro#1083`), so a phone-only request could never be emailed. The form change must ship before or with that API change. The 2026-03-03 entry gives no rationale for the relaxation, and neither Joshua nor Nathan remembers one; it appears to have gone unexamined during the busy API switchover. Requesters with genuinely no email address are now handled by an admin recording the request by hand behind an explicit confirmation (`comix_distro#1083`), so the public form no longer needs to carry that case.
 
