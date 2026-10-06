@@ -285,9 +285,9 @@
           </div>
         </div>
 
-        {{/* Nova Poshta depot */}}
+        {{/* Nova Poshta depot or parcel locker */}}
         <div class="mb-6">
-          <label for="novaPoshtaDepot" class="block text-sm/6 font-semibold text-gray-900">Відділення Нової Пошти <span aria-hidden="true">*</span></label>
+          <label for="novaPoshtaDepot" class="block text-sm/6 font-semibold text-gray-900">Відділення або поштомат Нової Пошти <span aria-hidden="true">*</span></label>
           <div class="mt-2.5">
             <input
               id="novaPoshtaDepot"
@@ -297,7 +297,7 @@
               type="text"
               name="novaPoshtaDepot"
               maxlength="200"
-              placeholder="Відділення №1: вул. Пирогівський шлях, 135"
+              placeholder="Відділення №1 або поштомат №5678"
               x-model="novaPoshtaDepot"
               :class="invalid(novaPoshtaDepotError, 'nova_poshta_depot') ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
