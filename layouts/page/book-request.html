@@ -155,12 +155,12 @@
               maxlength="100"
               placeholder="petro@tymoshenko.ua"
               x-model="email"
-              :class="emailError || contactError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+              :class="emailError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
             >
           </div>
           <p x-show="emailFormatError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть дійсну електронну скриньку.</p>
-          <p x-show="contactError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть електронну скриньку або телефон.</p>
+          <p x-show="emailRequiredError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть електронну скриньку.</p>
           <template x-if="fieldError('email')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('email')"></p></template>
         </div>
 
@@ -310,8 +310,7 @@
                 maxlength="20"
                 placeholder="+38-099-123-45-67"
                 x-model="phone"
-                :class="contactError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
-                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 outline-gray-300 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500"
               >
             </div>
             <template x-if="fieldError('phone')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('phone')"></p></template>

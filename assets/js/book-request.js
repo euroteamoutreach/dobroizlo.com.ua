@@ -45,16 +45,11 @@ window.bookRequestForm = function () {
     get emailFormatError() {
       return this.submitted && this.email.trim() !== "" && !this.emailValid;
     },
-    get emailError() {
-      return this.emailFormatError;
+    get emailRequiredError() {
+      return this.submitted && this.email.trim() === "";
     },
-    get contactError() {
-      return (
-        this.submitted &&
-        this.email.trim() === "" &&
-        this.phone.trim() === "" &&
-        !this.emailFormatError
-      );
+    get emailError() {
+      return this.emailRequiredError || this.emailFormatError;
     },
     get addressError() {
       return this.submitted && this.address.trim() === "";
@@ -75,8 +70,7 @@ window.bookRequestForm = function () {
       return (
         this.lastNameError ||
         this.firstNameError ||
-        this.emailFormatError ||
-        this.contactError ||
+        this.emailError ||
         this.addressError ||
         this.cityError ||
         this.oblastError ||
