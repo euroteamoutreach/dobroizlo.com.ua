@@ -79,7 +79,10 @@ window.bookRequestForm = function () {
       );
     },
 
-    // Server error helper
+    // Server error helpers
+    get hasServerErrors() {
+      return Object.keys(this.serverErrors).length > 0;
+    },
     fieldError(name) {
       if (!this.serverErrors[name]) return null;
       return this.serverErrors[name].join(", ");
