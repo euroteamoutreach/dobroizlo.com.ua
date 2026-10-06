@@ -1,3 +1,26 @@
+// Form models whose server errors render under the field, keyed by the
+// API's field name. Errors for any other key go in the box above submit.
+const SERVER_FIELDS = {
+  last_name: "lastName",
+  first_name: "firstName",
+  email: "email",
+  address: "address",
+  city: "city",
+  oblast: "oblast",
+  nova_poshta_depot: "novaPoshtaDepot",
+  postal_code: "postalCode",
+  phone: "phone",
+};
+
+// Labels that give context to server errors for fields without their own
+// error slot.
+const GENERAL_ERROR_LABELS = {
+  region: "Район",
+  preferred_study_format: "Формат навчання",
+  referral: "Звідки Ви дізналися про «Добро і зло»",
+  comments: "Коментарі",
+};
+
 window.bookRequestForm = function () {
   return {
     // Field models
@@ -29,6 +52,15 @@ window.bookRequestForm = function () {
 
     init() {
       this.apiUrl = this.$el.dataset.apiUrl;
+
+      // A server error goes stale once the user edits that field.
+      for (const [key, model] of Object.entries(SERVER_FIELDS)) {
+        this.$watch(model, () => {
+          if (!this.serverErrors[key]) return;
+          const { [key]: _stale, ...rest } = this.serverErrors;
+          this.serverErrors = rest;
+        });
+      }
     },
 
     // Client-side validation
@@ -79,12 +111,27 @@ window.bookRequestForm = function () {
     },
 
     // Server error helpers
-    get hasServerErrors() {
-      return Object.keys(this.serverErrors).length > 0;
+    get hasFieldServerErrors() {
+      return Object.keys(this.serverErrors).some((key) => key in SERVER_FIELDS);
+    },
+    get generalServerError() {
+      return Object.entries(this.serverErrors)
+        .filter(([key]) => !(key in SERVER_FIELDS))
+        .map(([key, messages]) => {
+          const label = GENERAL_ERROR_LABELS[key];
+          return (label ? `${label}: ` : "") + messages.join(", ");
+        })
+        .join(" ");
+    },
+    get formError() {
+      return this.networkError || this.generalServerError;
     },
     fieldError(name) {
       if (!this.serverErrors[name]) return null;
       return this.serverErrors[name].join(", ");
+    },
+    invalid(clientError, key) {
+      return clientError || !!this.fieldError(key);
     },
 
     // Ids of the error messages currently shown for a field, for
@@ -94,11 +141,15 @@ window.bookRequestForm = function () {
       return shown.length ? shown.join(" ") : null;
     },
 
-    // Move focus to the first invalid field once Alpine has rendered the
-    // error state, so screen-reader users hear why submit was blocked.
+    // Move focus to the first invalid field, or to the form error box when
+    // no field is marked, once Alpine has rendered the error state, so
+    // screen-reader users hear why submit was blocked.
     focusFirstInvalid() {
       this.$nextTick(() => {
-        this.$el.querySelector('[aria-invalid="true"]')?.focus();
+        const target =
+          this.$el.querySelector('[aria-invalid="true"]') ||
+          (this.formError && this.$refs.formError);
+        target?.focus();
       });
     },
 
