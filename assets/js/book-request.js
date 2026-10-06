@@ -87,13 +87,31 @@ window.bookRequestForm = function () {
       return this.serverErrors[name].join(", ");
     },
 
+    // Ids of the error messages currently shown for a field, for
+    // aria-describedby. Null removes the attribute.
+    describedBy(ids) {
+      const shown = Object.keys(ids).filter((id) => ids[id]);
+      return shown.length ? shown.join(" ") : null;
+    },
+
+    // Move focus to the first invalid field once Alpine has rendered the
+    // error state, so screen-reader users hear why submit was blocked.
+    focusFirstInvalid() {
+      this.$nextTick(() => {
+        this.$el.querySelector('[aria-invalid="true"]')?.focus();
+      });
+    },
+
     // Submit handler
     async submitForm() {
       this.submitted = true;
       this.serverErrors = {};
       this.networkError = "";
 
-      if (this.hasErrors) return;
+      if (this.hasErrors) {
+        this.focusFirstInvalid();
+        return;
+      }
 
       this.submitting = true;
 
@@ -136,6 +154,7 @@ window.bookRequestForm = function () {
           const data = await response.json();
           this.serverErrors = data.errors || {};
           this.networkError = "";
+          this.focusFirstInvalid();
           return;
         }
 
