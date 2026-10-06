@@ -42,7 +42,7 @@ Each entry records one deviation or decision:
 
 **Category:** Discovery
 
-### 2026-10-06 — `04-templates.md` (book request form)
+### 2026-10-06 — `04-templates.md` §"Book Request Form Page (`page/book-request.html`)"
 
 **What changed:** Required fields on the book request form carry a visible asterisk, explained by a legend above the form.
 
