@@ -176,8 +176,11 @@ Two forms, each with Alpine.js client-side validation and inline success message
 - **Contact form** (3 fields) → Netlify Forms via AJAX `fetch()` (`assets/js/contact.js`)
 - **Book request form** (13 fields) → ComixDistro API via `fetch()` (`assets/js/book-request.js`). API endpoint is configurable via `bookRequestApiUrl` in `hugo.toml`.
 
-Client-side validation uses Alpine.js paired with HTML5 `required` attributes
-as a baseline. The book request form requires at least one of email or phone.
+Client-side validation is owned by Alpine.js: the book request form sets
+`novalidate` so the browser's own validation bubbles never pre-empt the
+Ukrainian inline messages, while `required` attributes stay on the inputs for
+assistive tech. On the book request form, email is required and phone is
+optional.
 
 ### Out-of-Stock Toggle
 
