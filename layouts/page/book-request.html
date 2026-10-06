@@ -443,7 +443,7 @@
         </div>
 
         {{/* Network error, or server errors for fields without their own slot */}}
-        <div x-show="formError" x-cloak x-ref="formError" tabindex="-1" role="alert" class="mt-4 rounded-md bg-red-50 p-4 focus:outline-none">
+        <div x-show="formError" x-cloak x-ref="formError" tabindex="-1" class="mt-4 rounded-md bg-red-50 p-4 focus:outline-none">
           <p class="text-sm text-red-700" x-text="formError"></p>
         </div>
       </form>

@@ -12,14 +12,26 @@ const SERVER_FIELDS = {
   phone: "phone",
 };
 
-// Labels that give context to server errors for fields without their own
-// error slot.
-const GENERAL_ERROR_LABELS = {
-  region: "Район",
-  preferred_study_format: "Формат навчання",
-  referral: "Звідки Ви дізналися про «Добро і зло»",
-  comments: "Коментарі",
+// Fields without their own error slot, with the label that gives their
+// server error context in the box above submit.
+const GENERAL_FIELDS = {
+  region: { model: "region", label: "Район" },
+  preferred_study_format: {
+    model: "preferredStudyFormat",
+    label: "Формат навчання",
+  },
+  referral: {
+    model: "referral",
+    label: "Звідки Ви дізналися про «Добро і зло»",
+  },
+  comments: { model: "comments", label: "Коментарі" },
 };
+
+const GENERIC_ERROR =
+  "Виникла помилка при відправці форми. Будь ласка, спробуйте ще раз.";
+
+// The API sends an array of messages per field; tolerate a bare string.
+const messageText = (messages) => [].concat(messages).join(", ");
 
 window.bookRequestForm = function () {
   return {
@@ -54,7 +66,13 @@ window.bookRequestForm = function () {
       this.apiUrl = this.$el.dataset.apiUrl;
 
       // A server error goes stale once the user edits that field.
-      for (const [key, model] of Object.entries(SERVER_FIELDS)) {
+      const models = {
+        ...SERVER_FIELDS,
+        ...Object.fromEntries(
+          Object.entries(GENERAL_FIELDS).map(([key, f]) => [key, f.model]),
+        ),
+      };
+      for (const [key, model] of Object.entries(models)) {
         this.$watch(model, () => {
           if (!this.serverErrors[key]) return;
           const { [key]: _stale, ...rest } = this.serverErrors;
@@ -111,6 +129,9 @@ window.bookRequestForm = function () {
     },
 
     // Server error helpers
+    get hasServerErrors() {
+      return Object.keys(this.serverErrors).length > 0;
+    },
     get hasFieldServerErrors() {
       return Object.keys(this.serverErrors).some((key) => key in SERVER_FIELDS);
     },
@@ -118,8 +139,8 @@ window.bookRequestForm = function () {
       return Object.entries(this.serverErrors)
         .filter(([key]) => !(key in SERVER_FIELDS))
         .map(([key, messages]) => {
-          const label = GENERAL_ERROR_LABELS[key];
-          return (label ? `${label}: ` : "") + messages.join(", ");
+          const label = GENERAL_FIELDS[key]?.label;
+          return (label ? `${label}: ` : "") + messageText(messages);
         })
         .join(" ");
     },
@@ -128,7 +149,7 @@ window.bookRequestForm = function () {
     },
     fieldError(name) {
       if (!this.serverErrors[name]) return null;
-      return this.serverErrors[name].join(", ");
+      return messageText(this.serverErrors[name]);
     },
     invalid(clientError, key) {
       return clientError || !!this.fieldError(key);
@@ -148,7 +169,7 @@ window.bookRequestForm = function () {
       this.$nextTick(() => {
         const target =
           this.$el.querySelector('[aria-invalid="true"]') ||
-          (this.formError && this.$refs.formError);
+          (this.formError ? this.$refs.formError : null);
         target?.focus();
       });
     },
@@ -204,16 +225,18 @@ window.bookRequestForm = function () {
         if (response.status === 422) {
           const data = await response.json();
           this.serverErrors = data.errors || {};
-          this.networkError = "";
+          // A rejection with no details would otherwise show nothing at all.
+          this.networkError = this.hasServerErrors ? "" : GENERIC_ERROR;
           this.focusFirstInvalid();
           return;
         }
 
-        this.networkError =
-          "Виникла помилка при відправці форми. Будь ласка, спробуйте ще раз.";
+        this.networkError = GENERIC_ERROR;
+        this.focusFirstInvalid();
       } catch (e) {
         this.networkError =
           "Не вдалося з\u2019єднатися з сервером. Перевірте інтернет-з\u2019єднання та спробуйте ще раз.";
+        this.focusFirstInvalid();
       } finally {
         this.submitting = false;
       }
