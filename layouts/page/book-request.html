@@ -95,6 +95,7 @@
     </div>
 
       <form
+        novalidate
         @submit.prevent="submitForm()"
         class="rounded-lg bg-white p-6 shadow-md"
       >
@@ -106,81 +107,95 @@
           </label>
         </div>
 
+        <p class="mb-4 text-right text-xs text-gray-500" aria-hidden="true">* — обов'язкові поля</p>
+
         {{/* Last name / First name (2-col) */}}
         <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <label for="lastName" class="block text-sm/6 font-semibold text-gray-900">Прізвище</label>
+            <label for="lastName" class="block text-sm/6 font-semibold text-gray-900">Прізвище <span aria-hidden="true">*</span></label>
             <div class="mt-2.5">
               <input
                 id="lastName"
+                :aria-invalid="invalid(lastNameError, 'last_name')"
+                :aria-describedby="describedBy({ 'lastName-error': lastNameError, 'lastName-server-error': fieldError('last_name') })"
+                required
                 type="text"
                 name="lastName"
                 maxlength="100"
                 placeholder="Тимошенко"
                 x-model="lastName"
-                :class="lastNameError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+                :class="invalid(lastNameError, 'last_name') ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
                 class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
               >
             </div>
-            <p x-show="lastNameError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть прізвище.</p>
-            <template x-if="fieldError('last_name')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('last_name')"></p></template>
+            <p id="lastName-error" x-show="lastNameError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть прізвище.</p>
+            <template x-if="fieldError('last_name')"><p id="lastName-server-error" class="mt-1 text-sm text-red-600" x-text="fieldError('last_name')"></p></template>
           </div>
           <div>
-            <label for="firstName" class="block text-sm/6 font-semibold text-gray-900">Ім'я</label>
+            <label for="firstName" class="block text-sm/6 font-semibold text-gray-900">Ім'я <span aria-hidden="true">*</span></label>
             <div class="mt-2.5">
               <input
                 id="firstName"
+                :aria-invalid="invalid(firstNameError, 'first_name')"
+                :aria-describedby="describedBy({ 'firstName-error': firstNameError, 'firstName-server-error': fieldError('first_name') })"
+                required
                 type="text"
                 name="firstName"
                 maxlength="100"
                 placeholder="Петро"
                 x-model="firstName"
-                :class="firstNameError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+                :class="invalid(firstNameError, 'first_name') ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
                 class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
               >
             </div>
-            <p x-show="firstNameError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть ім'я.</p>
-            <template x-if="fieldError('first_name')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('first_name')"></p></template>
+            <p id="firstName-error" x-show="firstNameError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть ім'я.</p>
+            <template x-if="fieldError('first_name')"><p id="firstName-server-error" class="mt-1 text-sm text-red-600" x-text="fieldError('first_name')"></p></template>
           </div>
         </div>
 
         {{/* Email */}}
         <div class="mb-6">
-          <label for="email" class="block text-sm/6 font-semibold text-gray-900">Електронна скринька</label>
+          <label for="email" class="block text-sm/6 font-semibold text-gray-900">Електронна скринька <span aria-hidden="true">*</span></label>
           <div class="mt-2.5">
             <input
               id="email"
+              :aria-invalid="invalid(emailError, 'email')"
+              :aria-describedby="describedBy({ 'email-format-error': emailFormatError, 'email-required-error': emailRequiredError, 'email-server-error': fieldError('email') })"
+              required
               type="email"
               name="email"
               maxlength="100"
               placeholder="petro@tymoshenko.ua"
               x-model="email"
-              :class="emailError || contactError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+              :class="invalid(emailError, 'email') ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
             >
           </div>
-          <p x-show="emailFormatError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть дійсну електронну скриньку.</p>
-          <p x-show="contactError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть електронну скриньку або телефон.</p>
-          <template x-if="fieldError('email')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('email')"></p></template>
+          <p id="email-format-error" x-show="emailFormatError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть дійсну електронну скриньку.</p>
+          <p id="email-required-error" x-show="emailRequiredError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть електронну скриньку.</p>
+          <template x-if="fieldError('email')"><p id="email-server-error" class="mt-1 text-sm text-red-600" x-text="fieldError('email')"></p></template>
         </div>
 
         {{/* Address */}}
         <div class="mb-6">
-          <label for="address" class="block text-sm/6 font-semibold text-gray-900">Адреса</label>
+          <label for="address" class="block text-sm/6 font-semibold text-gray-900">Адреса <span aria-hidden="true">*</span></label>
           <div class="mt-2.5">
             <input
               id="address"
+              :aria-invalid="invalid(addressError, 'address')"
+              :aria-describedby="describedBy({ 'address-error': addressError, 'address-server-error': fieldError('address') })"
+              required
               type="text"
               name="address"
               maxlength="200"
               placeholder="вул. Івана Франка 123, кв. 456"
               x-model="address"
-              :class="addressError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+              :class="invalid(addressError, 'address') ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
             >
           </div>
-          <p x-show="addressError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть адресу.</p>
-          <template x-if="fieldError('address')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('address')"></p></template>
+          <p id="address-error" x-show="addressError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть адресу.</p>
+          <template x-if="fieldError('address')"><p id="address-server-error" class="mt-1 text-sm text-red-600" x-text="fieldError('address')"></p></template>
         </div>
 
         {{/* Region (optional) */}}
@@ -202,30 +217,36 @@
         {{/* City / Oblast (2-col) */}}
         <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <label for="city" class="block text-sm/6 font-semibold text-gray-900">Місто</label>
+            <label for="city" class="block text-sm/6 font-semibold text-gray-900">Місто <span aria-hidden="true">*</span></label>
             <div class="mt-2.5">
               <input
                 id="city"
+                :aria-invalid="invalid(cityError, 'city')"
+                :aria-describedby="describedBy({ 'city-error': cityError, 'city-server-error': fieldError('city') })"
+                required
                 type="text"
                 name="city"
                 maxlength="100"
                 placeholder="м. Львів"
                 x-model="city"
-                :class="cityError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+                :class="invalid(cityError, 'city') ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
                 class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
               >
             </div>
-            <p x-show="cityError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть місто.</p>
-            <template x-if="fieldError('city')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('city')"></p></template>
+            <p id="city-error" x-show="cityError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть місто.</p>
+            <template x-if="fieldError('city')"><p id="city-server-error" class="mt-1 text-sm text-red-600" x-text="fieldError('city')"></p></template>
           </div>
           <div>
-            <label for="oblast" class="block text-sm/6 font-semibold text-gray-900">Область</label>
+            <label for="oblast" class="block text-sm/6 font-semibold text-gray-900">Область <span aria-hidden="true">*</span></label>
             <div class="mt-2.5 relative">
               <select
                 id="oblast"
+                :aria-invalid="invalid(oblastError, 'oblast')"
+                :aria-describedby="describedBy({ 'oblast-error': oblastError, 'oblast-server-error': fieldError('oblast') })"
+                required
                 name="oblast"
                 x-model="oblast"
-                :class="oblastError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+                :class="invalid(oblastError, 'oblast') ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
                 class="block w-full appearance-none rounded-md bg-white px-3.5 py-2 pr-8 text-base text-gray-900 outline-1 -outline-offset-1 focus:outline-2 focus:-outline-offset-2"
               >
                 <option value="">Виберіть...</option>
@@ -259,8 +280,8 @@
                 <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
               </svg>
             </div>
-            <p x-show="oblastError" x-cloak class="mt-1 text-sm text-red-600">Виберіть область.</p>
-            <template x-if="fieldError('oblast')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('oblast')"></p></template>
+            <p id="oblast-error" x-show="oblastError" x-cloak class="mt-1 text-sm text-red-600">Виберіть область.</p>
+            <template x-if="fieldError('oblast')"><p id="oblast-server-error" class="mt-1 text-sm text-red-600" x-text="fieldError('oblast')"></p></template>
           </div>
         </div>
 
@@ -270,51 +291,59 @@
           <div class="mt-2.5">
             <input
               id="novaPoshtaDepot"
+              :aria-invalid="invalid(false, 'nova_poshta_depot')"
+              :aria-describedby="describedBy({ 'novaPoshtaDepot-server-error': fieldError('nova_poshta_depot') })"
               type="text"
               name="novaPoshtaDepot"
               maxlength="200"
               placeholder="Відділення №1: вул. Пирогівський шлях, 135"
               x-model="novaPoshtaDepot"
-              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500"
+              :class="invalid(false, 'nova_poshta_depot') ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
             >
           </div>
-          <template x-if="fieldError('nova_poshta_depot')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('nova_poshta_depot')"></p></template>
+          <template x-if="fieldError('nova_poshta_depot')"><p id="novaPoshtaDepot-server-error" class="mt-1 text-sm text-red-600" x-text="fieldError('nova_poshta_depot')"></p></template>
         </div>
 
         {{/* Postal code / Phone (2-col) */}}
         <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <label for="postalCode" class="block text-sm/6 font-semibold text-gray-900">Індекс</label>
+            <label for="postalCode" class="block text-sm/6 font-semibold text-gray-900">Індекс <span aria-hidden="true">*</span></label>
             <div class="mt-2.5">
               <input
                 id="postalCode"
+                :aria-invalid="invalid(postalCodeError, 'postal_code')"
+                :aria-describedby="describedBy({ 'postalCode-error': postalCodeError, 'postalCode-server-error': fieldError('postal_code') })"
+                required
                 type="text"
                 name="postalCode"
                 maxlength="5"
                 placeholder="79000"
                 x-model="postalCode"
-                :class="postalCodeError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+                :class="invalid(postalCodeError, 'postal_code') ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
                 class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
               >
             </div>
-            <p x-show="postalCodeError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть індекс.</p>
-            <template x-if="fieldError('postal_code')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('postal_code')"></p></template>
+            <p id="postalCode-error" x-show="postalCodeError" x-cloak class="mt-1 text-sm text-red-600">Вкажіть індекс.</p>
+            <template x-if="fieldError('postal_code')"><p id="postalCode-server-error" class="mt-1 text-sm text-red-600" x-text="fieldError('postal_code')"></p></template>
           </div>
           <div>
             <label for="phone" class="block text-sm/6 font-semibold text-gray-900">Телефон</label>
             <div class="mt-2.5">
               <input
                 id="phone"
+                :aria-invalid="invalid(false, 'phone')"
+                :aria-describedby="describedBy({ 'phone-server-error': fieldError('phone') })"
                 type="text"
                 name="phone"
                 maxlength="20"
                 placeholder="+38-099-123-45-67"
                 x-model="phone"
-                :class="contactError ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
+                :class="invalid(false, 'phone') ? 'outline-red-500 focus:outline-red-600' : 'outline-gray-300 focus:outline-sky-500'"
                 class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2"
               >
             </div>
-            <template x-if="fieldError('phone')"><p class="mt-1 text-sm text-red-600" x-text="fieldError('phone')"></p></template>
+            <template x-if="fieldError('phone')"><p id="phone-server-error" class="mt-1 text-sm text-red-600" x-text="fieldError('phone')"></p></template>
           </div>
         </div>
 
@@ -377,19 +406,22 @@
           <div class="pt-1">
             <input
               id="terms"
+              :aria-invalid="termsError"
+              :aria-describedby="describedBy({ 'terms-error': termsError })"
+              required
               type="checkbox"
               name="terms"
               value="Погоджуюся"
               x-model="terms"
-              :class="termsError ? 'outline-red-500' : ''"
+              :class="termsError ? 'outline-2 outline-offset-2 outline-red-500' : ''"
               class="size-4 rounded text-orange-600 focus:ring-orange-600"
             >
           </div>
           <div class="flex-1">
             <label for="terms" class="text-sm leading-tight text-gray-600">
-              Я розумію, що, подавши цю форму, я прошу записати мене на безплатний дистанційний навчальний курс <em>Біблія понад усе</em>. Я також розумію, що не отримаю свій безплатний примірник «Добро і зло», поки не вишлю заповнену форму з відповідями на запитання до першого уроку курсу <em>Біблія понад усе</em>.
+              Я розумію, що, подавши цю форму, я прошу записати мене на безплатний дистанційний навчальний курс <em>Біблія понад усе</em>. Я також розумію, що не отримаю свій безплатний примірник «Добро і зло», поки не вишлю заповнену форму з відповідями на запитання до першого уроку курсу <em>Біблія понад усе</em>. <span aria-hidden="true">*</span>
             </label>
-            <p x-show="termsError" x-cloak class="mt-1 text-sm text-red-600">Будь ласка, поставте галочку у квадратику, щоб зазначити, що Ви згодні з умовами.</p>
+            <p id="terms-error" x-show="termsError" x-cloak class="mt-1 text-sm text-red-600">Будь ласка, поставте галочку у квадратику, щоб зазначити, що Ви згодні з умовами.</p>
           </div>
         </div>
 
@@ -407,12 +439,12 @@
             </svg>
             <span x-text="submitting ? 'Надсилання...' : 'Надіслати'"></span>
           </button>
-          <p x-show="submitted && hasErrors" x-cloak class="text-sm text-red-600">Будь ласка, виправте виділені поля.</p>
+          <p x-show="submitted && (hasErrors || hasFieldServerErrors)" x-cloak class="text-sm text-red-600">Будь ласка, виправте виділені поля.</p>
         </div>
 
-        {{/* Network / server error */}}
-        <div x-show="networkError" x-cloak class="mt-4 rounded-md bg-red-50 p-4">
-          <p class="text-sm text-red-700" x-text="networkError"></p>
+        {{/* Network error, or server errors for fields without their own slot */}}
+        <div x-show="formError" x-cloak x-ref="formError" tabindex="-1" class="mt-4 rounded-md bg-red-50 p-4 focus:outline-none">
+          <p class="text-sm text-red-700" x-text="formError"></p>
         </div>
       </form>
 

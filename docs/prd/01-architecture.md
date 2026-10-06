@@ -200,8 +200,8 @@ can be managed alongside distributor workflows.
 | ------- | ------ | ---------- | ------- |
 | Last Name (Прізвище) | text | Yes | |
 | First Name (Ім'я) | text | Yes | |
-| Email (Електронна скринька) | email | At least one of email/phone | |
-| Phone (Телефон) | text | At least one of email/phone | |
+| Email (Електронна скринька) | email | Yes | |
+| Phone (Телефон) | text | No | |
 | Address (Адреса) | text | Yes | |
 | Region (Район) | text | No | |
 | City (Місто) | text | Yes | |
@@ -245,6 +245,8 @@ CORS, spam protection, and API details.
   behavior)
 - Keeps validation logic co-located with form HTML via Alpine's declarative
   syntax
+
+**Exception:** The book request form sets `novalidate`, so the native layer does not run there and Alpine.js owns all validation; `required` stays on its inputs for assistive tech. → See `CHANGELOG.md` §"Entries" (2026-10-06, `novalidate`).
 
 **Implementation pattern:**
 
