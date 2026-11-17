@@ -31,10 +31,21 @@ window.contactForm = function () {
       return this.fullNameError || this.emailError || this.messageError;
     },
 
+    // Move focus to the first invalid field once Alpine has rendered the
+    // error state, so screen-reader users hear why submit was blocked.
+    focusFirstInvalid() {
+      this.$nextTick(() => {
+        this.$el.querySelector('[aria-invalid="true"]')?.focus();
+      });
+    },
+
     async submitForm() {
       this.submitted = true;
       this.networkError = "";
-      if (this.hasErrors) return;
+      if (this.hasErrors) {
+        this.focusFirstInvalid();
+        return;
+      }
 
       this.submitting = true;
 
