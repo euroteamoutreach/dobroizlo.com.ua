@@ -44,7 +44,7 @@ values on the configuration screen:
 You should **not** need to set environment variables manually — they're
 defined in `netlify.toml`:
 
-- `HUGO_VERSION = "0.162.1"`
+- `HUGO_VERSION = "0.167.0"`
 - `HUGO_ENV = "production"`
 - `NODE_VERSION = "22"`
 
@@ -107,7 +107,7 @@ Netlify should install Hugo automatically based on the `HUGO_VERSION`
 environment variable in `netlify.toml`. If it doesn't:
 
 1. Go to **Site configuration** > **Environment variables**
-2. Add `HUGO_VERSION` = `0.162.1`
+2. Add `HUGO_VERSION` = `0.167.0`
 
 ### Build fails with "extended version required"
 

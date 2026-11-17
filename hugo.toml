@@ -72,6 +72,15 @@ enableRobotsTXT = true
     source = 'hugo_stats.json'
     target = 'assets/notwatching/hugo_stats.json'
 
+# External programs Hugo may run. Setting `allow` replaces Hugo's default
+# list rather than extending it, so every entry the build needs is restated.
+# Hugo dropped tailwindcss from its defaults after 0.162.1.
+[security.exec]
+  allow = [
+    '^node$',        # runs the Tailwind CLI's JavaScript
+    '^tailwindcss$', # css.TailwindCSS in layouts/partials/css.html
+  ]
+
 # Markup configuration
 [markup.goldmark.renderer]
   unsafe = true # Allow raw HTML in markdown if needed
