@@ -34,6 +34,14 @@ Each entry records one deviation or decision:
 
 ## Entries
 
+### 2026-10-06 — `01-architecture.md`, `06-risks-and-future.md` (book request phone and Nova Poshta destination)
+
+**What changed:** Phone and the Nova Poshta depot are now required on the book request form, and the depot field accepts a parcel locker («Відділення або поштомат Нової Пошти»). This supersedes the "phone is optional" part of the email-validation entry below. The thank-you message now also says the book follows by Nova Poshta after Lesson 1.
+
+**Why:** Lesson 1 goes by post to the home address, but the book itself ships by Nova Poshta, which needs both a destination and a recipient phone. Without them a request can't be fulfilled without chasing the requester. Lockers are more common than depots and usually closer, and single books do ship to them. Agreed with Joshua. The matching ComixDistro wording and server-side validation are `comix_distro#1103`, which must deploy no earlier than this change.
+
+**Category:** Pivot
+
 ### 2026-10-06 — `01-architecture.md` §"Form Validation: Alpine.js + HTML5" (book request form)
 
 **What changed:** The book request form sets `novalidate`, so the browser's native validation no longer runs as a first layer and Alpine.js owns all validation, with `required` kept on the inputs for assistive tech.

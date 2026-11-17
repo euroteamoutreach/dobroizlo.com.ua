@@ -201,13 +201,13 @@ can be managed alongside distributor workflows.
 | Last Name (Прізвище) | text | Yes | |
 | First Name (Ім'я) | text | Yes | |
 | Email (Електронна скринька) | email | Yes | |
-| Phone (Телефон) | text | No | |
+| Phone (Телефон) | text | Yes | Nova Poshta needs a recipient phone |
 | Address (Адреса) | text | Yes | |
 | Region (Район) | text | No | |
 | City (Місто) | text | Yes | |
 | Oblast (Область) | select | Yes | 24 Ukrainian oblasts |
 | Postal Code (Індекс) | text | Yes | |
-| Nova Poshta Depot (Відділення Нової Пошти) | text | No | |
+| Nova Poshta Depot or Locker (Відділення або поштомат Нової Пошти) | text | Yes | Free text; the book ships here after Lesson 1 |
 | Study Format | radio | — | Online (default) or Paper |
 | Referral Source | textarea | No | |
 | Comments | textarea | No | |
