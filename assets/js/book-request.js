@@ -46,7 +46,7 @@ window.bookRequestForm = function () {
     oblast: "",
     novaPoshtaDepot: "",
     postalCode: "",
-    preferredStudyFormat: "online",
+    preferredStudyFormat: "",
     referral: "",
     comments: "",
     terms: false,
@@ -118,6 +118,9 @@ window.bookRequestForm = function () {
     get postalCodeError() {
       return this.submitted && this.postalCode.trim() === "";
     },
+    get studyFormatError() {
+      return this.submitted && this.preferredStudyFormat === "";
+    },
     get termsError() {
       return this.submitted && !this.terms;
     },
@@ -132,6 +135,7 @@ window.bookRequestForm = function () {
         this.oblastError ||
         this.novaPoshtaDepotError ||
         this.postalCodeError ||
+        this.studyFormatError ||
         this.termsError
       );
     },
