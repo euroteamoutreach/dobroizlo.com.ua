@@ -355,10 +355,13 @@
         </div>
 
         {{/* Study format radio buttons */}}
-        <fieldset class="mb-8">
-          <legend class="mb-3 text-sm/6 font-semibold text-gray-900">
-            Ми пропонуємо один з двох форматів: або онлайн навчання через комп'ютер/смартфон, або отримувати фізичні паперові уроки звичайною поштою. <span aria-hidden="true">*</span>
+        <fieldset class="mb-8" aria-describedby="studyFormat-hint">
+          <legend class="text-sm/6 font-semibold text-gray-900">
+            Формат навчання <span aria-hidden="true">*</span>
           </legend>
+          <p id="studyFormat-hint" class="mb-3 text-sm/6 text-gray-700">
+            Ми пропонуємо один з двох форматів: або онлайн навчання через комп'ютер/смартфон, або отримувати фізичні паперові уроки звичайною поштою.
+          </p>
           <div class="space-y-2">
             <div class="flex items-start">
               <input
