@@ -14,6 +14,8 @@
   {{ partial "footer.html" . }}
   {{ partial "analytics.html" . }}
   {{ block "page-js" . }}{{ end }}
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  {{/* Alpine after page-js: main.js starts Alpine immediately, so page bundles
+       must register their x-data factories first (deferred scripts run in order). */}}
+  {{ partial "js-bundle.html" "js/main.js" }}
 </body>
 </html>

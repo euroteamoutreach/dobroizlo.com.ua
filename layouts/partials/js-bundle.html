@@ -1,0 +1,14 @@
+{{/* Bundles the JS asset at the path given as context via js.Build (esbuild):
+     plain in dev; minified, fingerprinted, and SRI-verified in production. */}}
+{{ with resources.Get . }}
+  {{ $opts := dict "minify" (not hugo.IsDevelopment) "target" "es2020" }}
+  {{ with . | js.Build $opts }}
+    {{ if hugo.IsDevelopment }}
+      <script defer src="{{ .RelPermalink }}"></script>
+    {{ else }}
+      {{ with . | fingerprint }}
+        <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
