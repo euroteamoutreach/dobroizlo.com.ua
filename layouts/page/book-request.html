@@ -355,21 +355,47 @@
         </div>
 
         {{/* Study format radio buttons */}}
-        <div class="mb-8">
-          <p class="mb-3 text-sm/6 font-semibold text-gray-900">
+        <fieldset class="mb-8" aria-describedby="studyFormat-hint">
+          <legend class="text-sm/6 font-semibold text-gray-900">
+            Формат навчання <span aria-hidden="true">*</span>
+          </legend>
+          <p id="studyFormat-hint" class="mb-3 text-sm/6 text-gray-700">
             Ми пропонуємо один з двох форматів: або онлайн навчання через комп'ютер/смартфон, або отримувати фізичні паперові уроки звичайною поштою.
           </p>
           <div class="space-y-2">
             <div class="flex items-start">
-              <input id="lessonPrefsOnline" type="radio" name="preferredStudyFormat" value="online" x-model="preferredStudyFormat" class="mt-1 mr-2 size-4 text-orange-600 focus:ring-orange-600">
+              <input
+                id="lessonPrefsOnline"
+                :aria-invalid="studyFormatError"
+                :aria-describedby="describedBy({ 'studyFormat-error': studyFormatError })"
+                required
+                type="radio"
+                name="preferredStudyFormat"
+                value="online"
+                x-model="preferredStudyFormat"
+                :class="studyFormatError ? 'outline-2 outline-offset-2 outline-red-500' : ''"
+                class="mt-1 mr-2 size-4 text-orange-600 focus:ring-orange-600"
+              >
               <label for="lessonPrefsOnline" class="text-sm text-gray-700 leading-tight">Я хочу проходити навчання онлайн.</label>
             </div>
             <div class="flex items-start">
-              <input id="lessonPrefsPaper" type="radio" name="preferredStudyFormat" value="paper_lessons" x-model="preferredStudyFormat" class="mt-1 mr-2 size-4 text-orange-600 focus:ring-orange-600">
+              <input
+                id="lessonPrefsPaper"
+                :aria-invalid="studyFormatError"
+                :aria-describedby="describedBy({ 'studyFormat-error': studyFormatError })"
+                required
+                type="radio"
+                name="preferredStudyFormat"
+                value="paper_lessons"
+                x-model="preferredStudyFormat"
+                :class="studyFormatError ? 'outline-2 outline-offset-2 outline-red-500' : ''"
+                class="mt-1 mr-2 size-4 text-orange-600 focus:ring-orange-600"
+              >
               <label for="lessonPrefsPaper" class="text-sm text-gray-700 leading-tight">Я хочу отримувати фізичні паперові уроки на звичайну пошту.</label>
             </div>
           </div>
-        </div>
+          <p id="studyFormat-error" x-show="studyFormatError" x-cloak class="mt-1 text-sm text-red-600">Оберіть формат навчання.</p>
+        </fieldset>
 
         {{/* Shipping disclaimer */}}
         <div class="mb-6 border-t border-b border-gray-200 py-4 text-center">

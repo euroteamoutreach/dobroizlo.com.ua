@@ -34,6 +34,14 @@ Each entry records one deviation or decision:
 
 ## Entries
 
+### 2026-11-17 — `01-architecture.md` §"Book Request Form: ComixDistro API" field table (study format)
+
+**What changed:** The study-format radios no longer default to «Онлайн». The requester must choose one, and submitting without a choice is blocked client-side with the inline message «Оберіть формат навчання.». The field is marked required with an asterisk.
+
+**Why:** The pre-selected default meant anyone who skimmed past the radios was silently recorded as wanting online study, and ComixDistro's enrollment email now acts on that value, so such a requester would wait for an activation link while the paper lessons they wanted never arrived. A blank invites a question; a wrong value looks like an answer. Agreed with Joshua; it costs one more deliberate click.
+
+**Category:** Pivot
+
 ### 2026-11-17 — `01-architecture.md` §"Form Validation: Alpine.js + HTML5" (contact form)
 
 **What changed:** The contact form now sets `novalidate`, keeps `required` on its inputs, wires `aria-invalid` / `aria-describedby` to the inline messages, and moves focus to the first invalid field on a blocked submit. This extends the book request form's `novalidate` exception to the contact form.

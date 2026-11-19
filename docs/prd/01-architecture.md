@@ -208,7 +208,7 @@ can be managed alongside distributor workflows.
 | Oblast (Область) | select | Yes | 24 Ukrainian oblasts |
 | Postal Code (Індекс) | text | Yes | |
 | Nova Poshta Depot or Locker (Відділення або поштомат Нової Пошти) | text | Yes | Free text; the book ships here after Lesson 1 |
-| Study Format | radio | — | Online (default) or Paper |
+| Study Format | radio | Yes | Online or Paper; no default, the requester must choose |
 | Referral Source | textarea | No | |
 | Comments | textarea | No | |
 | Terms Checkbox | checkbox | Yes | Consent to Bible First enrollment |
