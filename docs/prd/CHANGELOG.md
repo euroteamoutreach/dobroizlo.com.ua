@@ -34,6 +34,14 @@ Each entry records one deviation or decision:
 
 ## Entries
 
+### 2026-11-17 — `01-architecture.md` §"Form Validation: Alpine.js + HTML5" (contact form)
+
+**What changed:** The contact form now sets `novalidate`, keeps `required` on its inputs, wires `aria-invalid` / `aria-describedby` to the inline messages, and moves focus to the first invalid field on a blocked submit. This extends the book request form's `novalidate` exception to the contact form.
+
+**Why:** The contact form had the same setup that caused the book request bug: a `type="email"` input with no `novalidate`, so the browser's native check could block submit and show its own bubble before Alpine's Ukrainian inline message and red outline appeared.
+
+**Category:** Discovery
+
 ### 2026-10-06 — `01-architecture.md`, `06-risks-and-future.md` (book request phone and Nova Poshta destination)
 
 **What changed:** Phone and the Nova Poshta depot are now required on the book request form, and the depot field accepts a parcel locker («Відділення або поштомат Нової Пошти»). This supersedes the "phone is optional" part of the email-validation entry below. The thank-you message now also says the book follows by Nova Poshta after Lesson 1.

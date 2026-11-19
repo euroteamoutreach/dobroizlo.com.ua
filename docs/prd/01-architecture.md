@@ -246,7 +246,7 @@ CORS, spam protection, and API details.
 - Keeps validation logic co-located with form HTML via Alpine's declarative
   syntax
 
-**Exception:** The book request form sets `novalidate`, so the native layer does not run there and Alpine.js owns all validation; `required` stays on its inputs for assistive tech. → See `CHANGELOG.md` §"Entries" (2026-10-06, `novalidate`).
+**Exception:** The book request form and the contact form both set `novalidate`, so the native layer does not run there and Alpine.js owns all validation; `required` stays on their inputs for assistive tech. → See `CHANGELOG.md` §"Entries" (2026-10-06, `novalidate`) and (2026-11-17, contact form `novalidate`).
 
 **Implementation pattern:**
 
