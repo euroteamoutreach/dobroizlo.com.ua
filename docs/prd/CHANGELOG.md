@@ -34,6 +34,14 @@ Each entry records one deviation or decision:
 
 ## Entries
 
+### 2026-11-19 — `01-architecture.md` §"JavaScript: Alpine.js (Minimal)", `01-architecture.md` §"Summary of Technology Decisions", `04-templates.md` §"Base Layout (`baseof.html`)", `06-risks-and-future.md` §"Low Risk"
+
+**What changed:** Alpine.js is no longer loaded from the jsDelivr CDN. It is an npm devDependency bundled through `js.Build` (`assets/js/main.js` + `layouts/partials/scripts.html`), fingerprinted with SRI in production, and rendered after the `page-js` block. The "Alpine.js CDN" low-risk item is removed since the dependency no longer exists.
+
+**Why:** The site already bundled its own page scripts with `js.Build` while pulling the framework underneath them from a third party. Self-hosting removes a third-party request (consistent with self-hosted Umami), adds SRI, and matches the ETO sister site. Shared CDN caching no longer helps, since browsers partition caches per site.
+
+**Category:** Pivot
+
 ### 2026-11-17 — `01-architecture.md` §"Book Request Form: ComixDistro API" field table (study format)
 
 **What changed:** The study-format radios no longer default to «Онлайн». The requester must choose one, and submitting without a choice is blocked client-side with the inline message «Оберіть формат навчання.». The field is marked required with an asterisk.

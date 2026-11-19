@@ -20,7 +20,8 @@
   </main>
   {{ partial "footer.html" . }}
   {{ partial "analytics.html" . }}
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  {{ block "page-js" . }}{{ end }}
+  {{ partial "scripts.html" . }}
 </body>
 </html>
 ```

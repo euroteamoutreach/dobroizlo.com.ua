@@ -78,11 +78,8 @@ framework.
 
 **Implementation:**
 
-- Load via CDN in the base layout before `</body>`:
-
-  ```html
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
-  ```
+- `alpinejs` is an npm devDependency, imported by `assets/js/main.js` and bundled through Hugo's `js.Build` (minified, fingerprinted, SRI in production), the same idiom as the per-page scripts.
+- `layouts/partials/scripts.html` emits the bundle and is called in the base layout after the `page-js` block. Order matters: `main.js` calls `Alpine.start()` as soon as it runs, so the page bundles that define `x-data` factories must execute first.
 
 ---
 
@@ -372,7 +369,7 @@ which is deprecated. This will not be carried over.
 | --------- | ---------- |
 | Static site generator | Hugo |
 | CSS framework | Tailwind CSS v4 via `css.TailwindCSS` |
-| JavaScript | Alpine.js (CDN) |
+| JavaScript | Alpine.js (bundled via `js.Build`) |
 | Form handling | Contact: Netlify Forms (AJAX); Book request: ComixDistro API |
 | Form validation | Alpine.js + HTML5 attributes |
 | Icons | Heroicons (inline SVGs) |

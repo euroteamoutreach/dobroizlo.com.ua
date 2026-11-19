@@ -88,9 +88,6 @@ simplicity and functionality.
 - **Font loading.** Google Fonts dependency means a third-party request.
   If Google Fonts ever has issues, text falls back to system fonts. Could
   self-host fonts later if desired.
-- **Alpine.js CDN.** Loading Alpine from jsDelivr CDN introduces a
-  third-party dependency. Could be vendored (downloaded and served locally)
-  if CDN reliability becomes a concern.
 - **CloudFront PDF.** The "What we believe" PDF depends on the existing
   CloudFront distribution. If that distribution is ever decommissioned,
   the PDF needs to move (trivial — copy to `static/` or another host).
