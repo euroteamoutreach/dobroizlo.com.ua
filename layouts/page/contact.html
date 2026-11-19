@@ -132,16 +132,5 @@
 {{ end }}
 
 {{ define "page-js" }}
-  {{ with resources.Get "js/contact.js" }}
-    {{ $opts := dict "minify" (not hugo.IsDevelopment) "target" "es2020" }}
-    {{ with . | js.Build $opts }}
-      {{ if hugo.IsDevelopment }}
-        <script defer src="{{ .RelPermalink }}"></script>
-      {{ else }}
-        {{ with . | fingerprint }}
-          <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
+  {{ partial "js-bundle.html" "js/contact.js" }}
 {{ end }}

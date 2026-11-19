@@ -1,8 +1,6 @@
-{{/* Alpine.js bundle. Unlike the CDN build, main.js calls Alpine.start() as
-     soon as it executes, so this partial must render AFTER the page-js block in
-     baseof.html: the page bundles define the x-data factories (contactForm,
-     bookRequestForm) and deferred scripts run in document order. */}}
-{{ with resources.Get "js/main.js" }}
+{{/* Bundles the JS asset at the path given as context via js.Build (esbuild):
+     plain in dev; minified, fingerprinted, and SRI-verified in production. */}}
+{{ with resources.Get . }}
   {{ $opts := dict "minify" (not hugo.IsDevelopment) "target" "es2020" }}
   {{ with . | js.Build $opts }}
     {{ if hugo.IsDevelopment }}

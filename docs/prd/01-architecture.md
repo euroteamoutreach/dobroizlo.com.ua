@@ -79,7 +79,7 @@ framework.
 **Implementation:**
 
 - `alpinejs` is an npm devDependency, imported by `assets/js/main.js` and bundled through Hugo's `js.Build` (minified, fingerprinted, SRI in production), the same idiom as the per-page scripts.
-- `layouts/partials/scripts.html` emits the bundle and is called in the base layout after the `page-js` block. Order matters: `main.js` calls `Alpine.start()` as soon as it runs, so the page bundles that define `x-data` factories must execute first.
+- The shared `layouts/partials/js-bundle.html` partial emits it (as it does the per-page scripts), called in the base layout after the `page-js` block.
 
 ---
 

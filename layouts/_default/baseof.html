@@ -14,6 +14,8 @@
   {{ partial "footer.html" . }}
   {{ partial "analytics.html" . }}
   {{ block "page-js" . }}{{ end }}
-  {{ partial "scripts.html" . }}
+  {{/* Alpine after page-js: main.js starts Alpine immediately, so page bundles
+       must register their x-data factories first (deferred scripts run in order). */}}
+  {{ partial "js-bundle.html" "js/main.js" }}
 </body>
 </html>

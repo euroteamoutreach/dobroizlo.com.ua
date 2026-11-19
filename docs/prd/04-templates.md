@@ -21,7 +21,7 @@
   {{ partial "footer.html" . }}
   {{ partial "analytics.html" . }}
   {{ block "page-js" . }}{{ end }}
-  {{ partial "scripts.html" . }}
+  {{ partial "js-bundle.html" "js/main.js" }}
 </body>
 </html>
 ```

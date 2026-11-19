@@ -163,8 +163,8 @@ Tailwind CSS v4 is processed via Hugo's built-in `css.TailwindCSS` function:
 ### JavaScript
 
 Alpine.js v3 is an npm devDependency bundled via Hugo's `js.Build` pipeline
-(`assets/js/main.js` → `layouts/partials/scripts.html`), as are the per-page
-scripts, all with fingerprinting and SRI. The Alpine partial must render after
+(`assets/js/main.js`), as are the per-page scripts, all through the shared
+`layouts/partials/js-bundle.html` partial with fingerprinting and SRI. The Alpine partial must render after
 the `page-js` block in `baseof.html`, because `main.js` starts Alpine
 immediately and the page bundles define the `x-data` factories. Used for:
 
